@@ -1,0 +1,99 @@
+header{
+    position: relative;
+    display: flex;
+    flex-flow:column nowrap;
+    // background-image: url(../dist/backgrounds/wood.jpg);
+    // background-attachment: fixed;
+    // background-position: center center;
+    // background-repeat: no-repeat;
+    // background-size: cover;
+	background: linear-gradient(-45deg, #ec7d5b, #ec2370, #23a6d5, #23d5ab);
+	background-size: 400% 400%;
+	animation: gradient 15s ease infinite;    width: 100%;
+    min-height: 100vh;
+    box-shadow: $shadow2;
+    z-index: 0;
+
+    .siteTitle{
+        color:$white;
+        float:right;
+    }
+}
+
+
+.headerWrapper{
+    height:100%;
+    width: 100%;
+    z-index: 1;
+    position: absolute;
+    top:0;
+    left:0;
+}
+
+
+.topBar{
+    background-color:$black;
+    box-shadow:$topShadow;
+    width:100%;
+    position:sticky;
+    top:0;
+    left:0;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    z-index:2;
+
+    padding-left:60px;
+    padding-right:40px;
+    padding-top:20px;
+    padding-bottom:20px;
+
+    background-color: $black;
+}
+
+.menus{
+    list-style-type: none;
+    display:flex;
+    flex-flow:row nowrap;
+    align-items: center;
+    margin:0 auto;
+
+
+
+    li a{
+    color: $white;
+    font-size:22px;
+    font-family: $main-font;
+    font-weight: 400;
+    text-decoration: none;
+    transition:.25s linear;
+    padding:10px;
+    text-transform: capitalize;
+    }
+
+    li a:hover{
+        color:$hover;
+        letter-spacing: 3px;
+    }
+
+}
+
+.blurb{
+    display: flex;
+    align-self: flex-end;
+
+    h2{
+      color:$white;
+      animation:textFlash 10s 10s infinite ease;
+      text-align: center;
+      opacity: 0;
+    }
+    svg{
+      height:20px;
+      width:20px;
+      fill:$white;
+      animation: arrowSpin 10s 10s infinite ease;
+      opacity: 0;
+      margin-right:40px;
+    }
+  }

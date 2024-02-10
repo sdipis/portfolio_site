@@ -1,0 +1,18 @@
+// import modules into main scss, for sass to compile into css
+// order is important
+
+@import "modules/reset";
+@import "modules/fonts";
+@import "modules/admin";
+@import "modules/grid";
+@import "modules/vars";
+@import "modules/defaults";
+@import "modules/gallery";
+@import "modules/header";
+@import "modules/footer";
+@import "modules/animations";
+@import "modules/lightbox";
+@import "modules/contact";
+@import "modules/map";
+@import "modules/loadMore";
+@import "modules/video"

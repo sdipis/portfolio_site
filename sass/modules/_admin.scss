@@ -1,0 +1,104 @@
+.adminWrapper{
+    display: flex;
+    min-height: 100vh;
+    background-color: grey;
+}
+
+.project-gallery{
+    display: flex;
+    overflow-x: scroll;
+    img{
+    object-fit: contain;
+    width: 100%;
+max-height: 400px;
+padding:20px;
+    }
+}
+
+.projectText{
+    padding:140px;
+    h1{
+        margin-bottom: 30px;
+        font-size: 36px;
+
+    }
+    p{
+        line-height: 30px;
+        color:#000;
+        text-align: justify;
+        font-size: 26px !important;
+        border-left:1px rgb(74, 74, 74) solid;
+        padding-left:20px;
+        
+
+    }
+}
+
+.projectDetails{
+    display: flex;
+    flex-flow: column;
+}
+
+#backButton{
+height:50px;
+position: absolute;
+bottom:40px;
+left:40px;
+opacity: .25;
+
+}
+
+
+
+
+.project-list{
+    font-size: 26px;
+    font-family: Rockwell;
+    margin-top:20px;
+    margin-right:40px;
+    padding:10px;
+    a{
+    font-size: 16px;
+    }
+}
+
+.adminWrapper form{
+    flex:2 0 50%;
+    display: flex;
+    flex-flow: column;
+    max-width: 400px;
+    margin:40px;
+
+    label{
+        font-size: 26px;
+
+    }
+    input{
+        height:30px;
+    }
+}
+
+@media only screen and (max-width: 750px) {
+
+
+    .projectText{
+        padding:20px;
+        h1{
+            margin-bottom: 30px;
+            font-size: 26px;
+    
+        }
+        p{
+            line-height: 30px;
+            color:#000;
+            text-align: justify;
+            font-size: 16px !important;
+    
+        }
+    }
+
+    .project-gallery{
+        flex-flow: column !important;
+    }
+
+}

@@ -1,0 +1,61 @@
+.gridFooter{
+    padding-left:60px;
+    padding-top: 20px;
+    padding-right:60px;
+    padding-bottom:40px;
+    background-color: $black;
+    display: flex;
+    flex-flow:row nowrap;
+}
+
+.gridSocial{
+    padding-right:60px;
+    padding-left:60px;
+    padding-top:10px;
+    padding-bottom: 40px;
+
+    li a svg{
+        fill:$white;
+    }
+
+    li a svg:hover{
+        fill:$hover;
+    }
+
+}
+
+.spaceBt{
+    justify-content: space-between;
+}
+
+.footerLinks{
+    padding:10px;
+    flex:3;
+    display: flex;
+}
+
+.social{
+    padding:10px;
+    flex:1;
+    display: flex;
+}
+
+
+
+@media only screen and (max-width: 750px) {
+
+    .gridFooter{
+        padding-left:20px;
+        padding-top: 20px;
+        padding-right:20px;
+        padding-bottom:20px;   
+        flex-flow: column nowrap;
+    }   
+
+        .gridSocial{
+            padding-left:20px;
+            padding-top: 20px;
+            padding-right:20px;
+            padding-bottom:20px;    }   
+
+}
