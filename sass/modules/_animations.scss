@@ -1,0 +1,96 @@
+/* Enter and leave animations can use different */
+/* durations and timing functions.              */
+.slide-fade-enter-active {
+    transition: all 1.5s ease;
+  }
+  .slide-fade-leave-active {
+    transition: all 1.5s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+  }
+  .slide-fade-enter, .slide-fade-leave-to
+  /* .slide-fade-leave-active below version 2.1.8 */ {
+    transform: translateY(-150vh); //scaley(.8) scalex(.2);
+    filter: blur(25px);
+    //opacity: 0;
+    transition: 1.2s ease;
+  }
+
+  @keyframes pulse{
+    0%{
+      transform:scale(1);
+    }
+
+    50%{
+      transform:scale(1.025);
+    }
+
+    100%{
+      transform:scale(1);
+    }
+  }
+
+  .drips{
+    background-image: url(../dist/backgrounds/drips_black.svg);
+    background-repeat: repeat-x;
+    background-size:contain;
+    height:100px;
+    width:100%;
+    padding:0;
+    margin:0;
+    z-index: 1;
+  }
+
+  @keyframes arrowSpin {
+    0%{
+transform: rotate(90deg);
+opacity:0;
+    }
+    5%{
+transform:rotate(450deg);
+opacity:1;
+    }
+    99%{
+      transform:rotate(450deg);
+      opacity:1;
+
+    }
+    100%{
+      transform:rotate(0deg);
+      opacity:0;
+    }
+  }
+
+  @keyframes textFlash {
+    0%{
+opacity:0;
+    }
+    5%{
+opacity:1;
+    }
+6%{
+  opacity:0;
+}
+10%{
+  opacity:1;
+}
+    99%{
+      opacity:1;
+
+    }
+    100%{
+      transform:rotate(0deg);
+      opacity:0;
+    }
+  }
+
+  @keyframes gradient {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+  

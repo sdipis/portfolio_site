@@ -1,0 +1,38 @@
+#load{
+    height:50px;
+    max-height:50px;
+}
+
+#result_no{
+    max-height:50px;
+}
+
+
+.result
+{
+ text-align:left;
+ background-color:grey;
+ width:400px;
+ padding:10px;
+ box-sizing:border-box;
+ color:#F2F2F2;
+ border-radius:3px;
+ border:1px solid #424242;
+ font-style:italic;
+}
+#load
+{
+ width:400px;
+ height:40px;
+ color:brown;
+ background-color:brown;
+ border-radius:3px;
+ color:white;
+ border:none;
+ font-size:17px;
+}
+
+p{color:white;}
+input{
+    background-color: white;
+}

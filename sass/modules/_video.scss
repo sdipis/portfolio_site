@@ -1,0 +1,18 @@
+.videoChunk{
+    height:100%;
+    position: absolute;
+    top:0;
+    width:100%;
+}
+
+@media only screen and (max-width: 750px) {
+
+    .videoChunk{
+        overflow: hidden;
+        video{
+            width: 100%;
+
+        }
+    }
+
+}
