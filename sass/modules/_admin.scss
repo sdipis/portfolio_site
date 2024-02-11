@@ -1,7 +1,74 @@
+.editPageImg{
+    margin:0px;
+    padding:0px !important;
+    border:white 2px solid;
+}
+
+.editPage{
+    display: flex;
+    flex-flow: column;
+    padding:40px;
+}
+
+
+.projectListCont{
+    display: flex;
+    flex-flow:row wrap;
+    flex:3 0 75%;
+    max-width: 75%;
+    justify-content: space-evenly;
+    overflow-y: scroll;
+    height:100vh;
+    img{
+        max-height:200px;
+        padding:20px;
+    }
+}
+
+.editListCont{
+    flex:1 0 100%;
+    max-width: none;
+}
+
+input[type="submit"] {
+    background-color: black;
+    color:white;
+}
+.listForms{
+    flex:1 0 25%;
+    max-width: 25%;
+    background-color: white;
+    padding-left:20px;
+}
+.project-list{
+    font-size: 26px;
+    font-family: montserrat;
+    flex:1 0 20%;
+    background-color: white;
+    color:black;
+    margin:10px;
+    padding:20px;
+
+    a{
+    font-size: 16px;
+    font-family: rockwell;
+    color:red;
+    }
+}
 .adminWrapper{
     display: flex;
+    flex-flow: row;
     min-height: 100vh;
-    background-color: grey;
+    background-color: lightblue;
+    justify-content: center;
+    width: 100%;
+    
+
+}
+
+p2{
+    font-size: 16px !important;
+    color:#494949;
 }
 
 .project-gallery{
@@ -10,13 +77,14 @@
     img{
     object-fit: contain;
     width: 100%;
-max-height: 400px;
-padding:20px;
+    max-height: 50vw;
     }
+
 }
 
 .projectText{
     padding:140px;
+    background-color: white;
     h1{
         margin-bottom: 30px;
         font-size: 36px;
@@ -39,28 +107,23 @@ padding:20px;
     flex-flow: column;
 }
 
-#backButton{
+.backButton{
 height:50px;
-position: absolute;
-bottom:40px;
-left:40px;
-opacity: .25;
+position: fixed;
+bottom:20px;
+left:20px;
+opacity: .15;
+cursor: pointer;
+}
 
+#backButton:hover{
+    opacity:.9;
 }
 
 
 
 
-.project-list{
-    font-size: 26px;
-    font-family: Rockwell;
-    margin-top:20px;
-    margin-right:40px;
-    padding:10px;
-    a{
-    font-size: 16px;
-    }
-}
+
 
 .adminWrapper form{
     flex:2 0 50%;
@@ -69,20 +132,38 @@ opacity: .25;
     max-width: 400px;
     margin:40px;
 
+
     label{
-        font-size: 26px;
+        font-size: 16px;
 
     }
-    input{
+    input, textarea, select{
         height:30px;
+        border-radius: 5px;
     }
 }
 
 @media only screen and (max-width: 750px) {
-
-
+    .listForms{
+        flex:1 0 100%;
+        max-width: 100%;
+        background-color: white;
+        padding-left:20px;
+    }
+    .projectListCont{
+        display: flex;
+        flex-flow: column;
+        flex:1 0 100%;
+        max-width: none;
+        min-width: 100%;
+        justify-content: space-evenly;
+        img{
+            max-height:200px;
+            padding:20px;
+        }
+    }
     .projectText{
-        padding:20px;
+        padding:40px;
         h1{
             margin-bottom: 30px;
             font-size: 26px;
@@ -99,6 +180,9 @@ opacity: .25;
 
     .project-gallery{
         flex-flow: column !important;
+        img{
+            max-height: 100vw;
+        }
     }
 
 }

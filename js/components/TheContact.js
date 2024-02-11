@@ -6,13 +6,22 @@ export default {
 
   <div class="contactInfo">
 
+  <nav>
+  <ul class="menus spaceBt social">
+      <li><a href="admin/project_list.php"><i class="fa fa-paint-brush fa-2x"></i></a></li>
+      <li><a href="http://instagram.com"><i class="fa fa-instagram fa-2x"></i></a></li>
+      <li><a href="https://twitter.com"><i class="fa fa-twitter fa-2x"></i></a></li>
+      <li><a href="https://youtube.com"><i class="fa fa-youtube fa-2x"></i></a></li>
+  </ul>
+  </nav>
+
     <div id="bCard">
     <div>
-    <img src="./dist/contact/contactPhoto.jpeg" />
+    <!--<img src="./dist/contact/contactPhoto.jpeg" />-->
     <h1>Spencer D</h1>
     <h3>Phone: <a href="tel:1">(519) 123 4567</a></h3>
     <h3>Email: <a href="">spencer@blitzed.ca</a></h3>
-    <h4>London, Ontario, Canada</h4>
+    <!-- <h4>London, Ontario, Canada</h4> -->
     </div>
     </div>
 
@@ -24,25 +33,15 @@ export default {
 
     </div>
 
-  <form method="post" id="mail-form" action="includes/contact.php">
 
-  <h2>Contact me Directly</h2>
+  <form method="post" id="mail-form" action="includes/contact.php">
+  <h2>Contact Me!</h2>
 
       <label for="firstName">First Name</label>
       <input type="text" id="firstName" name="firstName" placeholder="Your first name goes here...">
-      <label for="lastName">Last Name</label>
-      <input type="text" id="lastName" name="lastName" placeholder="Your last name goes here...">
 
       <label for="email">Email</label>
       <input type="text" id="email" name="email" placeholder="Your email goes here...">
-      <label for="mediaType">Interested in:
-      <select name="mediaType">
-        <option value="Web-dev"> Web-Dev </option>
-        <option value="Graphics"> Graphics </option>
-        <option value="Web-dev"> Other </option>
-
-        </select></label></br>
-      <input class="short"  type="text" id="subject" name="subject" placeholder="If other is selected, specify here...">
   </br>
       <textarea id="message" name="message" placeholder="Write your message here..." style="height:200px"></textarea>
   
@@ -52,6 +51,6 @@ export default {
   `,
 
   data:{
-    conHid: false
+    conHid: true
   }
 }

@@ -1,7 +1,6 @@
 
 .contact-page{ 
     display: flex;
-    padding:40px;
     padding-top:0px;
     z-index: 1;
 
@@ -9,14 +8,13 @@
 
     .contactInfo{
         flex:1 0 30%;
-        max-width: 30%;
         display: flex;
         flex-flow: column nowrap;
-        justify-content: space-between;
-        padding-top: 0px;
-        padding-right: 0px;
-        padding-left:0px;
-        padding-bottom: 0px;
+        justify-content: center;
+        // background-color: red;
+        padding:40px;
+        align-items: center;
+        justify-content: center;
 
         img{
             width:100%;
@@ -30,12 +28,12 @@
     }
 
     form{
-    flex:1 0 10%;
-    padding:40px;
+    flex:2 0 60%;
     border-radius: 0px 0px 15px 0px;
-    padding-bottom:0px;
-
-     
+    // background-color: blue;
+    padding:40px;
+    align-items: center;
+    justify-content: center;
     select{
         width:80%;
         float: right;
@@ -140,7 +138,7 @@
 #bCard{
     color:$white;
     font-family:$main-font;
-    padding:60px;
+    padding:40px;
     border-radius: 15px 0px 0px 0px;
     // background-color: rgb(201, 201, 201);
     font-size: 16px;
@@ -149,10 +147,6 @@
 
 
 
-    //box-shadow: $shadow3;
-    div img{
-        max-width:250px;
-    }
 }
 
 #bCard h1{
@@ -224,7 +218,7 @@
             border-radius:  0px 0px 0px 15px;
         }
 
-@media only screen and (max-width: 750px) {
+@media only screen and (max-width: 950px) {
 
 
     .contact-page{

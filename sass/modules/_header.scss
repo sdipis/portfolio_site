@@ -7,13 +7,14 @@ header{
     // background-position: center center;
     // background-repeat: no-repeat;
     // background-size: cover;
-	background: linear-gradient(-45deg, #ec7d5b, #ec2370, #23a6d5, #23d5ab);
-	background-size: 400% 400%;
-	animation: gradient 15s ease infinite;    width: 100%;
-    min-height: 100vh;
+	// background: linear-gradient(-45deg, #ec7d5b, #ec2370, #23a6d5, #23d5ab);
+	// background-size: -200% -200%;
+	// animation: gradient 15s ease infinite;    width: 100%;
+    // max-height: 100vh;
     box-shadow: $shadow2;
     z-index: 0;
-
+    min-height:100vh;
+    align-items: center;
     .siteTitle{
         color:$white;
         float:right;
@@ -48,7 +49,6 @@ header{
     padding-top:20px;
     padding-bottom:20px;
 
-    background-color: $black;
 }
 
 .menus{
@@ -97,3 +97,11 @@ header{
       margin-right:40px;
     }
   }
+
+  @media only screen and (max-width: 900px) {
+
+    header{
+        max-height:none;
+    }
+
+}

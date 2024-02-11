@@ -19,7 +19,7 @@
             <nav>
                 <ul class="menus">
                 <li v-if="conHid" ><a href="#" v-on:click="conHid = !conHid">Contact Form</a></li>
-                <li  v-else><a href="#" v-on:click="conHid = !conHid" >Video Introduction</a></li>
+                <li  v-else><a href="#" v-on:click="conHid = !conHid" >Video</a></li>
                 </ul>
             </nav>
             <div class="blurb">
@@ -33,7 +33,10 @@
             <contacty 
             v-if="!conHid"></contacty>
             <div v-else class="videoChunk dots">
-            <video src="videos/home_video.mp4" muted autoplay loop playsinline/>
+            <!-- <video src="videos/intro_video.mp4" controls autoplay loop playsinline/> -->
+                <div class="hero">
+            <h2>Spencer Dipierdo</h2>
+                <h3>Designer, Developer, Dipierdo</h3></div>
             </div>
     
         </transition>
@@ -58,7 +61,7 @@
 
 
 
-           <section class="bevel" id="teamSection">
+           <section class="bevel diag" id="teamSection">
 
               <thumb
                 v-on:showdata="popLightBox" 
@@ -85,15 +88,6 @@
             <li><a href="#">Copyright Information</a></li>
 
         </ul></nav>
-
-        <nav>
-            <ul class="menus spaceBt social">
-                <li><a href="admin/project_list.php"><i class="fa fa-paint-brush fa-2x"></i></a></li>
-                <li><a href="http://instagram.com"><i class="fa fa-instagram fa-2x"></i></a></li>
-                <li><a href="https://twitter.com"><i class="fa fa-twitter fa-2x"></i></a></li>
-                <li><a href="https://youtube.com"><i class="fa fa-youtube fa-2x"></i></a></li>
-            </ul>
-            </nav>
     </section>
 
 

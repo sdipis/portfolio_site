@@ -53,7 +53,7 @@ import { SendMail } from "./components/TheMailer.js";
             currentData: {},
             conHid: false,
             porHid: false,
-            message: "hello from vue",
+            // message: "hello from vue",
             isVisible: false,
             counter:0,
             textShow: false 
