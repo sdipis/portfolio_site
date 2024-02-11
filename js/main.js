@@ -56,11 +56,20 @@ import { SendMail } from "./components/TheMailer.js";
             // message: "hello from vue",
             isVisible: false,
             counter:0,
-            textShow: false 
+            textShow: false,
+            currentIndex: 0, // Initialize currentIndex to 0
+
         },
 
         methods:{
-
+            changeIndex(indexChange) {
+                this.currentIndex += indexChange;
+                if (this.currentIndex < 0) {
+                  this.currentIndex = 0;
+                } else if (this.currentIndex >= this.portfolioData.length) {
+                  this.currentIndex = this.portfolioData.length - 1;
+                }
+              },
 
             //this is where we pass the data we need from the thumbnail comp to the lightbox
             popLightBox(item) {

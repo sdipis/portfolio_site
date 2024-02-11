@@ -46,13 +46,16 @@
 
     <section class="gridMain"><main>
 
-            <lightybox
-            v-show="isVisible" 
-            class="lightBox"
-            v-on:click="isVisible = !isVisible"
-            :piece="currentData"
-            v-on:close="closeLightBox"
-            ></lightybox>
+        <lightybox
+        v-show="isVisible" 
+        class="lightBox"
+        @click="isVisible = !isVisible"
+        :piece="portfolioData[currentIndex]"
+        :pieces="portfolioData" 
+        :currentIndex="currentIndex"
+        @close="closeLightBox"
+        @changeIndex="changeIndex"
+      ></lightybox>
 
 
             <div class="diag pageTitle">

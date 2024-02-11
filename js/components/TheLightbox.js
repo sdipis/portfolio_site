@@ -1,48 +1,44 @@
 export default {
     name: "TheLightboxComp",
-
-    props: ["piece"],
-  
+    props: ["piece", "pieces", "currentIndex"], // Update prop name here
     template: `
-    
-    <div class="dots"  :class='[piece.size]+" "+[piece.type]'>
-
-    <div class="lb-image">
-    <a :href='"project_detail.php?id="+piece.id'><img @click="closeLightBox" :src='"dist/" + piece.display'/></a></div>
-
-    <div class="lb-text bevel diag" >
-
-    <h2 class="lb-title">{{ piece.title }}</h2>
-    <a :href='"project_detail.php?id="+piece.id'>Learn More</a>
-    <a :href='"edit_project_form.php?id="+piece.id'>Edit</a>
-
-    <hr>
-    <h3 v-show="!textShow" class="lb-subtitle">{{ piece.description }}</h3>
-    <br>
-    <h3 v-show="!textShow" class="lb-subtitle">{{ piece.moreinfo }}</h3>
-    
-
-    <div class="link">
-
-
-    <img @click="closeLightBox"  class="backButton" src="svg/goback.svg" >
-    
-</div>
-
-    </div>
-    
+      <div v-show="piece" class="dots" :class='[piece.size] + " " + [piece.type]'>
+      <div class="lb-image">
+      <a :href='"project_detail.php?id=" + piece.id'>
+        <img @click="closeLightBox" :src='"dist/" + piece.display' />
+      </a>
     </div>
 
+        <div class="link">
+          <h2 @click="goBack">BACK</h2>
+          <h2 @click="goForward">FORWARD</h2>
+        </div>
+      </div>
     `,
+    data() {
+      return {
+        textShow: false,
+      };
+    },
+    methods: {
+      closeLightBox() {
+        this.$emit("close");
+      },
+      goBack() {
+        console.log(this.currentIndex);
+          this.$emit("changeIndex", -1);
+      },
+      goForward() {
+            console.log(this.currentIndex);
 
-    methods:{
-        closeLightBox(){
-            this.$emit("close")
-        },
+            this.$emit("changeIndex", 1);
+      },
+    },
+  };
 
-        toggleTextShow(){
-            this.textShow=!textShow;
-        }
+  
 
-    }
-  }
+//   I need piece to = pieces[currentIndex]
+
+//   pieces is an array fetched from the dataminer using php
+  
