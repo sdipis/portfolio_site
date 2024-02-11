@@ -12,5 +12,5 @@ $stmt->bindParam(5, $_POST['pk'], PDO::PARAM_INT);
 
 $stmt->execute();
 $stmt = null;
-header('Location: project_list.php');
+header('Location: project_list.php#'.$row['title']);
 ?>

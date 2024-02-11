@@ -22,12 +22,12 @@ $stmt->execute();
 <?php
 
 while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-  echo '<img class="detailsImage" src="../dist/'.$row['display'].'" alt="Project Image">'.
-  '<p class="project-list">'.
+  echo '<div id="'.$row['title'].'" class="project-list"><img class="detailsImage" src="../dist/'.$row['display'].'" alt="Project Image">'.
+  '<p>'.
   $row['title'].
-  '<br><a target="_blank" href="edit_project_form.php?id='.$row['id'].'">edit</a>'.
+  '<br><a href="edit_project_form.php?id='.$row['id'].'">edit</a>'.
 
-  '<br><a href="delete_project.php?id='.$row['id'].'">delete</a></p>';
+  '<br><a href="delete_project.php?id='.$row['id'].'">delete</a></p></div>';
 }
 
 $stmt = null;
@@ -59,10 +59,10 @@ $stmt = null;
     <input type="file" name="uploaded" id="uploaded"> -->
 
     <label for="desc">project description: </label>
-    <textarea name="desc" required></textarea><br><br>
+    <textarea name="desc"></textarea><br><br>
 
     <label for="type">Project Type: </label>
-<select name="type" required>
+<select name="type">
     <option value="design">Design</option>
     <option value="design-mid">Design Mid</option>
     <option value="design-wide">Design Wide</option>
@@ -70,7 +70,7 @@ $stmt = null;
 </select><br><br>
 
 <label for="moreinfo">More Information: </label>
-    <textarea name="moreinfo" required></textarea><br><br>
+    <textarea name="moreinfo"></textarea><br><br>
 
     <input name="submit" type="submit" value="Add Project">
 </form>

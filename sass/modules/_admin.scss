@@ -1,3 +1,9 @@
+.thumbButtons{
+    position: relative;
+    display: flex;
+    background-color: red;
+}
+
 .editPageImg{
     margin:0px;
     padding:0px !important;
@@ -39,18 +45,27 @@ input[type="submit"] {
     max-width: 25%;
     background-color: white;
     padding-left:20px;
+    box-shadow:5px 10px 10px black;
 }
 .project-list{
     font-size: 26px;
     font-family: montserrat;
-    flex:1 0 20%;
     background-color: white;
-    color:black;
-    margin:10px;
-    padding:20px;
 
+    padding:10px;
+    display: flex;
+    flex-flow: row;
+    padding:20px;
+    align-items: center;
+    flex:1 0 30%;
+    // box-shadow: 5px 5px black;
+    
+    p{
+        color:black !important;
+
+    }
     a{
-    font-size: 16px;
+    font-size: 10px;
     font-family: rockwell;
     color:red;
     }
@@ -126,15 +141,13 @@ cursor: pointer;
 
 
 .adminWrapper form{
-    flex:2 0 50%;
     display: flex;
     flex-flow: column;
-    max-width: 400px;
     margin:40px;
-
 
     label{
         font-size: 16px;
+        color:red;
 
     }
     input, textarea, select{
@@ -144,11 +157,28 @@ cursor: pointer;
 }
 
 @media only screen and (max-width: 750px) {
+
+    .projectListCont{
+        display: flex;
+        flex-flow:row wrap;
+        flex:1 0 100%;
+        max-width: 100%;
+        justify-content: space-evenly;
+        max-height: none;
+        overflow-y: auto;
+        height:none;}
+    .adminWrapper{
+        flex-flow: column;
+        max-height: none;
+        min-height: none;
+    }
     .listForms{
         flex:1 0 100%;
         max-width: 100%;
         background-color: white;
         padding-left:20px;
+
+
     }
     .projectListCont{
         display: flex;
