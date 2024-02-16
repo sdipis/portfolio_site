@@ -3,19 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Project Page</title>
-    <link rel="stylesheet" href="sass/main.css" type="text/css">
+    <title>GTFO</title>
+    <link rel="stylesheet" href="../sass/main.css" type="text/css">
 
 </head>
-<body>
-
-<form action="login.php" method="post">
-<label for="username">Username: </label>
-<input type="text" name="username" id="username"><br>
-<label for="password">Password: </label>
-<input type="password" name="password" id="password"><br><br>
-<input type="submit" value="login">
-</form>
+<body class="loginPage">
+<div class="login-box">
+ 
+  <form action="login.php" method="post">
+    <div class="user-box">
+      <input type="text" name="username" id="username" required="">
+      <label for="username">Username</label>
+    </div>
+    <div class="user-box">
+      <input type="password" name="password" id="password" required="">
+      <label for="password">Password</label>
+    </div><center>
+    <input type="submit" value="login">
+    </center>
+  </form>
+</div>
 
 </body>
 </html>

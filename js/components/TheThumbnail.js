@@ -13,14 +13,15 @@ export default {
     `,
     data() {
       return {
-        message: "I am a function in vue object",
+        message: "This is a piece of Spencer's portfolio",
       };
     },
     methods: {
-      showmydata() {
-        this.$emit("showdata", this.piece);
-        console.log("Data being shown!!");
-      },
+        showmydata() {
+            this.$emit("showdata", this.piece);
+            this.$emit("update-current-index", this.piece.id); // Emit an event to update currentIndex
+            console.log("Data being shown!!");
+          },
     },
   };
   

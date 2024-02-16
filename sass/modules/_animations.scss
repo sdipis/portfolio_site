@@ -8,9 +8,9 @@
   }
   .slide-fade-enter, .slide-fade-leave-to
   /* .slide-fade-leave-active below version 2.1.8 */ {
-    transform: translateY(-150vh); //scaley(.8) scalex(.2);
+    // transform: translateY(-10vh); //scaley(.8) scalex(.2);
     filter: blur(25px);
-    //opacity: 0;
+    opacity: 0;
     transition: 1.2s ease;
   }
 

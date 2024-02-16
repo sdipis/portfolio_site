@@ -8,6 +8,265 @@
     }
 }
 
+button {
+    position: relative;
+    margin: 0;
+    padding: 17px 35px;
+    outline: none;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    text-transform: uppercase;
+    background-color: #fff;
+    border: 1px solid rgba(22, 76, 167, 0.6);
+    border-radius: 10px;
+    color: #1d89ff;
+    font-weight: 400;
+    font-family: inherit;
+    z-index: 0;
+    overflow: hidden;
+    transition: all 0.3s cubic-bezier(0.02, 0.01, 0.47, 1);
+  }
+  
+  button span {
+    color: #164ca7;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0.7px;
+  }
+  
+  button:hover {
+    animation: rotate624 0.7s ease-in-out both;
+  }
+  
+  button:hover span {
+    animation: storm1261 0.7s ease-in-out both;
+    animation-delay: 0.06s;
+  }
+  
+  @keyframes rotate624 {
+    0% {
+      transform: rotate(0deg) translate3d(0, 0, 0);
+    }
+  
+    25% {
+      transform: rotate(3deg) translate3d(0, 0, 0);
+    }
+  
+    50% {
+      transform: rotate(-3deg) translate3d(0, 0, 0);
+    }
+  
+    75% {
+      transform: rotate(1deg) translate3d(0, 0, 0);
+    }
+  
+    100% {
+      transform: rotate(0deg) translate3d(0, 0, 0);
+    }
+  }
+  
+  @keyframes storm1261 {
+    0% {
+      transform: translate3d(0, 0, 0) translateZ(0);
+    }
+  
+    25% {
+      transform: translate3d(4px, 0, 0) translateZ(0);
+    }
+  
+    50% {
+      transform: translate3d(-3px, 0, 0) translateZ(0);
+    }
+  
+    75% {
+      transform: translate3d(2px, 0, 0) translateZ(0);
+    }
+  
+    100% {
+      transform: translate3d(0, 0, 0) translateZ(0);
+    }
+  }
+  
+  .btn-shine {
+    border: 1px solid;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .btn-shine2 {
+    border: none;
+  }
+  
+  .btn-shine span {
+    z-index: 20;
+  }
+  
+  .btn-shine:after {
+    background: #38ef7d;
+    content: "";
+    height: 155px;
+    left: -75px;
+    opacity: 0.4;
+    position: absolute;
+    top: -50px;
+    transform: rotate(35deg);
+    transition: all 550ms cubic-bezier(0.19, 1, 0.22, 1);
+    width: 50px;
+    z-index: -10;
+  }
+  
+  .btn-shine:hover:after {
+    left: 120%;
+    transition: all 550ms cubic-bezier(0.19, 1, 0.22, 1);
+  }
+
+
+  .switch {
+    /* switch */
+    --switch-width: 46px;
+    --switch-height: 24px;
+    --switch-bg: rgb(131, 131, 131);
+    --switch-checked-bg: rgb(0, 218, 80);
+    --switch-offset: calc((var(--switch-height) - var(--circle-diameter)) / 2);
+    --switch-transition: all .2s cubic-bezier(0.27, 0.2, 0.25, 1.51);
+    /* circle */
+    --circle-diameter: 18px;
+    --circle-bg: #fff;
+    --circle-shadow: 1px 1px 2px rgba(146, 146, 146, 0.45);
+    --circle-checked-shadow: -1px 1px 2px rgba(163, 163, 163, 0.45);
+    --circle-transition: var(--switch-transition);
+    /* icon */
+    --icon-transition: all .2s cubic-bezier(0.27, 0.2, 0.25, 1.51);
+    --icon-cross-color: var(--switch-bg);
+    --icon-cross-size: 6px;
+    --icon-checkmark-color: var(--switch-checked-bg);
+    --icon-checkmark-size: 10px;
+    /* effect line */
+    --effect-width: calc(var(--circle-diameter) / 2);
+    --effect-height: calc(var(--effect-width) / 2 - 1px);
+    --effect-bg: var(--circle-bg);
+    --effect-border-radius: 1px;
+    --effect-transition: all .2s ease-in-out;
+  }
+  
+  .switch input {
+    display: none;
+  }
+  
+  .switch {
+    display: inline-block;
+  }
+  
+  .switch svg {
+    -webkit-transition: var(--icon-transition);
+    -o-transition: var(--icon-transition);
+    transition: var(--icon-transition);
+    position: absolute;
+    height: auto;
+  }
+  
+  .switch .checkmark {
+    width: var(--icon-checkmark-size);
+    color: var(--icon-checkmark-color);
+    -webkit-transform: scale(0);
+    -ms-transform: scale(0);
+    transform: scale(0);
+  }
+  
+  .switch .cross {
+    width: var(--icon-cross-size);
+    color: var(--icon-cross-color);
+  }
+  
+  .slider {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    width: var(--switch-width);
+    height: var(--switch-height);
+    background: var(--switch-bg);
+    border-radius: 999px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    position: relative;
+    -webkit-transition: var(--switch-transition);
+    -o-transition: var(--switch-transition);
+    transition: var(--switch-transition);
+    cursor: pointer;
+  }
+  
+  .circle {
+    width: var(--circle-diameter);
+    height: var(--circle-diameter);
+    background: var(--circle-bg);
+    border-radius: inherit;
+    -webkit-box-shadow: var(--circle-shadow);
+    box-shadow: var(--circle-shadow);
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-transition: var(--circle-transition);
+    -o-transition: var(--circle-transition);
+    transition: var(--circle-transition);
+    z-index: 1;
+    position: absolute;
+    left: var(--switch-offset);
+  }
+  
+  .slider::before {
+    content: "";
+    position: absolute;
+    width: var(--effect-width);
+    height: var(--effect-height);
+    left: calc(var(--switch-offset) + (var(--effect-width) / 2));
+    background: var(--effect-bg);
+    border-radius: var(--effect-border-radius);
+    -webkit-transition: var(--effect-transition);
+    -o-transition: var(--effect-transition);
+    transition: var(--effect-transition);
+  }
+  
+  /* actions */
+  
+  .switch input:checked+.slider {
+    background: var(--switch-checked-bg);
+  }
+  
+  .switch input:checked+.slider .checkmark {
+    -webkit-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1);
+  }
+  
+  .switch input:checked+.slider .cross {
+    -webkit-transform: scale(0);
+    -ms-transform: scale(0);
+    transform: scale(0);
+  }
+  
+  .switch input:checked+.slider::before {
+    left: calc(100% - var(--effect-width) - (var(--effect-width) / 2) - var(--switch-offset));
+  }
+  
+  .switch input:checked+.slider .circle {
+    left: calc(100% - var(--circle-diameter) - var(--switch-offset));
+    -webkit-box-shadow: var(--circle-checked-shadow);
+    box-shadow: var(--circle-checked-shadow);
+  }
+
+
 @media only screen and (max-width: 750px) {
 
     .videoChunk{

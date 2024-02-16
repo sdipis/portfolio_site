@@ -1,0 +1,35 @@
+
+.profileWrapper{
+    display: flex;
+    flex-flow: row;
+    background-color: $red;
+    width:100vw;
+    justify-content: center;
+    align-items: center;
+    form{
+        flex:1 0 50%;
+        max-width: 50%;
+        background-color: $orange;
+        height:100%;
+        display: flex;
+        flex-flow: column;
+        padding:20px;
+        label{
+            margin-bottom:10px;
+        }
+        input, select, textarea{
+            padding:10px;
+            margin-bottom: 10px;
+        }
+    }
+    .profilePage{
+        background-color: $blue;
+        flex:1 0 50%;
+        max-width: 50%;
+        height:100%;
+        padding:50px;
+        img{
+            height:100px;
+        }
+    }
+}

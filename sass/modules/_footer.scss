@@ -29,6 +29,16 @@
 
 .spaceBt{
     justify-content: space-between;
+    display: flex;
+    flex-flow: row;
+    li, a{
+        padding:0px !important;
+        svg{
+            height:50px;
+            fill:white;
+        }
+    }
+
 }
 
 .footerLinks{
@@ -36,13 +46,6 @@
     flex:3;
     display: flex;
 }
-
-.social{
-    padding:10px;
-    flex:1;
-    display: flex;
-}
-
 
 
 @media only screen and (max-width: 750px) {

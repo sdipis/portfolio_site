@@ -27,6 +27,8 @@ $stmt = null;
 <div class="gridContainer bevel" id="app">
 
     <section class="gridHead bevel">
+    <div class="diag pageTitle"><h2><?php echo $row['title']; ?></h2></div>
+
     <section class="project-gallery">
 <?php echo '<img class="detailsImage" src="./dist/'.$row['display'].'" alt="Project Image">';?>
 
@@ -46,9 +48,6 @@ echo '<img class="portfolio-" src="./dist/'.$images[$i].'" alt="Project Image">'
 
 <div class="projectDetails">
 
-<div class="diag pageTitle">
-                <h2><?php echo $row['title']; ?></h2>
-            </div>
 
             <div class="projectText bevel diag">
 <h1><?php echo $row['title']; ?></h1>

@@ -5,41 +5,68 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="sass/main.css">
-    <title>Spencers Services | Spencer D</title>
+
+    <title>SDips</title>
 </head>
 
 <body>
-<div class="gridContainer bevel" id="app">
+<div class="gridContainer" id="app">
 
-    <section class="gridHead bevel">
-
-        <header>
-        <section class="topBar diag bevel">
+    <section class="gridHead">
+        <section class="topBar diag">
             <!-- <button v-on:click="isVisible = !isVisible" id="toggleButton">Show lightbox</button> -->
-            <nav>
+            <!-- <nav>
                 <ul class="menus">
-                <li v-if="conHid" ><a href="#" v-on:click="conHid = !conHid">Contact Form</a></li>
-                <li  v-else><a href="#" v-on:click="conHid = !conHid" >Video</a></li>
+                <li v-if="conHid" ><a href="#" v-on:click="conHid = !conHid">Contact</a></li>
+                <li  v-else><a href="#" v-on:click="conHid = !conHid" >Spencer</a></li>
                 </ul>
-            </nav>
+            </nav> -->
+
             <div class="blurb">
                 <svg enable-background="new 0 0 32 32"  id="Слой_1" version="1.1" viewBox="0 0 32 32"  xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path clip-rule="evenodd" d="M32,16.009c0-0.267-0.11-0.522-0.293-0.714  l-9.899-9.999c-0.391-0.395-1.024-0.394-1.414,0c-0.391,0.394-0.391,1.034,0,1.428l8.193,8.275H1c-0.552,0-1,0.452-1,1.01  s0.448,1.01,1,1.01h27.586l-8.192,8.275c-0.391,0.394-0.39,1.034,0,1.428c0.391,0.394,1.024,0.394,1.414,0l9.899-9.999  C31.894,16.534,31.997,16.274,32,16.009z" fill-rule="evenodd" id="Arrow_Forward"/><g/><g/><g/><g/><g/><g/></svg>
                 <h2>Scroll Down to View my Portfolio</h2>
             </div>
+
+            <div class="blurb">
+                <h2 v-on:click="toggleMusic">Music</h2>
+            </div>
+        
         </section>
+        <header class="diag">
+  
 
 
-        <transition name="slide-fade">
+        <!-- <transition name="slide-fade"> -->
+
             <contacty 
             v-if="!conHid"></contacty>
-            <div v-else class="videoChunk dots">
+
+
+            <div v-else class="hero-section">
+            <div class="hero-grid">
+
+    <!-- Component 1 -->
+    <div class="hero-component">
+        <div id="bCard">
+        <h2>Click the button...</h2>
+        </div>
+
+        <a v-on:click="conHid = !conHid"><button class="btn-shine">Okay.</button></a>
+
+    </div></div>
+    
+  
+
+
+
+            <!-- <div v-else class="videoChunk dots"> -->
             <!-- <video src="videos/intro_video.mp4" controls autoplay loop playsinline/> -->
-                <div class="hero">
+                <!-- <div class="hero">
             <h2>Spencer Dipierdo</h2>
                 <h3>Designer, Developer, Dipierdo</h3></div>
             </div>
-    
-        </transition>
+     --></div>
+        <!-- </transition> -->
         </header>
 
     </section>
@@ -49,14 +76,19 @@
             <lightybox
             v-show="isVisible" 
             class="lightBox"
+            :portfolio-data="portfolioData"
             v-on:click="isVisible = !isVisible"
             :piece="currentData"
             v-on:close="closeLightBox"
+            :current-index="currentIndex"
+            
             ></lightybox>
 
 
             <div class="diag pageTitle">
+                <div class="blurb">
                 <h2>Click on an Item to Learn More About it...</h2>
+                </div>
             </div>
 
 
@@ -68,7 +100,10 @@
                 v-for="item in portfolioData" 
                 :piece="item" 
                 :key="item.id"
-                v-if="!porHid"></thumb>
+                v-if="!porHid"
+                @showdata="handleShowData"
+                @update-current-index="updateCurrentIndex"
+                ></thumb>
 
 
             </section>
@@ -80,12 +115,11 @@
 
         </section>
 
-    <section class="gridFooter spaceBt bevel">
+    <section class="gridFooter spaceBt bevel diag">
         <nav>
         <ul class="menus spaceBt footerLinks">
-            <li><a href="#">Privacy Policy</a></li>
-            <li><a href="#">Terms and Conditions</a></li>
-            <li><a href="#">Copyright Information</a></li>
+            <li><a href="admin/login_form.php">Login</a></li>
+            <li><a href="admin/profile.php">Profile</a></li>
 
         </ul></nav>
     </section>
