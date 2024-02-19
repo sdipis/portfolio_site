@@ -1,11 +1,11 @@
 // import modules into main scss, for sass to compile into css
 // order is important
-
 @import "modules/reset";
+@import "modules/vars";
 @import "modules/fonts";
 @import "modules/admin";
+@import "modules/profile";
 @import "modules/grid";
-@import "modules/vars";
 @import "modules/defaults";
 @import "modules/gallery";
 @import "modules/header";

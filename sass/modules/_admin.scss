@@ -1,7 +1,151 @@
+
+.adminWrapper form{
+    display: flex;
+    flex-flow: column;
+
+    input[type="submit"] {
+        background-color: black;
+        color:white;
+        border-radius: 25px;
+    }
+
+    input[type="submit"]:hover {
+        background-color: white;
+        color:black;
+        border-radius: 25px;
+        cursor: pointer;
+    }
+
+    label{
+        top: 0;
+        left: 0;
+        padding: 10px 0;
+        font-size: 16px;
+        color: #fff !important;
+        pointer-events: none;
+        transition: .5s;
+        
+
+    }
+    input, textarea, select{
+        width: 100%;
+        padding: 10px 0;
+        font-size: 16px;
+        color: #fff;
+        border: none;
+        border-bottom: 1px solid #fff;
+        outline: none;
+        background: transparent;
+    }
+}
+
+.editPageImg{
+    margin:0px;
+    padding:0px !important;
+}
+
+.editPage{
+    display: flex;
+}
+
+
+.projectListCont{
+    display: flex;
+    flex-flow:row wrap;
+    flex:3 0 75%;
+    max-width: 75%;
+    justify-content: space-evenly;
+    overflow-y: scroll;
+    background: linear-gradient(145deg, #cacaca, #f0f0f0);
+    max-height:100vh;
+    align-items: center;
+    
+    img{
+        max-height:200px;
+        margin-right:20px;
+        box-shadow:5px 0px 10px rgba(0, 0, 0, 0.4);
+    }
+}
+
+.editListCont{
+    flex:1 0 100%;
+    display: flex;
+    flex-flow:row;
+    padding:40px;
+
+    
+    div{
+        flex:2 0 50%;
+        max-width: 50%;
+        img{
+            max-width: 100%;
+            max-height: 100%;
+        }
+    }
+    form{
+        flex:2 0 50%;
+        max-width: 50%; 
+        padding:40px;
+        
+        textarea{
+            height:50px;
+        }
+        label{
+            font-size: 26px;
+            color:black;
+            margin-bottom:10px;
+        }
+    }
+}
+
+.listForms{
+    flex:1 0 25%;
+    max-width: 25%;
+    padding-left:20px;
+    padding-right:20px;
+    background-color: black;
+    h2{
+        color:white;
+    }
+
+}
+.project-list{
+    font-size: 26px;
+    font-family: montserrat;
+    margin:10px;
+    display: flex;
+    flex-flow: row;
+    align-items: center;
+    flex:1 0 30%;
+    padding:10px;
+    // box-shadow: 5px 5px black;
+    p{
+        color:black !important;
+
+    }
+    a{
+    font-size: 10px;
+    font-family: rockwell;
+    color:red;
+    }
+    img{
+        box-shadow:  20px 20px 60px #bebebe,
+             -20px -20px 60px #ffffff;}
+}
 .adminWrapper{
     display: flex;
+    flex-flow: row;
     min-height: 100vh;
-    background-color: grey;
+    background-color: lightblue;
+    justify-content: center;
+    width: 100%;
+    
+
+}
+
+p2{
+    font-size: 16px !important;
+    color:#494949;
 }
 
 .project-gallery{
@@ -10,13 +154,14 @@
     img{
     object-fit: contain;
     width: 100%;
-max-height: 400px;
-padding:20px;
+    max-height: 50vw;
     }
+
 }
 
 .projectText{
     padding:140px;
+    background-color: white;
     h1{
         margin-bottom: 30px;
         font-size: 36px;
@@ -39,50 +184,58 @@ padding:20px;
     flex-flow: column;
 }
 
-#backButton{
+.backButton{
 height:50px;
-position: absolute;
-bottom:40px;
-left:40px;
-opacity: .25;
+position: fixed;
+bottom:20px;
+left:20px;
+opacity: .15;
+cursor: pointer;
+}
 
+#backButton:hover{
+    opacity:.9;
+}
+
+.detailsImage{
+    border-radius: inherit;
 }
 
 
 
 
-.project-list{
-    font-size: 26px;
-    font-family: Rockwell;
-    margin-top:20px;
-    margin-right:40px;
-    padding:10px;
-    a{
-    font-size: 16px;
-    }
-}
 
-.adminWrapper form{
-    flex:2 0 50%;
-    display: flex;
-    flex-flow: column;
-    max-width: 400px;
-    margin:40px;
-
-    label{
-        font-size: 26px;
-
-    }
-    input{
-        height:30px;
-    }
-}
 
 @media only screen and (max-width: 750px) {
 
+    .adminWrapper{
+        flex-flow: column;
+        max-height: none;
+        min-height: none;
+    }
+    .listForms{
+        flex:1 0 100%;
+        max-width: 100%;
+        background-color: white;
+        padding-left:20px;
 
+
+    }
+    .projectListCont{
+        display: flex;
+        flex-flow: row wrap;
+        flex:1 0 100%;
+        max-width: none;
+        min-width: 100%;
+        max-height: none;
+        justify-content: space-evenly;
+        img{
+            max-height:200px;
+            padding:20px;
+        }
+    }
     .projectText{
-        padding:20px;
+        padding:40px;
         h1{
             margin-bottom: 30px;
             font-size: 26px;
@@ -99,6 +252,137 @@ opacity: .25;
 
     .project-gallery{
         flex-flow: column !important;
+        img{
+            max-height: 100vw;
+        }
     }
 
+    .editListCont{
+        flex-flow: column;
+        max-width: none;
+
+        div{
+            max-width: none;
+        }
+        form{
+            max-width: none;
+        }
+    }
+
+    .project-list{
+        flex:1 0 80%;
+        flex-flow: column;
+        max-width: 80%;
+        overflow: hidden;
+    }
+
+    .editPage{
+        max-height: none;
+    }
 }
+
+.login-box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 400px;
+    padding: 40px;
+    transform: translate(-50%, -50%);
+    background: rgba(24, 20, 20, 0.987);
+    box-sizing: border-box;
+    box-shadow: 0 15px 25px rgba(0,0,0,.6);
+    border-radius: 10px;
+  }
+  
+  .login-box .user-box {
+    position: relative;
+  }
+  
+  .login-box .user-box input {
+    width: 100%;
+    padding: 10px 0;
+    font-size: 16px;
+    color: #fff;
+    margin-bottom: 30px;
+    border: none;
+    border-bottom: 1px solid #fff;
+    outline: none;
+    background: transparent;
+  }
+  
+  .login-box .user-box label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 10px 0;
+    font-size: 16px;
+    color: #fff;
+    pointer-events: none;
+    transition: .5s;
+  }
+  
+  .login-box .user-box input:focus ~ label,
+  .login-box .user-box input:valid ~ label {
+    top: -20px;
+    left: 0;
+    color: #bdb8b8;
+    font-size: 12px;
+  }
+  
+  .login-box form input[type='submit'] {
+    position: relative;
+    display: inline-block;
+    padding: 10px 20px;
+    color: #000;
+    font-size: 16px;
+    text-decoration: none;
+    text-transform: uppercase;
+    overflow: hidden;
+    transition: .5s;
+    margin-top: 40px;
+    letter-spacing: 4px
+  }
+  
+  .login-box input[type='submit']:hover {
+    background: #03f40f;
+    color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 5px #03f40f,
+                0 0 25px #03f40f,
+                0 0 50px #03f40f,
+                0 0 100px #03f40f;
+  }
+  
+  .login-box input[type='submit'] span {
+    position: absolute;
+    display: block;
+  }
+  
+  @keyframes btn-anim1 {
+    0% {
+      left: -100%;
+    }
+  
+    50%,100% {
+      left: 100%;
+    }
+  }
+  
+  .login-box a span:nth-child(1) {
+    bottom: 2px;
+    left: -100%;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #03f40f);
+    animation: btn-anim1 2s linear infinite;
+  }
+
+  .loginPage{
+        width: 100%;
+        height: 100%;
+        --color: rgba(114, 114, 114, 0.3);
+        background-color: #191a1a;
+        background-image: linear-gradient(0deg, transparent 24%, var(--color) 25%, var(--color) 26%, transparent 27%,transparent 74%, var(--color) 75%, var(--color) 76%, transparent 77%,transparent),
+            linear-gradient(90deg, transparent 24%, var(--color) 25%, var(--color) 26%, transparent 27%,transparent 74%, var(--color) 75%, var(--color) 76%, transparent 77%,transparent);
+        background-size: 55px 55px;
+      }

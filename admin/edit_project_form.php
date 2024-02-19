@@ -3,41 +3,71 @@
 <?php
 require_once('../includes/admin_connect.php');
 $query = 'SELECT * FROM projects WHERE projects.id = :projectId';
+// $query = 'SELECT GROUP_CONCAT(image_filename) AS images, description, display, title, type, moreinfo FROM projects, media WHERE projects.id = project_id AND projects.id = :projectId';
+
 $stmt = $connection->prepare($query);
 $projectId = $_GET['id'];
 $stmt->bindParam(':projectId', $projectId, PDO::PARAM_INT);
 $stmt->execute();
 $row = $stmt->fetch(PDO::FETCH_ASSOC);
+$images = explode(",", $row['images']);
+
 ?>
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Project Page</title>
+    <title>Editing: <?php echo $row['title']?></title>
     <link rel="stylesheet" href="../sass/main.css" type="text/css">
 
 </head>
 <body>
     <div class="adminWrapper">
 
- 
-<form action="edit_project.php" method="POST">
+<div class="editPage">
+<div class="editListCont">
+
+<div class="editPageImages">
+ <?php   echo '<div><img class="editPageImg" src="../dist/'.$row['display'].'" alt="Project Image"></div>'; ?>
+<?php 
+for($i =0; $i < count($images); $i++) {
+
+echo '<div><img class="portfolio-" src="../dist/'.$images[$i].'" alt="Project Image"></div>';
+
+}
+?>
+</div>
+
+ <form action="edit_project.php" method="POST">
 <input name="pk" type="hidden" value="<?php echo $row['id']; ?>">
     <label for="title">project title: </label>
     <input name="title" type="text" value="<?php echo $row['title']; ?>" required><br><br>
+    
     <label for="desc">project description: </label>
-    <textarea name="desc" required><?php echo $row['description']; ?></textarea><br><br>
+    <textarea name="desc" ><?php echo $row['description']; ?></textarea><br><br>
 
 
     <label for="thumb">project thumbnail: </label>
-    <input name="thumb" type="text" required value="<?php echo $row['display']; ?>"><br><br>
+    <input name="thumb" type="text"  value="<?php echo $row['display']; ?>"><br><br>
 
     <label for="type">Type: (threedee, design, web +L) </label>
-    <textarea name="type" required><?php echo $row['type']; ?></textarea><br><br>
+    <input name="type" type="text" value="<?php echo $row['type']; ?>"></input><br><br>
+
+    <label for="moreinfo">More Info: </label>
+    <textarea name="moreinfo" ><?php echo $row['moreinfo']; ?></textarea><br><br>
 
 
     <input name="submit" type="submit" value="Edit">
 </form>
+
+
+</div>
+
+
+
+</div>
+
+
 <?php
 $stmt = null;
 ?>

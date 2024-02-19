@@ -2,24 +2,59 @@ header{
     position: relative;
     display: flex;
     flex-flow:column nowrap;
+    overflow: hidden;
     // background-image: url(../dist/backgrounds/wood.jpg);
     // background-attachment: fixed;
     // background-position: center center;
     // background-repeat: no-repeat;
     // background-size: cover;
-	background: linear-gradient(-45deg, #ec7d5b, #ec2370, #23a6d5, #23d5ab);
-	background-size: 400% 400%;
-	animation: gradient 15s ease infinite;    width: 100%;
-    min-height: 100vh;
+	// background: linear-gradient(-45deg, #ec7d5b, #ec2370, #23a6d5, #23d5ab);
+	// background-size: -200% -200%;
+	// animation: gradient 15s ease infinite;    width: 100%;
+    // max-height: 100vh;
     box-shadow: $shadow2;
     z-index: 0;
-
+    align-items: center;
+    justify-content: center;
     .siteTitle{
         color:$white;
         float:right;
     }
 }
 
+.hero-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin:0px;
+    padding:0px;
+    
+}
+
+.hero-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Adjust column sizes as needed */
+    gap: 20px; /* Adjust gap between components as needed */
+
+}
+
+.hero-component {
+    text-align: center;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: center;
+    height:100vh;
+    margin-top:-60px;
+    h2{
+        font-family: montserrat;
+        font-size: 36px;
+        margin-bottom: 20px;
+    }
+    p{
+        margin-bottom:10px;
+    }
+}
 
 .headerWrapper{
     height:100%;
@@ -33,7 +68,7 @@ header{
 
 .topBar{
     background-color:$black;
-    box-shadow:$topShadow;
+    // box-shadow:$topShadow;
     width:100%;
     position:sticky;
     top:0;
@@ -41,14 +76,14 @@ header{
     display: flex;
     flex-flow: row nowrap;
     justify-content: space-between;
-    z-index:2;
+    z-index:1;
+    height:60px !important;
 
     padding-left:60px;
     padding-right:40px;
     padding-top:20px;
     padding-bottom:20px;
 
-    background-color: $black;
 }
 
 .menus{
@@ -84,7 +119,7 @@ header{
 
     h2{
       color:$white;
-      animation:textFlash 10s 10s infinite ease;
+      animation:textFlash 5s 5s infinite ease;
       text-align: center;
       opacity: 0;
     }
@@ -92,8 +127,16 @@ header{
       height:20px;
       width:20px;
       fill:$white;
-      animation: arrowSpin 10s 10s infinite ease;
+      animation: arrowSpin 6.5s 6.5s infinite ease;
       opacity: 0;
       margin-right:40px;
     }
   }
+
+//   @media only screen and (max-width: 900px) {
+
+//     header{
+//         max-height:none;
+//     }
+
+// }
