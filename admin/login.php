@@ -13,10 +13,10 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
 $_SESSION['username'] = $row['username'];
 
-header('Location: project_list.php');
+header('Location: project_list');
 
 }else{
-    header('Location: login_form.php');
+    header('Location: login_form');
 }
 
 $stmt = null;

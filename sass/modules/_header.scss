@@ -1,3 +1,6 @@
+#call{
+    opacity:0;
+}
 header{
     position: relative;
     display: flex;
@@ -12,7 +15,7 @@ header{
 	// background-size: -200% -200%;
 	// animation: gradient 15s ease infinite;    width: 100%;
     // max-height: 100vh;
-    box-shadow: $shadow2;
+    // box-shadow: $shadow2;
     z-index: 0;
     align-items: center;
     justify-content: center;
@@ -76,14 +79,25 @@ header{
     display: flex;
     flex-flow: row nowrap;
     justify-content: space-between;
+    align-items: center;
     z-index:1;
-    height:60px !important;
 
     padding-left:60px;
-    padding-right:40px;
+    padding-right:60px;
     padding-top:20px;
     padding-bottom:20px;
-
+    .musicNote{
+        cursor: pointer;
+    }
+}
+.okay-btns{
+    display: flex;
+    flex-flow: row;
+    justify-content: space-between;
+    button{
+        flex:1;
+        margin:10px;
+    }
 }
 
 .menus{
@@ -101,42 +115,80 @@ header{
     font-family: $main-font;
     font-weight: 400;
     text-decoration: none;
-    transition:.25s linear;
-    padding:10px;
     text-transform: capitalize;
+    transition:.25s ease;
+
     }
 
     li a:hover{
         color:$hover;
-        letter-spacing: 3px;
+        // letter-spacing: 3px;
     }
+
+}
+
+.textFlash{
+    animation:textFlash 10s 2s infinite ease;
 
 }
 
 .blurb{
     display: flex;
     align-self: flex-end;
-
+    align-items: center;
+    justify-content: center;
+    
     h2{
       color:$white;
-      animation:textFlash 5s 5s infinite ease;
-      text-align: center;
-      opacity: 0;
+    //   opacity: 0;
     }
     svg{
-      height:20px;
-      width:20px;
+      height:40px;
+      width:40px;
+      margin-left:30px;
+
       fill:$white;
-      animation: arrowSpin 6.5s 6.5s infinite ease;
-      opacity: 0;
-      margin-right:40px;
+      cursor: pointer;
+      &:hover{
+        fill:$hover;
+      }
+    }
+
+
+
+
+    .spinarrow{
+        height:40px;
+        width:40px;
+        opacity:0;
+        animation: arrowSpin 20s 2s infinite ease;
+        margin-right:50px;
+        margin-left:0px;
+        &:hover{
+            fill:$white;
+        }
     }
   }
 
-//   @media only screen and (max-width: 900px) {
+  .spinning{
+    animation: spinny 5s 5s infinite ease;
+  }
 
-//     header{
-//         max-height:none;
-//     }
+  @media only screen and (max-width: 768px) {
 
-// }
+    .topBar{
+        padding-right:20px;
+        padding-left:20px;
+        justify-content: flex-end;
+    }
+
+
+    header{
+        max-height:none;
+    }
+
+    .noMobile{
+        display: none;
+    }
+
+}

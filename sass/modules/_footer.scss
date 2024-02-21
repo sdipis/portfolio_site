@@ -28,11 +28,13 @@
 }
 
 .spaceBt{
-    justify-content: space-between;
+    justify-content: space-around;
     display: flex;
     flex-flow: row;
     li, a{
         padding:0px !important;
+        margin-left: 10px;
+        margin-right: 10px;
         svg{
             height:50px;
             fill:white;
@@ -45,6 +47,7 @@
     padding:10px;
     flex:3;
     display: flex;
+    justify-content: space-around;
 }
 
 

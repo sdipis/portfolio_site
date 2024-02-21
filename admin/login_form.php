@@ -10,7 +10,7 @@
 <body class="loginPage">
 <div class="login-box">
  
-  <form action="login.php" method="post">
+  <form action="login" method="post">
     <div class="user-box">
       <input type="text" name="username" id="username" required="">
       <label for="username">Username</label>

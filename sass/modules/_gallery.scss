@@ -12,7 +12,7 @@
     background-color: white;
 
 
-    box-shadow: $bottomShadow;
+    // box-shadow: $bottomShadow;
     position: relative;
 
 
@@ -86,7 +86,11 @@
     top:0;
     z-index: 1;
     // box-shadow: $topShadow;
-    height:60px;
+    line-height:2rem;
+    .blurb h2{
+        text-align: left !important;
+
+    }
 }
 .p_avatar{
     padding:0px;

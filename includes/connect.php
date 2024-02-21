@@ -1,7 +1,8 @@
 <?php 
+
     $db_dsn = array( 
         'host' => 'localhost', // this will change when you go live
-        'dbname' => 'db_spencer_main', // update this with your database name
+        'dbname' => 'spencer', // update this with your database name
         'charset' => 'utf8'
     );
 

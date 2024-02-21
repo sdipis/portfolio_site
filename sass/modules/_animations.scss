@@ -45,17 +45,37 @@ transform: rotate(90deg);
 opacity:0;
     }
     5%{
-transform:rotate(450deg);
+transform:rotate(360deg);
 opacity:1;
     }
     99%{
-      transform:rotate(450deg);
+      transform:rotate(360deg);
       opacity:1;
 
     }
     100%{
       transform:rotate(0deg);
       opacity:0;
+    }
+  }
+
+
+  @keyframes spinny {
+    0%{
+transform: rotate(0deg);
+    }
+
+    25%{
+      transform:rotate(360deg);
+    }
+
+    50%{
+      transform:rotate(0deg);
+
+    }
+
+    100%{
+      transform:rotate(0deg);
     }
   }
 
@@ -93,4 +113,36 @@ opacity:1;
       background-position: 0% 50%;
     }
   }
+
+  @keyframes textThrob{
+    0%{
+      transform: translate(0px, 0px) skew(0deg, 0deg);  
+      letter-spacing: normal;  
+      overflow: hidden;
+    }
+    25%{
+      transform: translate(0px, 0px) skew(0deg, 10deg);    
+      letter-spacing: 5px;  
+
+    }
+    50%{
+      transform: translate(0px, 0px) skew(0deg, 0deg);   
+      letter-spacing: normal;  
+
+    }
+    75%{
+      transform: translate(0px, 0px) skew(0deg, -10deg);   
+      letter-spacing: 5px;  
+
+    }
+    100%{
+      transform: translate(0px, 0px) skew(0deg, 0deg);   
+      letter-spacing: normal;  
+
+    }
+  }
+
+ .textThrob{
+  animation:textThrob 20.4s infinite ease-out;
+ }
   

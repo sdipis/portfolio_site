@@ -7,8 +7,8 @@
     justify-content: center;
     align-items: center;
     form{
-        flex:1 0 50%;
-        max-width: 50%;
+        flex:1 0 70%;
+        max-width: 70%;
         background-color: $orange;
         height:100%;
         display: flex;
@@ -23,13 +23,38 @@
         }
     }
     .profilePage{
-        background-color: $blue;
-        flex:1 0 50%;
-        max-width: 50%;
+        display: flex;
+        flex-flow: column;
+        
+        background-color: $black;
+        flex:1 0 30%;
+        max-width: 30%;
         height:100%;
-        padding:50px;
         img{
-            height:100px;
+            width: 100%;
+        }
+        p{
+            padding:20px;
+            span{
+                font-weight: 600;
+            }
+    
         }
     }
+}
+
+
+@media only screen and (max-width: 750px) {
+.profileWrapper{
+    flex-flow: column;
+    form{
+        flex:1 0 100%;
+        max-width: none;
+    }
+    .profilePage{
+        flex:1 0 100%;
+        max-width: none;
+    }
+}
+
 }

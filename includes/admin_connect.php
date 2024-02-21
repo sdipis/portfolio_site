@@ -1,5 +1,5 @@
 <?php
-$dsn = "mysql:host=localhost;dbname=db_spencer_main;charset=utf8mb4";
+$dsn = "mysql:host=localhost;dbname=spencer;charset=utf8mb4";
 try {
 $connection = new PDO($dsn, 'root', 'root');
 } catch (Exception $e) {
