@@ -4,11 +4,12 @@
     padding-right:60px;
     padding-bottom:0px;
 
-    // background-color: $design;
+    background-color: $black;
     flex-flow:row nowrap;
-    height:30vh;
+    height:40vh;
 
     margin-bottom:0px;
+    z-index: 3;
 }
 
 .gridSocial{

@@ -229,15 +229,36 @@ p2{
 .backButton{
 height:50px;
 position: fixed;
-bottom:20px;
+top:0;
+bottom:0;
+margin-top:auto;
+margin-bottom: auto;
 left:20px;
-opacity: .15;
+opacity: .4;
 cursor: pointer;
+&:hover{
+    opacity:1;
+}
 }
 
-.backButton:hover{
-    opacity:.9;
+.infoButton{
+    height:40px;
+    position: absolute;
+    top:20px;
+    right:20px;
+    opacity: 0.25;
+    cursor: pointer;
+    &:hover{
+        opacity:1;
+    }
 }
+
+.closeButton{
+    top:20px;
+    left:20px;
+}
+
+
 
 .detailsImage{
     border-radius: inherit;

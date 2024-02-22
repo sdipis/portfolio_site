@@ -12,6 +12,9 @@
     height:100vh;
     width:100vw;
     z-index: 11;
+    cursor: -moz-zoom-out; 
+    cursor: -webkit-zoom-out; 
+    cursor: zoom-out;
 
     .lb-image{
         min-height:100vh;

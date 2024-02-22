@@ -1,11 +1,15 @@
 #call{
     opacity:0;
 }
+
+
 header{
     position: relative;
     display: flex;
     flex-flow:column nowrap;
     overflow: hidden;
+    max-height:100vh;
+    height:100vh;
     // background-image: url(../dist/backgrounds/wood.jpg);
     // background-attachment: fixed;
     // background-position: center center;
@@ -70,7 +74,7 @@ header{
 
 
 .topBar{
-    background-color:$black;
+    // background-color:$black;
     // box-shadow:$topShadow;
     width:100%;
     position:sticky;
@@ -78,7 +82,7 @@ header{
     left:0;
     display: flex;
     flex-flow: row nowrap;
-    justify-content: space-between;
+    justify-content: flex-end;
     align-items: center;
     z-index:1;
 
@@ -86,9 +90,25 @@ header{
     padding-right:60px;
     padding-top:20px;
     padding-bottom:20px;
+
+    h2{
+        color:$white;
+        margin-left:20px;
+    }
+
     .musicNote{
         cursor: pointer;
     }
+}
+
+.tbtwo{
+    justify-content: flex-start;
+    background-color: $black;
+    z-index: 3;
+}
+.blanks{
+    background:none;
+    justify-content: space-between;
 }
 .okay-btns{
     display: flex;
@@ -128,7 +148,7 @@ header{
 }
 
 .textFlash{
-    animation:textFlash 10s 2s infinite ease;
+    animation:textFlash 10s 2s ease;
 
 }
 
@@ -161,9 +181,10 @@ header{
         height:40px;
         width:40px;
         opacity:0;
-        animation: arrowSpin 20s 2s infinite ease;
+        animation: arrowSpin 10s 2s ease;
         margin-right:50px;
         margin-left:0px;
+        cursor: default;
         &:hover{
             fill:$white;
         }
@@ -179,7 +200,7 @@ header{
     .topBar{
         padding-right:20px;
         padding-left:20px;
-        justify-content: flex-end;
+        justify-content: center;
     }
 
 
@@ -189,6 +210,14 @@ header{
 
     .noMobile{
         display: none;
+    }
+
+    .blurb ul{
+        width: 100vw;
+        justify-content: space-around;
+        svg{
+            margin-left:0px;
+        }
     }
 
 }

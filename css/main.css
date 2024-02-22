@@ -288,14 +288,33 @@ p2 {
 .backButton {
   height: 50px;
   position: fixed;
-  bottom: 20px;
+  top: 0;
+  bottom: 0;
+  margin-top: auto;
+  margin-bottom: auto;
   left: 20px;
-  opacity: 0.15;
+  opacity: 0.4;
   cursor: pointer;
 }
-
 .backButton:hover {
-  opacity: 0.9;
+  opacity: 1;
+}
+
+.infoButton {
+  height: 40px;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  opacity: 0.25;
+  cursor: pointer;
+}
+.infoButton:hover {
+  opacity: 1;
+}
+
+.closeButton {
+  top: 20px;
+  left: 20px;
 }
 
 .detailsImage {
@@ -522,10 +541,21 @@ p2 {
 }
 .gridContainer {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: 0px 0px;
+  grid-template-columns: 1fr auto;
   grid-template-areas: "gridHead gridHead gridHead" "gridMain gridMain gridMain" "gridMain gridMain gridMain" "gridFooter gridFooter gridFooter";
   width: 100vw;
+  background: none;
+}
+
+.grid_gap {
+  margin: 40px;
+}
+.grid_gap .p_avatar .bio_panel {
+  margin-bottom: 0px !important;
+}
+.grid_gap #teamSection {
+  background: none;
+  box-shadow: none;
 }
 
 #wrapper {
@@ -548,7 +578,7 @@ p2 {
   grid-area: gridAside;
 }
 
-@media only screen and (max-width: 750px) {
+@media only screen and (max-width: 768px) {
   .gridContainer {
     grid-template-areas: "gridHead gridHead gridHead" "gridMain gridMain gridMain" "gridFooter gridFooter gridFooter";
   }
@@ -576,6 +606,32 @@ body {
   font-family: montserrat;
   margin: 0px;
   padding: 0px;
+}
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 10px 20px;
+  /* Position the tooltip */
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 1;
+  transition: 0.2s ease;
+  opacity: 0;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+  opacity: 0.75;
 }
 
 #teamSection {
@@ -641,19 +697,23 @@ body {
 .p_avatar {
   padding: 0px;
   margin: 0px;
-  border: none;
   overflow: hidden;
 }
 
 .bio-panel {
-  margin-bottom: -3px;
+  position: relative;
+  margin-bottom: -4px;
   color: #ffffff;
+  line-height: 1;
   flex: 1 0;
+  cursor: -moz-zoom-in;
+  cursor: -webkit-zoom-in;
+  cursor: zoom-in;
 }
 .bio-panel img {
   max-width: 100%;
   max-height: 100%;
-  cursor: pointer;
+  object-fit: contain;
 }
 .bio-panel h2, .bio-panel h3, .bio-panel p {
   padding-left: 15px;
@@ -673,14 +733,7 @@ body {
   font-weight: 400;
 }
 
-@media only screen and (max-width: 750px) {
-  #teamSection {
-    display: flex;
-    flex-flow: column nowrap;
-  }
-  .threedee-large, .design-large, .design-wide, .design-mid, .website {
-    grid-column: span 1;
-  }
+@media only screen and (max-width: 768px) {
   .bio-panel {
     padding: 0px;
     flex: 1;
@@ -700,6 +753,8 @@ header {
   display: flex;
   flex-flow: column nowrap;
   overflow: hidden;
+  max-height: 100vh;
+  height: 100vh;
   z-index: 0;
   align-items: center;
   justify-content: center;
@@ -751,14 +806,13 @@ header .siteTitle {
 }
 
 .topBar {
-  background-color: #161616;
   width: 100%;
   position: sticky;
   top: 0;
   left: 0;
   display: flex;
   flex-flow: row nowrap;
-  justify-content: space-between;
+  justify-content: flex-end;
   align-items: center;
   z-index: 1;
   padding-left: 60px;
@@ -766,8 +820,23 @@ header .siteTitle {
   padding-top: 20px;
   padding-bottom: 20px;
 }
+.topBar h2 {
+  color: #ffffff;
+  margin-left: 20px;
+}
 .topBar .musicNote {
   cursor: pointer;
+}
+
+.tbtwo {
+  justify-content: flex-start;
+  background-color: #161616;
+  z-index: 3;
+}
+
+.blanks {
+  background: none;
+  justify-content: space-between;
 }
 
 .okay-btns {
@@ -797,11 +866,11 @@ header .siteTitle {
   transition: 0.25s ease;
 }
 .menus li a:hover {
-  color: rgb(165, 0, 0);
+  color: rgb(0, 165, 44);
 }
 
 .textFlash {
-  animation: textFlash 10s 2s infinite ease;
+  animation: textFlash 10s 2s ease;
 }
 
 .blurb {
@@ -821,15 +890,16 @@ header .siteTitle {
   cursor: pointer;
 }
 .blurb svg:hover {
-  fill: rgb(165, 0, 0);
+  fill: rgb(0, 165, 44);
 }
 .blurb .spinarrow {
   height: 40px;
   width: 40px;
   opacity: 0;
-  animation: arrowSpin 20s 2s infinite ease;
+  animation: arrowSpin 10s 2s ease;
   margin-right: 50px;
   margin-left: 0px;
+  cursor: default;
 }
 .blurb .spinarrow:hover {
   fill: #ffffff;
@@ -843,7 +913,7 @@ header .siteTitle {
   .topBar {
     padding-right: 20px;
     padding-left: 20px;
-    justify-content: flex-end;
+    justify-content: center;
   }
   header {
     max-height: none;
@@ -851,15 +921,24 @@ header .siteTitle {
   .noMobile {
     display: none;
   }
+  .blurb ul {
+    width: 100vw;
+    justify-content: space-around;
+  }
+  .blurb ul svg {
+    margin-left: 0px;
+  }
 }
 .gridFooter {
   padding-left: 60px;
   padding-top: 20px;
   padding-right: 60px;
   padding-bottom: 0px;
+  background-color: #161616;
   flex-flow: row nowrap;
-  height: 30vh;
+  height: 40vh;
   margin-bottom: 0px;
+  z-index: 3;
 }
 
 .gridSocial {
@@ -872,7 +951,7 @@ header .siteTitle {
   fill: #ffffff;
 }
 .gridSocial li a svg:hover {
-  fill: rgb(165, 0, 0);
+  fill: rgb(0, 165, 44);
 }
 
 .spaceBt {
@@ -915,17 +994,46 @@ header .siteTitle {
 /* Enter and leave animations can use different */
 /* durations and timing functions.              */
 .slide-fade-enter-active {
-  transition: all 1.5s ease;
+  transition: all 2s ease;
 }
 
 .slide-fade-leave-active {
-  transition: all 1.5s cubic-bezier(1, 0.5, 0.8, 1);
+  transition: all 2s;
 }
 
 .slide-fade-enter, .slide-fade-leave-to {
   filter: blur(25px);
   opacity: 0;
-  transition: 1.2s ease;
+  transform: skew-x(180deg);
+  transition: all 1s ease;
+}
+
+.image-trans-enter-active {
+  transition: all 0.4s ease;
+}
+
+.image-trans-leave-active {
+  transition: all 0.4s;
+}
+
+.image-trans-enter, .image-trans-leave-to {
+  filter: blur(25px);
+  opacity: 0;
+  transform: scale(0);
+  transition: all 0.4s ease;
+}
+
+.big-small-enter-active {
+  transition: all 5s ease;
+}
+
+.big-small-leave-active {
+  transition: all 5s cubic-bezier(1, 0.5, 0.8, 1);
+}
+
+.big-small-enter {
+  transition: 5s ease;
+  opacity: 0;
 }
 
 @keyframes pulse {
@@ -968,6 +1076,10 @@ header .siteTitle {
     opacity: 0;
   }
 }
+.help {
+  cursor: help !important;
+}
+
 @keyframes spinny {
   0% {
     transform: rotate(0deg);
@@ -1054,6 +1166,9 @@ header .siteTitle {
   height: 100vh;
   width: 100vw;
   z-index: 11;
+  cursor: -moz-zoom-out;
+  cursor: -webkit-zoom-out;
+  cursor: zoom-out;
 }
 .lightBox .lb-image {
   min-height: 100vh;
@@ -1226,7 +1341,7 @@ header .siteTitle {
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  animation: textclip 2s linear infinite;
+  animation: textclip 2s alternate slidein;
   display: inline-block;
   font-size: 190px;
 }
@@ -1360,7 +1475,7 @@ header .siteTitle {
 
 #bCard h2 {
   padding-bottom: 10px;
-  font-weight: 300;
+  font-weight: 600;
   font-size: 36px;
   margin-bottom: 20px;
   text-transform: capitalize;
@@ -1370,6 +1485,7 @@ header .siteTitle {
   font-weight: 400;
   margin-bottom: 20px;
   font-size: 16px;
+  text-align: center;
 }
 
 #bCard h3 a {
@@ -1477,7 +1593,8 @@ input {
 }
 
 #clickMeButton {
-  width: 150px;
+  font-size: 1rem;
+  width: 200px;
 }
 #clickMeButton:hover span {
   display: none !important;
@@ -1486,40 +1603,45 @@ input {
   content: "Okay.";
 }
 
+.grow_bigger {
+  font-size: 2rem !important;
+  font-weight: 600;
+  width: 400px !important;
+  border-radius: 20px !important;
+  transition: 0.2s;
+}
+.grow_bigger span {
+  font-size: inherit;
+}
+
 #playMusicButton {
-  position: fixed;
   display: flex;
   width: auto;
-  bottom: 20px;
-  right: 20px;
-  z-index: 10;
-  justify-content: center;
 }
-#playMusicButton a {
-  opacity: 0.2;
+#playMusicButton a svg {
+  cursor: pointer;
 }
-#playMusicButton a:hover {
+#playMusicButton a svg:hover {
   transition: 0.2s ease-in;
   opacity: 1;
 }
 
 .videoChunk {
-  height: 100vh;
   width: 100vw;
-  position: absolute;
+  height: 100vh;
+  position: fixed;
   top: 0;
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #ffffff;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25' %3E%3Cdefs%3E%3ClinearGradient id='a' x1='0' x2='0' y1='0' y2='1'%3E%3Cstop offset='0' stop-color='%2380F'/%3E%3Cstop offset='1' stop-color='%23FF9B11'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpattern id='b' width='24' height='24' patternUnits='userSpaceOnUse'%3E%3Ccircle fill='%23ffffff' cx='12' cy='12' r='12'/%3E%3C/pattern%3E%3Crect width='100%25' height='100%25' fill='url(%23a)'/%3E%3Crect width='100%25' height='100%25' fill='url(%23b)' fill-opacity='0.1'/%3E%3C/svg%3E");
-  background-attachment: fixed;
   width: 100%;
   display: flex;
 }
 .videoChunk video {
   width: 100%;
   max-width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 button {

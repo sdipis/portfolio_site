@@ -1,3 +1,29 @@
+.tooltip {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .tooltip .tooltiptext {
+    visibility: hidden;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding:10px 20px;  
+    /* Position the tooltip */
+    position: absolute;
+    top:20px;
+    right:20px;
+    z-index: 1;
+    transition:.2s ease;
+    opacity: 0;
+  }
+  
+  .tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: .75;
+  }
+
 #teamSection{
     // display:flex;
     // flex-wrap: wrap;
@@ -95,28 +121,31 @@
 .p_avatar{
     padding:0px;
     margin:0px;
-    border:none;
     overflow: hidden;
 }
 .bio-panel{
-    margin-bottom: -3px;
+    position: relative;
+    margin-bottom: -4px;
     // padding:20px;
     // padding-top:0px;
     // padding-bottom:0px;
     color:$white;
+    line-height: 1;
     // position:relative;
     flex:1 0;
-
+    cursor: -moz-zoom-in; 
+    cursor: -webkit-zoom-in; 
+    cursor: zoom-in;
     img{
         max-width: 100%;
         max-height: 100%;
+        object-fit: contain;
         // margin-bottom:10px;
         // margin-top:10px;
         // border-radius: 15px;
         // opacity:.5;
         // transition:.25s ease;
         // box-shadow: $shadowThin;
-        cursor:pointer;
     }
 
     // img:hover{
@@ -150,18 +179,18 @@
 }
 
 
-@media only screen and (max-width: 750px) {
+@media only screen and (max-width: 768px) {
 
-    #teamSection{
-        display: flex;
-        flex-flow:column nowrap;
+    // #teamSection{
+    //     display: flex;
+    //     flex-flow:column nowrap;
 
-    }
+    // }
 
-    .threedee-large, .design-large, .design-wide, .design-mid, .website{
-        grid-column: span 1;
+    // .threedee-large, .design-large, .design-wide, .design-mid, .website{
+    //     grid-column: span 1;
 
-    }
+    // }
 
     .bio-panel{
         padding:0px;

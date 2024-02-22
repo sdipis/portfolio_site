@@ -2,7 +2,7 @@ export default {
   name: "TheFormComponent",
   created() {
     //log recieved data on component create event
-    console.log('Form called');
+    // console.log('Form called');
 },
 data() {
   return {
@@ -12,11 +12,10 @@ data() {
 
   template: `
   
-  <div class="videoChunk">
+  <div class="videoChunk" id="bCard" >
   <div class="contact-page">
 
   <form method="post" id="mail-form" action="includes/contact">
-  <h2>Contact Spencer</h2>
 
       <label for="firstName">First Name</label>
       <input type="text" id="firstName" name="firstName" placeholder="Your first name goes here...">
