@@ -102,38 +102,45 @@ import { SendMail } from "./components/TheMailer.js";
         this.currentIndex = this.portfolioData.findIndex((obj) => obj.id === item.id);
         this.isVisible = true;
 
+        
         this.pauseScroll();
       },
 
       closeLightBox() {
         this.isVisible = false;
-        this.resumeScroll();
+        if(this.autoScrollEnabled===true){
+        this.resumeScroll();}
       },
 
       startScroll() {
-        this.crackSeal = true;
-        this.conHid = false;
-        this.porHid = false;
-
-        setTimeout(() => {
+        // Check if the screen width is greater than 800 pixels
+          this.crackSeal = true;
+          this.conHid = false;
+          this.porHid = false;
+          this.autoScrollEnabled = true;
+      
+          // setTimeout(() => {
           if (!this.scrollingPaused) {
             if (scrollerID === null) {
               let triggerDistance = 5;
+      
 
               function scrollStep() {
-                window.scrollBy(0, 1);
 
+                if (window.innerWidth > 800) {
+                window.scrollBy(0, 1);
+                }
                 if (window.innerHeight + window.scrollY >= document.body.offsetHeight - triggerDistance) {
                   myVue.stopScroll();
                 } else {
                   scrollerID = requestAnimationFrame(scrollStep);
                 }
               }
-
+      
               scrollerID = requestAnimationFrame(scrollStep);
             }
           }
-        }, 0);
+        // }, 0);
       },
 
       stopScroll() {
@@ -150,6 +157,11 @@ import { SendMail } from "./components/TheMailer.js";
 
       pauseScroll() {
         this.scrollingPaused = true;
+        cancelAnimationFrame(scrollerID);
+      },
+      pauseAutoScroll() {
+        this.scrollingPaused = true;
+        this.autoScrollEnabled = false;
         cancelAnimationFrame(scrollerID);
       },
 

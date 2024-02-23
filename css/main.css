@@ -743,6 +743,15 @@ body {
     margin: 0;
     opacity: 1;
   }
+  #teamSection .design-mid {
+    grid-column: span 4 !important;
+  }
+  #teamSection .design-wide {
+    grid-column: span 4 !important;
+  }
+  #teamSection .design {
+    grid-column: span 4 !important;
+  }
 }
 #call {
   opacity: 0;
