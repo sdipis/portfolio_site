@@ -1,26 +1,15 @@
 export default {
     name: "TheThumbnailComponent",
     props: ["piece"],
-    template: `
-      <transition appear name="fade-slide">
-        <div @click="showmydata" class="bio-panel" :class="[piece.type]">
-          <div class="p_avatar">
-            <img :src='"dist/" + piece.display'>
-            <div class="thumbButtons"></div>
-          </div>
-        </div>
-      </transition>
-    `,
-    data() {
-      return {
-        message: "This is a piece of Spencer's portfolio",
-      };
-    },
+    template: `<div @click="showmydata" class="bio-panel tooltip" :id="[piece.title]" :class="[piece.type]">
+    <p class="tooltiptext">{{piece.title}}</p>
+    <img :src='"dist/" + piece.display'>
+
+    </div>`,
     methods: {
         showmydata() {
             this.$emit("showdata", this.piece);
-            this.$emit("update-current-index", this.piece.id); // Emit an event to update currentIndex
-            console.log("Data being shown!!");
+            // console.log("Data being shown!!");
           },
     },
   };

@@ -17,7 +17,7 @@ $stmt->execute();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Add/ Edit Projects</title>
-    <link rel="stylesheet" href="../sass/main.css" type="text/css">
+    <link rel="stylesheet" href="../css/main.css" type="text/css">
 
 </head>
 <body>
@@ -46,11 +46,12 @@ $stmt = null;
 
 
 <div class="listForms">
+
   <br>
-<h2>Upload an Image:</h2>
+<!-- <h2>Upload an Image:</h2> -->
 <br>
 
-<form action="upload.php" method="post" enctype="multipart/form-data">
+<form action="upload" method="post" enctype="multipart/form-data">
 <label for="uploaded">Select an Image</label>
 <input type="file" name="uploaded" id="uploaded"><br>
 <input type="submit" value="upload">
@@ -60,7 +61,7 @@ $stmt = null;
 <h2>Add a new project:</h2>
 <br>
 
-<form action="../admin/add_project.php" method="post">
+<form action="../admin/add_project" method="post">
 <div class="user-box">
     <label for="title">project title: </label>
     <input name="title" type="text" required><br><br>
@@ -87,6 +88,11 @@ $stmt = null;
     <input name="submit" type="submit" value="Add Project">
 </div>
 </form>
+
+<ul>
+<li><a href="../admin/profile.php">Profile</a></li>
+<li><a href="../admin/profile.php">Logout</a></li>
+</ul>
 
 </div>
 </div>

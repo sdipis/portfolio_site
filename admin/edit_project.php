@@ -1,5 +1,8 @@
 <?php
 require_once('../includes/admin_connect.php');
+
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
 $query = "UPDATE projects SET title = ?,display = ?,description=?,type=?,moreinfo=? WHERE id = ?";
 
 $stmt = $connection->prepare($query);

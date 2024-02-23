@@ -4,11 +4,12 @@
     padding-right:60px;
     padding-bottom:0px;
 
-    // background-color: $design;
+    background-color: $black;
     flex-flow:row nowrap;
-    height:30vh;
+    height:40vh;
 
     margin-bottom:0px;
+    z-index: 3;
 }
 
 .gridSocial{
@@ -28,11 +29,13 @@
 }
 
 .spaceBt{
-    justify-content: space-between;
+    justify-content: space-around;
     display: flex;
     flex-flow: row;
     li, a{
         padding:0px !important;
+        margin-left: 10px;
+        margin-right: 10px;
         svg{
             height:50px;
             fill:white;
@@ -45,6 +48,7 @@
     padding:10px;
     flex:3;
     display: flex;
+    justify-content: space-around;
 }
 
 

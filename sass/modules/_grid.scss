@@ -1,15 +1,30 @@
 .gridContainer {
   display: grid; 
-  grid-template-columns: 1fr 1fr 1fr; 
-  gap: 0px 0px; 
+  grid-template-columns: 1fr auto; 
   grid-template-areas: 
     "gridHead gridHead gridHead"
     "gridMain gridMain gridMain"
     "gridMain gridMain gridMain"
     "gridFooter gridFooter gridFooter"; 
     width:100vw;
+    background:none;
     
 }
+
+.grid_gap{
+  margin:40px; 
+  .p_avatar{
+    .bio_panel{
+      margin-bottom: 0px !important;
+    }
+  } 
+  #teamSection{
+    background:none;
+    box-shadow:none;
+  }
+
+}
+
 
 #wrapper{
   margin:auto;
@@ -21,7 +36,7 @@
 .gridAside {grid-area: gridAside;}
 
 
-@media only screen and (max-width: 750px) {
+@media only screen and (max-width: 768px) {
   
   .gridContainer {
   grid-template-areas:
