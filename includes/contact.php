@@ -6,12 +6,12 @@ header('Content-Type: application/json; charset=UTF-8');
 // Assuming you are sending POST data
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Retrieve the data sent from the client
-    $postData = json_decode(file_get_contents('php://input'), true);
+    // $postData = json_decode(file_get_contents('php://input'), true);
 
     // Extracting values from the received JSON data
-    $name = $postData['name'];
-    $email = $postData['email'];
-    $message = $postData['message'];
+    $name = $_POST['firstName'];
+    $email = $_POST['email'];
+    $message = $_POST['message'];
 
     // Your email address where you want to receive the message
     $to = 'spencer@dipidomain.com';

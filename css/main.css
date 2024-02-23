@@ -918,14 +918,43 @@ header .siteTitle {
   animation: spinny 5s 5s infinite ease;
 }
 
+.scrollDown {
+  margin: 0px;
+  padding: 0px;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  bottom: 40px;
+  left: 0;
+  opacity: 0;
+  align-items: center;
+  width: 100vw;
+}
+.scrollDown svg {
+  height: 80px;
+  width: 80px;
+  fill: #ffffff;
+}
+
+.onlyMobile {
+  display: none;
+}
+
 @media only screen and (max-width: 768px) {
   .topBar {
     padding-right: 20px;
     padding-left: 20px;
     justify-content: center;
   }
+  .tbtwo {
+    justify-content: flex-start;
+    margin-left: 20px;
+  }
   header {
     max-height: none;
+  }
+  .onlyMobile {
+    display: flex;
   }
   .noMobile {
     display: none;
@@ -1379,6 +1408,7 @@ header .siteTitle {
   justify-content: center;
   align-items: center;
   z-index: 1;
+  position: relative;
 }
 .contact-page .contactInfo {
   flex: 1 0 30%;

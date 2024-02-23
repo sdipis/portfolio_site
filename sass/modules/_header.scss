@@ -195,6 +195,28 @@ header{
     animation: spinny 5s 5s infinite ease;
   }
 
+  .scrollDown{
+    margin:0px;
+    padding:0px;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    bottom:40px;
+    left:0;
+    opacity: 0;
+    align-items: center;
+    width:100vw;
+    svg{
+        height:80px;
+        width:80px;
+        fill:$white;
+    }
+  }
+
+  .onlyMobile{
+    display: none;
+  }
+
   @media only screen and (max-width: 768px) {
 
     .topBar{
@@ -203,9 +225,18 @@ header{
         justify-content: center;
     }
 
+    .tbtwo{
+        justify-content: flex-start;
+        margin-left:20px;
+    }
+
 
     header{
         max-height:none;
+    }
+
+    .onlyMobile{
+        display: flex;
     }
 
     .noMobile{
