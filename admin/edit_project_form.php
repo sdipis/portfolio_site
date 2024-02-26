@@ -36,7 +36,7 @@ $images = explode(",", $row['images']);
                 
                 
                 <div class="listForms">
-                <form action="edit_project" method="POST">
+                <form action="edit_project.php" method="POST">
                     <input name="pk" type="hidden" value="<?php echo $row['id']; ?>">
                     <label for="title">project title: </label>
                     <input name="title" type="text" value="<?php echo $row['title']; ?>" required><br><br>
@@ -60,7 +60,7 @@ $images = explode(",", $row['images']);
         <?php
         $stmt = null;
         ?>
-                    <a href="../admin/project_list"><img class="backButton" src="../svg/goback.svg" ></a>
+                    <a href="../admin/project_list.php"><img class="backButton" src="../svg/goback.svg" ></a>
 
     </div>
     

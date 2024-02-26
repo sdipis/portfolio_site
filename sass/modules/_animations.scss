@@ -1,37 +1,37 @@
 /* Enter and leave animations can use different */
 /* durations and timing functions.              */
 .slide-fade-enter-active {
-    transition: all 2s ease;
+    transition: all .4s ease;
   }
   .slide-fade-leave-active {
-    transition: all 2s;
+    transition: all .4s ease;
   }
   .slide-fade-enter, .slide-fade-leave-to
   /* .slide-fade-leave-active below version 2.1.8 */ {
     // transform: translateY(-10vh); //scaley(.8) scalex(.2);
-    filter: blur(25px);
+    filter: blur(100px);
     opacity: 0;
-    transform:skew-x(180deg);
-    transition: all 1s ease;
+    transform:skew(45deg),translate(90deg);
+    transition: all .4s ease;
+
   }
 
   .image-trans-enter-active {
     transition: all .4s ease;
   }
   .image-trans-leave-active {
-    transition: all .4s;
+    transition: all .4s ease;
   }
   .image-trans-enter, .image-trans-leave-to
   /* .slide-fade-leave-active below version 2.1.8 */ {
     // transform: translateY(-10vh); //scaley(.8) scalex(.2);
-    filter: blur(25px);
     opacity: 0;
     transform:scale(0);
     transition: all .4s ease;        
   }
 
   .big-small-enter-active{ transition: all 5s ease;}
-  .big-small-leave-active{transition: all 5s  cubic-bezier(1.0, 0.5, 0.8, 1.0);}
+  .big-small-leave-active{transition: all 5s ease cubic-bezier(1.0, 0.5, 0.8, 1.0);}
   .big-small-enter{transition: 5s ease;opacity:0;}
 
   @keyframes pulse{
@@ -138,6 +138,17 @@ opacity:1;
     }
   }
 
+  @keyframes gradientFill {
+    0% {
+      fill: linear-gradient(-90deg, #FF9B11, #8800FF, #2C99FF, #23d5ab);
+    }
+    50% {
+      fill: linear-gradient(-45deg, #FF9B11, #8800FF, #2C99FF, #23d5ab);
+    }
+    100% {
+      fill: linear-gradient(-90deg, #FF9B11, #8800FF, #2C99FF, #23d5ab);
+    }
+  }
   @keyframes textThrob{
     0%{
       transform: translate(0px, 0px) skew(0deg, 0deg);  
@@ -170,3 +181,4 @@ opacity:1;
   animation:textThrob 20.4s infinite ease-out;
  }
   
+ 
