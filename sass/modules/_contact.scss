@@ -38,7 +38,9 @@
         }}
 
     }
-
+    .contentChunkAbove{
+        vertical-align:left;
+    }
 .contact-page{ 
     display: flex;
     padding-top:0px;
@@ -70,6 +72,7 @@
         }
         
     }
+
 
     form{
     flex:2 0 60%;
@@ -143,21 +146,21 @@
 
     }
 
-    input[type=submit]{
-        font-size:26px;
+    button[type=submit]{
+        // font-size:26px;
         // padding:50px;
         // padding-top:10px;
         // padding-bottom:10px;
         // text-transform: uppercase;
         // color:$white;
 
-        padding:10px;
-        font-weight: 600;
-        text-align: center;
-        background-color:$black;
-        border-radius: 15px;
-        color:$white;
-        box-shadow: $shadowThin;
+        // padding:10px;
+        // font-weight: 600;
+        // text-align: center;
+        // background-color:$black;
+        // border-radius: 15px;
+        // color:$white;
+        // box-shadow: $shadowThin;
         margin-top:20px;
         // background:$orangeGrad2;
         // background-color: $black;
@@ -165,17 +168,7 @@
         // box-shadow:$shadow3;
         // margin-top:20px;
 
-        width:100%;
         float:right;
-        transition: .2s ease;
-    }
-    input[type=submit]:hover{
-        letter-spacing: 2px;
-        
-    }
-    input[type=submit]:active{
-        transform:translateY(2px);
-        letter-spacing: 100px;
     }
 }
 

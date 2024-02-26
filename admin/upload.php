@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-$target_file = '../uploads/img' . time();
+$target_file = '..dist/uploads/img' . time();
 $imageFileType = strtolower(pathinfo($_FILES['uploaded']['name'], PATHINFO_EXTENSION));
 $target_file .= '.' . $imageFileType;
 

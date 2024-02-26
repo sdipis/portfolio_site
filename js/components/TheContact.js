@@ -11,7 +11,9 @@ export default {
       <div class="contact-page">
       <ul>
           <li><h2 id="bCardName">{{ profileData[0].nickname }}</h2></li>
+          <li><h3>{{ profileData[0].email }}</h3></li>
           <li><h3>{{ profileData[0].bio }}</h3></li>
+
       </ul>
 
       </div>

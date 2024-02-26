@@ -149,6 +149,10 @@ table {
   display: flex;
 }
 
+.scrollOver svg {
+  transform: rotate(90deg);
+}
+
 .projectListCont {
   display: flex;
   flex-flow: row wrap;
@@ -253,14 +257,19 @@ p2 {
   display: flex;
   overflow-x: scroll;
   background-color: #ffffff;
+  height: 100vh;
+  align-items: center;
 }
-.project-gallery img {
+.project-gallery img, .project-gallery video, .project-gallery embed {
   object-fit: contain;
   max-height: 50vw;
   margin-top: 0px;
   padding: 40px;
   max-width: 100vw;
   margin: 0 auto;
+}
+.project-gallery .extraContent embed {
+  height: 100vh;
 }
 
 .projectText {
@@ -300,15 +309,36 @@ p2 {
   opacity: 1;
 }
 
+.extraContent embed {
+  width: 100vw;
+  max-height: 50vw;
+  height: 100%;
+}
+
 .infoButton {
   height: 40px;
-  position: absolute;
+  width: 40px;
+  position: static;
   top: 20px;
   right: 20px;
   opacity: 0.25;
   cursor: pointer;
 }
 .infoButton:hover {
+  opacity: 1;
+}
+
+.ib2 {
+  position: sticky;
+  top: 20px;
+  align-self: right;
+  margin-left: none;
+  margin-right: none;
+  opacity: 0.25;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+.ib2:hover {
   opacity: 1;
 }
 
@@ -321,7 +351,7 @@ p2 {
   border-radius: inherit;
 }
 
-@media only screen and (max-width: 750px) {
+@media only screen and (max-width: 768px) {
   .adminWrapper {
     flex-flow: column;
     max-height: none;
@@ -352,7 +382,7 @@ p2 {
     margin-bottom: 30px;
     font-size: 26px;
   }
-  .projectText p {
+  .projectText p, .projectText p2 {
     line-height: 30px;
     color: #000;
     text-align: justify;
@@ -360,6 +390,8 @@ p2 {
   }
   .project-gallery {
     flex-flow: column !important;
+    justify-content: center;
+    height: auto;
   }
   .project-gallery img {
     max-height: 100vw;
@@ -487,7 +519,7 @@ p2 {
 .profileWrapper {
   display: flex;
   flex-flow: row;
-  background-color: #cf0000;
+  background-color: #38ef7d;
   width: 100vw;
   justify-content: center;
   align-items: center;
@@ -564,6 +596,9 @@ p2 {
 
 .gridHead {
   grid-area: gridHead;
+  background: linear-gradient(-45deg, #FF9B11, #8800FF, #2C99FF, #23d5ab);
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
 }
 
 .gridMain {
@@ -597,7 +632,7 @@ html, body {
 
 body {
   background: linear-gradient(-45deg, #FF9B11, #8800FF, #2C99FF, #23d5ab);
-  background-size: 600% 600%;
+  background-size: 200% 200%;
   animation: gradient 15s ease infinite;
   width: 100%;
   display: flex;
@@ -826,19 +861,18 @@ header .siteTitle {
   z-index: 1;
   padding-left: 60px;
   padding-right: 60px;
-  padding-top: 20px;
-  padding-bottom: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 .topBar h2 {
   color: #ffffff;
-  margin-left: 20px;
 }
 .topBar .musicNote {
   cursor: pointer;
 }
 
 .tbtwo {
-  justify-content: flex-start;
+  justify-content: space-between;
   background-color: #161616;
   z-index: 3;
 }
@@ -875,7 +909,7 @@ header .siteTitle {
   transition: 0.25s ease;
 }
 .menus li a:hover {
-  color: rgb(0, 165, 44);
+  color: #ff9224;
 }
 
 .textFlash {
@@ -891,15 +925,21 @@ header .siteTitle {
 .blurb h2 {
   color: #ffffff;
 }
+.blurb a {
+  cursor: pointer !important;
+}
 .blurb svg {
   height: 40px;
   width: 40px;
-  margin-left: 30px;
+  margin: 15px;
+  transition: 0.2s ease;
   fill: #ffffff;
-  cursor: pointer;
 }
 .blurb svg:hover {
-  fill: rgb(0, 165, 44);
+  fill: #ff9224;
+}
+.blurb .closeSVG {
+  stroke: #ff9224;
 }
 .blurb .spinarrow {
   height: 40px;
@@ -908,7 +948,6 @@ header .siteTitle {
   animation: arrowSpin 10s 2s ease;
   margin-right: 50px;
   margin-left: 0px;
-  cursor: default;
 }
 .blurb .spinarrow:hover {
   fill: #ffffff;
@@ -948,7 +987,6 @@ header .siteTitle {
   }
   .tbtwo {
     justify-content: flex-start;
-    margin-left: 20px;
   }
   header {
     max-height: none;
@@ -989,7 +1027,7 @@ header .siteTitle {
   fill: #ffffff;
 }
 .gridSocial li a svg:hover {
-  fill: rgb(0, 165, 44);
+  fill: #ff9224;
 }
 
 .spaceBt {
@@ -1013,6 +1051,9 @@ header .siteTitle {
   display: flex;
   justify-content: space-around;
 }
+.footerLinks h2, .footerLinks h3 {
+  color: #ffffff;
+}
 
 @media only screen and (max-width: 750px) {
   .gridFooter {
@@ -1032,18 +1073,18 @@ header .siteTitle {
 /* Enter and leave animations can use different */
 /* durations and timing functions.              */
 .slide-fade-enter-active {
-  transition: all 2s ease;
+  transition: all 0.4s ease;
 }
 
 .slide-fade-leave-active {
-  transition: all 2s;
+  transition: all 0.4s ease;
 }
 
 .slide-fade-enter, .slide-fade-leave-to {
-  filter: blur(25px);
+  filter: blur(100px);
   opacity: 0;
-  transform: skew-x(180deg);
-  transition: all 1s ease;
+  transform: skew(45deg), translate(90deg);
+  transition: all 0.4s ease;
 }
 
 .image-trans-enter-active {
@@ -1051,11 +1092,10 @@ header .siteTitle {
 }
 
 .image-trans-leave-active {
-  transition: all 0.4s;
+  transition: all 0.4s ease;
 }
 
 .image-trans-enter, .image-trans-leave-to {
-  filter: blur(25px);
   opacity: 0;
   transform: scale(0);
   transition: all 0.4s ease;
@@ -1066,7 +1106,7 @@ header .siteTitle {
 }
 
 .big-small-leave-active {
-  transition: all 5s cubic-bezier(1, 0.5, 0.8, 1);
+  transition: all 5s ease cubic-bezier(1, 0.5, 0.8, 1);
 }
 
 .big-small-enter {
@@ -1164,6 +1204,17 @@ header .siteTitle {
     background-position: 0% 50%;
   }
 }
+@keyframes gradientFill {
+  0% {
+    fill: linear-gradient(-90deg, #FF9B11, #8800FF, #2C99FF, #23d5ab);
+  }
+  50% {
+    fill: linear-gradient(-45deg, #FF9B11, #8800FF, #2C99FF, #23d5ab);
+  }
+  100% {
+    fill: linear-gradient(-90deg, #FF9B11, #8800FF, #2C99FF, #23d5ab);
+  }
+}
 @keyframes textThrob {
   0% {
     transform: translate(0px, 0px) skew(0deg, 0deg);
@@ -1211,15 +1262,35 @@ header .siteTitle {
 .lightBox .lb-image {
   min-height: 100vh;
   display: flex;
-  background-color: #ffffff;
   justify-content: center;
+  flex-flow: column;
+  background-color: #ffffff;
+  align-items: center;
+}
+.lightBox .lb-image .in-image {
+  width: auto;
+  height: auto;
+  position: relative;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+}
+.lightBox .lb-image .in-image ul {
+  display: flex;
+  flex-flow: row;
+  position: absolute;
+  width: 100%;
+  justify-content: space-between;
+  top: 0px;
+}
+.lightBox .lb-image .in-image ul li {
+  padding: 20px;
 }
 .lightBox .lb-image img {
-  max-width: 100vw;
-  max-height: 100vh;
-  padding: 60px;
+  height: 50vw;
+  max-width: 60vw;
   object-fit: contain;
-  width: 100%;
 }
 .lightBox .design img {
   border: 10px solid rgb(255, 255, 255);
@@ -1320,14 +1391,10 @@ header .siteTitle {
 }
 .websize .lb-image {
   display: flex;
-  padding: 40px;
+  padding: 20px;
   flex: 1 0 70%;
   max-width: 70%;
   justify-content: space-between;
-}
-.websize .lb-image img {
-  max-width: 1052px;
-  max-height: 568px;
 }
 
 .design .lb-text .lb-title {
@@ -1339,6 +1406,26 @@ header .siteTitle {
 }
 
 @media only screen and (max-width: 768px) {
+  .lightBox .lb-image {
+    padding: 0px !important;
+  }
+  .lightBox .lb-image .in-image {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 80vw !important;
+  }
+  .lightBox .lb-image .in-image img {
+    min-height: 80vw !important;
+    max-width: 80vw;
+    height: auto;
+    overflow: hidden;
+  }
+  .lb-image img {
+    padding: 0px !important;
+    width: 100%;
+  }
   .lb-text {
     padding-right: 40px;
     padding-left: 40px;
@@ -1353,7 +1440,6 @@ header .siteTitle {
   }
   .small .lb-image img {
     width: 100%;
-    max-height: 1200px;
   }
   .small .lb-text {
     flex: 1 0 100%;
@@ -1400,6 +1486,10 @@ header .siteTitle {
 .editPageImages div img {
   max-width: 100%;
   max-height: 100%;
+}
+
+.contentChunkAbove {
+  vertical-align: left;
 }
 
 .contact-page {
@@ -1483,26 +1573,9 @@ header .siteTitle {
   border: 1px solid #161616;
   box-shadow: 0px 0px 6px inset rgba(0, 0, 0, 0.65);
 }
-.contact-page input[type=submit] {
-  font-size: 26px;
-  padding: 10px;
-  font-weight: 600;
-  text-align: center;
-  background-color: #161616;
-  border-radius: 15px;
-  color: #ffffff;
-  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.85);
+.contact-page button[type=submit] {
   margin-top: 20px;
-  width: 100%;
   float: right;
-  transition: 0.2s ease;
-}
-.contact-page input[type=submit]:hover {
-  letter-spacing: 2px;
-}
-.contact-page input[type=submit]:active {
-  transform: translateY(2px);
-  letter-spacing: 100px;
 }
 
 #bCard {

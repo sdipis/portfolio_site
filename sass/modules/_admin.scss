@@ -74,6 +74,10 @@
     display: flex;
 }
 
+.scrollOver svg{
+    transform:rotate(90deg);
+}
+
 
 .projectListCont{
     display: flex;
@@ -189,8 +193,9 @@ p2{
     display: flex;
     overflow-x: scroll;
     background-color: $white;
-
-    img{
+    height:100vh;
+    align-items: center;
+    img, video, embed{
     object-fit: contain;
     max-height: 50vw;
     margin-top: 0px;
@@ -199,11 +204,16 @@ p2{
     margin:0 auto;
     }
 
+    .extraContent embed{
+        height:100vh;
+    }
+
 }
 
 .projectText{
     padding:140px;
     background-color: white;
+
     h1{
         margin-bottom: 30px;
         font-size: 36px;
@@ -241,13 +251,40 @@ cursor: pointer;
 }
 }
 
+.extraContent {
+    embed{
+    width:100vw;
+    max-height:50vw;
+    height:100%;
+    }
+}
+
 .infoButton{
     height:40px;
-    position: absolute;
+    width:40px;
+    position: static; 
     top:20px;
-    right:20px;
+    right: 20px;
+    // right: 0; 
+    // margin-left: auto; 
+    // margin-right: auto; 
+
     opacity: 0.25;
     cursor: pointer;
+    &:hover{
+        opacity:1;
+    }
+}
+
+.ib2{
+    position: sticky;
+    top:20px;
+    align-self: right;
+    margin-left:none;
+    margin-right:none;
+    opacity: 0.25;
+    cursor: pointer;
+    margin-bottom: 20px;
     &:hover{
         opacity:1;
     }
@@ -270,7 +307,7 @@ cursor: pointer;
 
 
 
-@media only screen and (max-width: 750px) {
+@media only screen and (max-width: 768px) {
 
     .adminWrapper{
         flex-flow: column;
@@ -304,7 +341,7 @@ cursor: pointer;
             font-size: 26px;
     
         }
-        p{
+        p, p2{
             line-height: 30px;
             color:#000;
             text-align: justify;
@@ -315,6 +352,8 @@ cursor: pointer;
 
     .project-gallery{
         flex-flow: column !important;
+        justify-content: center;
+        height:auto;
         img{
             max-height: 100vw;
         }

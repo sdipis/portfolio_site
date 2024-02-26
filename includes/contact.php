@@ -21,7 +21,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $messageBody = "Name: $name\nEmail: $email\nMessage: $message";
 
     // Additional headers
-    $headers = 'From: webmaster@example.com' . "\r\n" .
+    $headers = 'From: '. $name . "\r\n" .
         'Reply-To: ' . $email . "\r\n" .
         'X-Mailer: PHP/' . phpversion();
 

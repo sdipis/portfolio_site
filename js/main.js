@@ -13,29 +13,27 @@ import { SendMail } from "./components/TheMailer.js";
   const myVue = new Vue({
     
     created() {
-      
+      //pull the fetch data from the dataMiner.js, which uses php to fetch from database and push to frontend as json data
       getData(null, (data) => (this.portfolioData = data));
       getSecondData(null, (data) => (this.profileData = data));
 
-      document.addEventListener("DOMContentLoaded", () => {
-        let mailSubmit = document.querySelector('input[type=submit]');
+      let mailSubmit = document.querySelector('button[type=submit]');
 
-        if (mailSubmit) {
-          function processMailFailure(result) {
-            alert(result.message);
-          }
-
-          function processMail(e) {
-            e.preventDefault();
-
-            SendMail(this.parentNode)
-              .then((data) => processMailSuccess(data))
-              .catch((err) => processMailFailure(err));
-          }
-
-          mailSubmit.addEventListener("click", processMail);
+      if (mailSubmit) {
+        function processMailFailure(result) {
+          alert(result.message);
         }
-      });
+      
+        function processMail(e) {
+          e.preventDefault();
+      
+          SendMail(this.parentNode)
+            .then((data) => processMailSuccess(data))
+            .catch((err) => processMailFailure(err));
+        }
+      
+        mailSubmit.addEventListener("click", processMail);
+      }
     },
 
     data() {
@@ -43,26 +41,39 @@ import { SendMail } from "./components/TheMailer.js";
         portfolioData: [],
         profileData: {},
         currentData: {},
+        //set conHid to false if you want contact info to show up on page load
+        //set conHid to true if you want "click me button" to show up on page load
         conHid: true,
         porHid: true,
         videoShow: false,
         formShow: false,
+        //isVisible flag sets to true when user opens the lightbox, sets to false when user closes lightbox
         isVisible: false,
         counter: 0,
         textShow: false,
         audioElement: null,
         musicPlaying: false,
+        //crackSeal is triggered to true when user clicks the button, this cannot be set to false again without reloading the page
         crackSeal: false,
+
+        //this is activated by toggling scrolling with a menu link
+        //if I dont toggle this, the website will start auto scrolling everytime a user closes the lightbox, even if they werent auto scrolling when they opened it
         autoScrollEnabled: false,
         scrollingPaused: false,
+
       };
     },
 
     methods: {
+
       openVideoComponent() {
+        //spawns the video when user clicks on menu link
+        //hide the contact form when video is opened
         this.formShow = false;
         this.videoShow = !this.videoShow;
 
+        //hide the contact info if it's open when user opens video
+        //only toggles it if it's already closed
         if (this.conHid === true) {
           this.conHid = !this.conHid;
         }
@@ -71,6 +82,8 @@ import { SendMail } from "./components/TheMailer.js";
       },
 
       openFormComponent() {
+        //spawns in the contact form when user clicks menu link
+        //hides the contact info so it doesnt show behind the form
         this.conHid = !this.conHid;
 
         this.formShow = !this.formShow;
@@ -81,6 +94,7 @@ import { SendMail } from "./components/TheMailer.js";
       },
 
       toggleMusic() {
+        //toggles the music when user clicks on the speaker thing
         this.musicPlaying = !this.musicPlaying;
 
         if (this.musicPlaying) {
@@ -98,15 +112,17 @@ import { SendMail } from "./components/TheMailer.js";
       },
 
       popLightBox(item) {
+        //opens the lightbox when user clicks on an item in gallery
         this.currentData = item;
         this.currentIndex = this.portfolioData.findIndex((obj) => obj.id === item.id);
         this.isVisible = true;
 
-        
+
         this.pauseScroll();
       },
 
       closeLightBox() {
+        //closes the lightbox
         this.isVisible = false;
         if(this.autoScrollEnabled===true){
         this.resumeScroll();}
@@ -119,19 +135,21 @@ import { SendMail } from "./components/TheMailer.js";
           this.porHid = false;
           this.autoScrollEnabled = true;
       
-          // setTimeout(() => {
-          if (!this.scrollingPaused) {
-            if (scrollerID === null) {
+          if(!this.scrollingPaused || scrollerID === null){
               let triggerDistance = 5;
       
 
               function scrollStep() {
 
-                if (window.innerWidth > 800) {
+                //only scroll if screenwidth is above 768px (non mobile)
+                if (window.innerWidth > 768) {
                 window.scrollBy(0, 1);
                 }
+                //stop scrolling when user gets to the bottom of page
                 if (window.innerHeight + window.scrollY >= document.body.offsetHeight - triggerDistance) {
                   myVue.stopScroll();
+                  myVue.scrollingPaused=true;
+
                 } else {
                   scrollerID = requestAnimationFrame(scrollStep);
                 }
@@ -139,16 +157,17 @@ import { SendMail } from "./components/TheMailer.js";
       
               scrollerID = requestAnimationFrame(scrollStep);
             }
-          }
-        // }, 0);
       },
 
       stopScroll() {
+        //clear scroll interval
         clearInterval(scrollerID);
+        //reset scrollerID to null so scrolling can be started again
         scrollerID = null;
       },
 
       stopMusic() {
+        //stops music from playing if it's playing
         if (this.audioElement) {
           this.audioElement.pause();
           this.audioElement = null;
@@ -156,10 +175,12 @@ import { SendMail } from "./components/TheMailer.js";
       },
 
       pauseScroll() {
+        //pause scroll (when user opens lightbox)
         this.scrollingPaused = true;
         cancelAnimationFrame(scrollerID);
       },
       pauseAutoScroll() {
+        //turns off auto scroll (scrolling is enabled every time lightbox closes if this isnt here)
         this.scrollingPaused = true;
         this.autoScrollEnabled = false;
         cancelAnimationFrame(scrollerID);
