@@ -51,7 +51,7 @@ $stmt = null;
 <!-- <h2>Upload an Image:</h2> -->
 <br>
 
-<form action="upload.php" method="post" enctype="multipart/form-data">
+<form action="../admin/upload.php" method="post" enctype="multipart/form-data">
 <label for="uploaded">Select an Image</label>
 <input type="file" name="uploaded" id="uploaded"><br>
 <input type="submit" value="upload">

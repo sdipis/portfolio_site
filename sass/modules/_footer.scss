@@ -10,6 +10,16 @@
 
     margin-bottom:0px;
     z-index: 3;
+
+    .menus li{
+        a,svg{
+            cursor:pointer;
+        &:hover{
+            fill:$hover2;
+            color:$hover2;
+        }
+    }
+    }
 }
 
 .gridSocial{
@@ -45,12 +55,17 @@
 }
 
 .footerLinks{
+    margin-top:20px;
     padding:10px;
     flex:3;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     h2,h3{
         color:$white;
+    }
+    li{
+        margin-left:10px;
+        margin-right:10px;
     }
 }
 

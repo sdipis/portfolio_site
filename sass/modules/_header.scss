@@ -2,7 +2,30 @@
     opacity:0;
 }
 
+.pageTitleBar{
+    width:100%;
+    position: absolute;
+    top:0;
+    left:0;
+    padding:20px;
 
+}
+
+.pageTitle{
+    font-size: 1.5rem;
+    background-color: transparent !important;
+    text-align: left;
+}
+
+
+
+.socialMenu{
+    li a svg{
+        &:hover{
+            fill:$black;
+        }
+    }
+}
 header{
     position: relative;
     display: flex;
@@ -72,6 +95,12 @@ header{
     left:0;
 }
 
+.topBarTwo{
+    position: fixed;
+    left:40px;
+    top:20px;
+}
+
 
 .topBar{
     // background-color:$black;
@@ -90,6 +119,10 @@ header{
     padding-right:60px;
     padding-top:10px;
     padding-bottom:10px;
+    -webkit-user-select: none;  
+    -moz-user-select: none;    
+    -ms-user-select: none;      
+    user-select: none;
 
     h2{
         color:$white;
@@ -101,11 +134,21 @@ header{
     }
 }
 
+
+
 .tbtwo{
     justify-content: space-between;
     
     background-color: $black;
     z-index: 3;
+    .blurb .menus li a svg:hover{
+        fill:$hover2;
+    }
+}
+
+.admin .menus li a{
+   &:hover{ 
+    color:$red; }
 }
 .blanks{
     background:none;
@@ -127,6 +170,10 @@ header{
     flex-flow:row nowrap;
     align-items: center;
     margin:0 auto;
+    -webkit-user-select: none;  
+    -moz-user-select: none;    
+    -ms-user-select: none;      
+    user-select: none;
 
 
 
@@ -142,7 +189,7 @@ header{
     }
 
     li a:hover{
-        color:$hover;
+        color:$red !important;
         // letter-spacing: 3px;
     }
 
@@ -177,10 +224,14 @@ header{
       &:hover{
         fill:$hover;
       }
+
+      &:active{
+        transform:scale(1.5);
+    }
     }
 
     .closeSVG{
-        stroke:$hover;
+        stroke:$red;
 
     }
 
@@ -219,6 +270,8 @@ header{
         height:80px;
         width:80px;
         fill:$white;
+        display: none;
+
     }
   }
 
@@ -227,6 +280,11 @@ header{
   }
 
   @media only screen and (max-width: 768px) {
+
+    .blurb svg{
+        margin:0px !important;
+        margin-top:10px !important;
+    }
 
     .topBar{
         padding-right:20px;

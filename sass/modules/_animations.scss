@@ -9,12 +9,65 @@
   .slide-fade-enter, .slide-fade-leave-to
   /* .slide-fade-leave-active below version 2.1.8 */ {
     // transform: translateY(-10vh); //scaley(.8) scalex(.2);
-    filter: blur(100px);
+    // filter: blur(50px);
     opacity: 0;
-    transform:skew(45deg),translate(90deg);
+    transform:scale(0) translateX(-100vw);
     transition: all .4s ease;
 
   }
+
+  //slide fade 2
+
+  .slide-fade-two-enter-active {
+    transition: all .4s ease;
+  }
+  .slide-fade-two-leave-active {
+    transition: all .4s ease;
+  }
+  .slide-fade-two-enter, .slide-fade-two-leave-to
+  /* .slide-fade-leave-active below version 2.1.8 */ {
+    // transform: translateY(-10vh); //scaley(.8) scalex(.2);
+    // filter: blur(50px);
+    opacity: 0;
+    transform:scale(0) translateX(100vw);
+    transition: all .4s ease;
+
+  }
+
+//moves down instead of over
+.slide-fade-down-enter-active {
+  transition: all .4s ease;
+}
+.slide-fade-down-leave-active {
+  transition: all .4s ease;
+}
+.slide-fade-down-enter, .slide-fade-down-leave-to
+/* .slide-fade-leave-active below version 2.1.8 */ {
+  // transform: translateY(-10vh); //scaley(.8) scalex(.2);
+  // filter: blur(50px);
+  opacity: 0;
+  transform:scale(0) translateY(-100vh);
+  transition: all .4s ease;
+
+}
+
+//moves up instead of over
+.slide-fade-up-enter-active {
+  transition: all .4s ease;
+}
+.slide-fade-up-leave-active {
+  transition: all .4s ease;
+}
+.slide-fade-up-enter, .slide-fade-up-leave-to
+/* .slide-fade-leave-active below version 2.1.8 */ {
+  // transform: translateY(-10vh); //scaley(.8) scalex(.2);
+  // filter: blur(50px);
+  opacity: 0;
+  transform:scale(0) translateY(100vh);
+  transition: all .4s ease;
+
+}
+
 
   .image-trans-enter-active {
     transition: all .4s ease;
@@ -23,6 +76,20 @@
     transition: all .4s ease;
   }
   .image-trans-enter, .image-trans-leave-to
+  /* .slide-fade-leave-active below version 2.1.8 */ {
+    // transform: translateY(-10vh); //scaley(.8) scalex(.2);
+    opacity: 0;
+    transform:scale(0) translateX(100vw);
+    transition: all .4s ease;        
+  }
+
+  .image-slide-enter-active {
+    transition: all .4s ease;
+  }
+  .image-slide-leave-active {
+    transition: all .4s ease;
+  }
+  .image-slide-enter, .image-slide-leave-to
   /* .slide-fade-leave-active below version 2.1.8 */ {
     // transform: translateY(-10vh); //scaley(.8) scalex(.2);
     opacity: 0;
@@ -137,6 +204,9 @@ opacity:1;
       background-position: 0% 50%;
     }
   }
+
+
+
 
   @keyframes gradientFill {
     0% {

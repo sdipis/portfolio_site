@@ -5,14 +5,27 @@ import TheLightbox from "./components/TheLightbox.js";
 import TheHeader from "./components/TheTicker.js"; 
 import TheVideoComponent from "./components/TheVideo.js";
 import TheFormComponent from "./components/TheForm.js";
+import TheAboutComponent from "./components/TheAboutMe.js";
+import TheRandomTextComponent from "./components/TheRandomText.js";
+import TheFooterComponenet from "./components/TheFooter.js";
 import { SendMail } from "./components/TheMailer.js";
+
 
 (() => {
   let scrollerID = null;
 
   const myVue = new Vue({
+
+    destroyed() {
+      window.removeEventListener('scroll', this.updateBlur);
+    },
     
     created() {
+
+
+      window.addEventListener('scroll', this.updateBlur);
+
+
       //pull the fetch data from the dataMiner.js, which uses php to fetch from database and push to frontend as json data
       getData(null, (data) => (this.portfolioData = data));
       getSecondData(null, (data) => (this.profileData = data));
@@ -41,10 +54,11 @@ import { SendMail } from "./components/TheMailer.js";
         portfolioData: [],
         profileData: {},
         currentData: {},
-        //set conHid to false if you want contact info to show up on page load
-        //set conHid to true if you want "click me button" to show up on page load
-        conHid: true,
+        //set conShow to false if you want contact info to show up on page load
+        //set conShow to true if you want "click me button" to show up on page load
+        conShow: true,
         porHid: true,
+        aboutShow: false,
         videoShow: false,
         formShow: false,
         //isVisible flag sets to true when user opens the lightbox, sets to false when user closes lightbox
@@ -52,31 +66,91 @@ import { SendMail } from "./components/TheMailer.js";
         counter: 0,
         textShow: false,
         audioElement: null,
-        musicPlaying: false,
+        musicPlaying: true,
         //crackSeal is triggered to true when user clicks the button, this cannot be set to false again without reloading the page
         crackSeal: false,
 
         //this is activated by toggling scrolling with a menu link
         //if I dont toggle this, the website will start auto scrolling everytime a user closes the lightbox, even if they werent auto scrolling when they opened it
-        autoScrollEnabled: false,
-        scrollingPaused: false,
+        autoScrollEnabled: false, //used for scroll logic, dont touch
+        scrollingPaused: false, //used for scroll logic, don't touch.
+        scrollEnabled: false, //turn this to false so it doesnt auto scroll when user enters site
+
+        blurValue: 0, //declare blur value so we can use it dynamically
+        scaleValue: 1, // Add this line to declare scaleValue
+        opacityValue:1,
+
+
+
 
       };
     },
-
+    computed: {
+      dynamicBlur() {
+        return `blur(${this.blurValue}px)`;
+      },
+      dynamicScale() {
+        return `scale(${this.scaleValue})`;
+      },
+      dynamicOpacity(){
+        return this.opacityValue
+      },
+      dynamicBG() {
+        const currentPercentage = this.initialBackgroundPercentage * this.scaleFactor;
+        return `${currentPercentage}% ${5 * this.scaleFactor}%`;
+      }
+    },
     methods: {
+      updateBlur() {
+        const scrollPosition = window.scrollY;
+      
+        this.scaleValue = Math.max(0.5, 1 - (scrollPosition) / 500); // Adjust the scaling factor as needed
+      
+        if (scrollPosition > 250) {
+          this.blurValue = Math.min(0, scrollPosition / 0);
+          this.opacityValue = Math.max(0, 1 - (scrollPosition - 250) / 100); // Adjust the opacity factor as needed
+        } else {
+          this.blurValue = 0;
+          this.opacityValue = 1;
+        }
+      },
+
+      openAboutMe(){
+        //spawns in the contact form when user clicks menu link
+        //hides the contact info so it doesnt show behind the form
+
+        if(this.aboutShow===false){
+          this.aboutShow = true;
+          this.formShow = false;
+          this.videoShow = false;
+          this.conShow=true;
+        }else{
+          this.aboutShow = false;
+          this.formShow = false;
+          this.videoShow = false;
+          this.conShow=false;
+        }
+
+        window.scrollTo(0, 0);
+        this.pauseScroll();
+      },
 
       openVideoComponent() {
-        //spawns the video when user clicks on menu link
-        //hide the contact form when video is opened
-        this.formShow = false;
-        this.videoShow = !this.videoShow;
 
-        //hide the contact info if it's open when user opens video
-        //only toggles it if it's already closed
-        if (this.conHid === true) {
-          this.conHid = !this.conHid;
+        //toggle video to show when you click on button
+        //if true, make false, if false, make true
+        if(this.videoShow===false){
+          this.aboutShow = false;
+          this.formShow = false;
+          this.videoShow = true;
+          this.conShow=true;
+        }else{
+          this.aboutShow = false;
+          this.formShow = false;
+          this.videoShow = false;
+          this.conShow=false;
         }
+
         window.scrollTo(0, 0);
         this.pauseScroll();
       },
@@ -84,10 +158,18 @@ import { SendMail } from "./components/TheMailer.js";
       openFormComponent() {
         //spawns in the contact form when user clicks menu link
         //hides the contact info so it doesnt show behind the form
-        this.conHid = !this.conHid;
 
-        this.formShow = !this.formShow;
-        this.videoShow = false;
+        if(this.formShow===false){
+          this.aboutShow = false;
+          this.formShow = true;
+          this.videoShow = false;
+          this.conShow=true;
+        }else{
+          this.aboutShow = false;
+          this.formShow = false;
+          this.videoShow = false;
+          this.conShow=false;
+        }
 
         window.scrollTo(0, 0);
         this.pauseScroll();
@@ -97,18 +179,18 @@ import { SendMail } from "./components/TheMailer.js";
         //toggles the music when user clicks on the speaker thing
         this.musicPlaying = !this.musicPlaying;
 
-        if (this.musicPlaying) {
-          this.audioElement = new Audio('./dist/audio/ambience_edit.wav');
+        // if (this.musicPlaying) {
+        //   this.audioElement = new Audio('./dist/audio/ambience_edit.wav');
 
-          this.audioElement.addEventListener('ended', () => {
-            this.audioElement.currentTime = 0;
-            this.audioElement.play();
-          });
+        //   this.audioElement.addEventListener('ended', () => {
+        //     this.audioElement.currentTime = 0;
+        //     this.audioElement.play();
+        //   });
 
-          this.audioElement.play();
-        } else {
-          this.stopMusic();
-        }
+        //   this.audioElement.play();
+        // } else {
+        //   this.stopMusic();
+        // }
       },
 
       popLightBox(item) {
@@ -116,24 +198,42 @@ import { SendMail } from "./components/TheMailer.js";
         this.currentData = item;
         this.currentIndex = this.portfolioData.findIndex((obj) => obj.id === item.id);
         this.isVisible = true;
-
-
         this.pauseScroll();
       },
 
+      
       closeLightBox() {
         //closes the lightbox
         this.isVisible = false;
         if(this.autoScrollEnabled===true){
         this.resumeScroll();}
       },
+      //play audio file on certain events. Audio file is set right in the HTML TAG/ Component
+      playSound(soundFile) {
+      if(this.musicPlaying === true){
+      const audio = new Audio(soundFile);
+      audio.play();}
+      },
+
+      buttonClicked(){
+        if(this.crackSeal===false){
+          this.conShow = false;
+        }
+          this.crackSeal = true;
+          this.porHid = false;
+          this.autoScrollEnabled = false;
+          this.scrollingPaused=true;
+
+          if(this.scrollEnabled===true){
+            this.startScroll();
+          }
+      },
+  
 
       startScroll() {
         // Check if the screen width is greater than 800 pixels
-          this.crackSeal = true;
-          this.conHid = false;
-          this.porHid = false;
-          this.autoScrollEnabled = true;
+
+          this.autoScrollEnabled=true;
       
           if(!this.scrollingPaused || scrollerID === null){
               let triggerDistance = 5;
@@ -191,15 +291,21 @@ import { SendMail } from "./components/TheMailer.js";
         scrollerID = null;
         this.startScroll();
       },
+      updatePiece(newPiece) {
+        this.currentData = newPiece;
+      },
     },
-
     components: {
       thumb: TheThumbnail,
       contacty: TheContactForm,
       lightybox: TheLightbox,
       toppy: TheHeader,
       videoy: TheVideoComponent,
-      formy: TheFormComponent
-    },
+      formy: TheFormComponent,
+      abouty: TheAboutComponent,
+      randomy: TheRandomTextComponent,
+      footery: TheFooterComponenet
+    }
+
   }).$mount("#app");
 })();

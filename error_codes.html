@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <title>Page Not Found</title>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="description" content="Spencer Dipi | Design, Develop, Dipi | London, ON">
+      <meta name="keywords" content="Design, Develop, Web, Graphic Design, Social Media, Marketing">
+
+      <link rel="stylesheet" href="css/main.css">
+      <link rel="apple-touch-icon" sizes="180x180" href="./favicon/apple-touch-icon.png">
+      <link rel="icon" type="image/png" sizes="32x32" href="./favicon/favicon-32x32.png">
+      <link rel="icon" type="image/png" sizes="16x16" href="./favicon/favicon-16x16.png">
+      <link rel="manifest" href="./favicon/site.webmanifest">
+      <!-- <link rel="mask-icon" href="./favicon/safari-pinned-tab.svg" color="#5bbad5"> -->
+      <!-- <meta name="msapplication-TileColor" content="#da532c"> -->
+   </head>
+
+   <body>
+      <div class="gridContainer" id="app">
+         <section class="gridHead">
+            <section v-if="!crackSeal" class="topBar blanks">
+
+               <div class="blurb noMobile disableSelect">
+                  <svg class="spinarrow" version="1.1" viewBox="0 0 32 32" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                     <path clip-rule="evenodd" d="M32,16.009c0-0.267-0.11-0.522-0.293-0.714 l-9.899-9.999c-0.391-0.395-1.024-0.394-1.414,0c-0.391,0.394-0.391,1.034,0,1.428l8.193,8.275H1c-0.552,0-1,0.452-1,1.01 s0.448,1.01,1,1.01h27.586l-8.192,8.275c-0.391,0.394-0.39,1.034,0,1.428c0.391,0.394,1.024,0.394,1.414,0l9.899-9.999 C31.894,16.534,31.997,16.274,32,16.009z" fill-rule="evenodd" id="Arrow_Forward"/>
+                  </svg>
+                  <h2 id="call" class="textFlash">Better luck next time...</h2>
+               </div>
+
+            </section>
+
+
+            <header>
+
+                <transition name="image-trans">
+               <div v-if="conHid" class="videoChunk disableSelect">
+                  <div class="contact-page">
+                     <ul class="list404">
+                         <li class="disableSelect"><h2 id="bCardName">404</h2></li>
+                         <li><h3>Page Not Found.</h3></li>               
+                     </ul>
+               
+                     </div>
+                  <div class="okay-btns">
+                     <a href="./" @click="playSound('dist/audio/multi-pop.mp3')"><button id="goBackButton"  class="btn-shine"><span>Go back?</span></button></a>
+                  </div>
+               </div>
+               </transition>
+            </header>
+         </section>
+      </div>
+      <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+      <script src="js/main.js" type="module" defer></script>
+   </body>
+</html>

@@ -13,10 +13,11 @@
     /* Position the tooltip */
     position: absolute;
     top:20px;
-    right:20px;
+    left:20px;
     z-index: 1;
     transition:.2s ease;
     opacity: 0;
+    font-size: 1rem;
   }
   
   .tooltip:hover .tooltiptext {
@@ -66,7 +67,6 @@
         // flex:2 0 100%;
         grid-column: span 4;
         // img{border:3px solid $design;
-        max-height:100%;
         // }
         // img:hover{ box-shadow:0px 0px 15px $design; }
         
