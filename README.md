@@ -24,6 +24,11 @@ Use the CMS found in backend to organize, edit, and add media to the grid.
 
 Project List (media grid management) https://dipidomain.com/admin/project_list.php
 
+- features a project search function to find project entries quickly
+- upload your media with the forms on side
+- create, edit, and delete projects
+- when creating a new project, the thumbnail image gets added to media table automatically so it is included in images array when a user lands on project.php
+
 (Make sure to upload your desired image before adding the project. It will auto fill the path of the latest img upload on the project add form. I need to fix this so it's all done in one go.)
 
 User Profile https://dipidomain.com/admin/profile.php
@@ -33,6 +38,38 @@ This information is displayed on homepage, and in footer. It features:
 - user's first and last name
 - cell, email, and a short bio
 - social media links
+
+### Projects
+
+The projects are based in a SQL DB
+
+Each project features some extra datapoints to curate your ideal media grid.
+
+#### media type
+The plan is to write the script so it just checks the actual file extension when a user uploads media, and uses that to conditionally render it. 
+
+As it sits currently, there's a column for "content type" found in projects table. Set this to img, video, or embed to let the scripts know how to render the html elements.
+
+#### tile size
+
+The "type" column has an option for tile size. You can set tiles to be anywhere from 1-4 columns wide. This makes for a highly customizable media flow in the grid.
+
+#### extra media
+
+(Depreciated)
+
+This was the alpha "content type" I need to remove it.
+
+#### ID forwarding
+
+I wanted to be able to show off multiple images from the same project on my media grid. So I added 2 extra columns to the projects table. 
+
+- "Forward" = true/ false
+- "Forward_ID" = int
+
+If you set "Forward" to true, the media grid will change the "more information" link found in lightbox, so when you click on that project, it will load ./project.php?id=forward_id
+
+So you can have multiple tiles on the media grid that all go to the same main project.
 
 ## Project.php
 
@@ -47,6 +84,7 @@ This way, it works with videos, images, and even embeds (like PDF)
 3. generates a QR code for each page, linking to the page it's on.
 
 ## Thumbnails.js
+
 1. This is a vue component that fetches data from a database in the background using PHP
 2. it renders each project out, filling the gallery grid with media boxes
 3. it checks content type, and can render videos, or images.
