@@ -134,6 +134,7 @@ This way, it works with videos, images, and even embeds (like PDF)
 3. it checks content type, and can render videos, or images.
 
 ## todo
+- cull the grid. The grid is filled with a lot mediocre stuff right now just for testing purposes. I need to make some solid fully fledged projects to display.
 
 - make a function to click forwards and backwards while in the lightbox to navigate through each item in gallery.
 
