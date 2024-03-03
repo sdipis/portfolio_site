@@ -1,6 +1,6 @@
 # new-portfolio
 
-Using VUE JS for a front end, and PHP to power the CMS in the backend.
+Using VUE JS for a front end, and PHP to power the CMS in the backend. Animations are all done using JS and vue-transitions. No libraries are used.
 
 ## Interactivity
 
@@ -36,11 +36,14 @@ Lightbox features:
 - information button (loads project.php)
 - previous slide (loads previous grid item)
 - next slide (loads next grid item)
+- close lightbox with the X found in lightbox menu (below image)
+- or close lightbox by clicking right on the image for painless operation
 
 ## Contact Form
 - The contact form is set up to email the information to spencer@dipidomain.com
 - I imported the email to my mail app on phone + macbook so I get live updates as people use it.
 - originally used a database to store messages which I am going to add back.
+- there is no confirm screen. I should add one.
 
 ## CMS
 
@@ -52,16 +55,27 @@ Project List (media grid management) https://dipidomain.com/admin/project_list.p
 - upload your media with the forms on side
 - create, edit, and delete projects
 - when creating a new project, the thumbnail image gets added to media table automatically so it is included in images array when a user lands on project.php
+- there's a small JS script that prompts user with "Are you sure you want to delete this project?" when you try to delete a project
 
-(Make sure to upload your desired image before adding the project. It will auto fill the path of the latest img upload on the project add form. I need to fix this so it's all done in one go.)
+### Media Uploading
+
+You can upload media by using the small form above the project form. 
+
+- last image uploaded gets put into the project's thumbnail field below so it gets used when you add project
+- you must upload the image before clicking add project, it's a two step process currently
+
+### User Profile
 
 User Profile https://dipidomain.com/admin/profile.php
 
-This information is displayed on homepage, and in footer. It features:
-- login info
-- user's first and last name
+Features:
+- login info (username and password)
+- profile picture
+- first and last name
 - cell, email, and a short bio
-- social media links
+- Social links (instagram, linkedin, artstation, github, and codepen)
+
+This information is fed to various parts of the site. So changing information can be done from any web browser, without opening your code.
 
 ### Projects
 
