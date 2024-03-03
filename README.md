@@ -2,7 +2,22 @@
 
 Using VUE JS for a front end, and PHP to power the CMS in the backend.
 
-## Media Grid
+## Interactivity
+
+### Auto-Scroll
+- If user loads in from a desktop, the auto-scroll is enabled.
+- click the play button in topbar to automatically scroll down the page to browse the media grid
+- auto scroll pauses when user opens lightbox, and continues when user closes lightbox (only if it's enabled to begin with)
+- auto scroll automatically turns off if user opens contact page, about me, or the video found in topbar
+- auto scroll turns off when page gets to bottom
+- user can reenable in any of these scenarios
+
+### Audio 
+- I added sounds for most site functions.
+- Audio is muted by default if user is on mobile, as it's laggy on mobile. they can turn it on if they want, using the speaker icon at top of page.
+
+
+### Media Grid
 - Use the media grid found on the homepage to create some unique layouts of the works you want to present. 
 
 Using the CMS, you can change the size of the tile displayed for each project from:
@@ -12,6 +27,15 @@ Using the CMS, you can change the size of the tile displayed for each project fr
 - large (span 4)
 
 (all sizes set to span 4 columns when user is on mobile)
+
+### Lightbox
+
+Click on an item in the media grid to open it in the lightbox
+
+Lightbox features:
+- information button (loads project.php)
+- previous slide (loads previous grid item)
+- next slide (loads next grid item)
 
 ## Contact Form
 - The contact form is set up to email the information to spencer@dipidomain.com
