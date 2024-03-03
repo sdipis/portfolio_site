@@ -2,6 +2,12 @@
 
 Using VUE JS for a front end, and PHP to power the CMS in the backend. Animations are all done using JS and vue-transitions. No libraries are used.
 
+Everything takes place on a single page. The actual pages are just divs that get loaded into the header.
+
+The only seperate page used is the project.php page, for getting details about a specific project.
+
+Example: https://dipidomain.com/project.php?id=40 (KAVORKA)
+
 ## Interactivity
 
 ### Auto-Scroll
