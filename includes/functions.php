@@ -21,3 +21,21 @@
 
         return $result;
     }
+
+    function getProfileData($conn, $prof) {
+        if (is_null($prof)) {
+            $query = "SELECT * FROM users";
+        } else {
+            $query = "SELECT * FROM users WHERE id='".$prof."'";
+        }
+
+        // this is the database result -> the raw data that SQL gives us
+        $runQuery = $conn->query($query);
+
+        // process our DB result and make something we can use with AJAX
+        while($row = $runQuery->fetchAll(PDO::FETCH_ASSOC)) {
+         $result[] = $row;
+        }
+
+        return $result;
+    }

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GTFO</title>
-    <link rel="stylesheet" href="../sass/main.css" type="text/css">
+    <link rel="stylesheet" href="../css/main.css" type="text/css">
 
 </head>
 <body class="loginPage">

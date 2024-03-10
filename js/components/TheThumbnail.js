@@ -1,27 +1,62 @@
 export default {
-    name: "TheThumbnailComponent",
-    props: ["piece"],
-    template: `
-      <transition appear name="fade-slide">
-        <div @click="showmydata" class="bio-panel" :class="[piece.type]">
-          <div class="p_avatar">
-            <img :src='"dist/" + piece.display'>
-            <div class="thumbButtons"></div>
-          </div>
-        </div>
-      </transition>
-    `,
-    data() {
-      return {
-        message: "This is a piece of Spencer's portfolio",
-      };
+  name: "TheThumbnailComponent",
+  props: ["piece", "musicPlaying"],
+  computed: {
+    gridColumn() {
+      return this.calculateColumn(this.piece);
     },
-    methods: {
-        showmydata() {
-            this.$emit("showdata", this.piece);
-            this.$emit("update-current-index", this.piece.id); // Emit an event to update currentIndex
-            console.log("Data being shown!!");
-          },
+    gridRow() {
+      return this.calculateRow(this.piece);
     },
-  };
-  
+  },
+  template: `
+    <div
+      class="disableSelect bio-panel tooltip"
+      :id="[piece.title]"
+      :class="[piece.type]"
+      :style="{ gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))' }"
+    >
+      <a :href='"project.php?id="+piece.id' target="_blank" :title='"Learn More About "+piece.title'>
+        <p class="tooltiptext noMobile">{{piece.title}}</p>
+      </a>
+
+
+      <video autoplay preload="meta" muted loop playsinline v-if="piece.content === 'video'"  :src='"dist/" + piece.display + "#t=0.1"'    @click="showmydata(); playSound('dist/audio/woosh.mp3')" ></video>
+      <img v-else  :src='"dist/" + piece.display'    @click="showmydata(); playSound('dist/audio/woosh.mp3')" />
+
+    </div>
+  `,
+  methods: {
+    showmydata() {
+      this.$emit("showdata", this.piece);
+      this.playSound;
+    },
+    playSound(soundFile) {
+      if (this.musicPlaying === true) {
+        const audio = new Audio(soundFile);
+        audio.play();
+      }
+    },
+    calculateColumn(piece) {
+      return 1;
+    },
+    calculateRow(piece) {
+      switch (piece.type) {
+        case "design-large":
+          return "span 1";
+        case "design":
+          return "span 4";
+        case "design-wide":
+          return "span 1";
+        case "design-mid":
+          return "span 2";
+        default:
+          return "span 1";
+      }
+    },
+    getComponentType(type) {
+      // Return the component type based on piece.type
+      return type === "video" ? "video" : "img";
+    },
+  },
+};

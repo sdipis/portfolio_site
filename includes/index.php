@@ -1,5 +1,5 @@
 <?php
-    require("connect.php");
+    require("admin_connect.php");
     require("functions.php");
 
     // filter the incoming request
@@ -7,7 +7,11 @@
     // if the condition evaluates to true, use the expression to the left of the colon
     // if it's false, use the expression to the right
     $id = isset($_GET["id"]) ? $_GET["id"] : null;
-    $result = getProfData($pdo, $id);
+    $result = getProfData($connection, $id);
+    
+    
+
+    
 
    // send the database result (our data) back to the javascript file
    echo json_encode($result);

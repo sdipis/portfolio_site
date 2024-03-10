@@ -1,3 +1,36 @@
+.smoothScroll{
+    scroll-behavior: smooth;
+}
+
+.animate-character
+{
+   text-transform: uppercase;
+  background-image: linear-gradient(
+    -225deg,
+    #2C99FF 0%,
+    #8800FF 29%,
+    #00ff00 45%,
+    #FF9B11 67%,
+    #23d5ab 100%
+  );
+  background-size: auto auto;
+  background-clip: border-box;
+  background-size: 200% auto;
+  color: #fff;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: textclip 2s alternate slidein;
+  display: inline-block;
+      font-size: 190px;
+}
+
+@keyframes textclip {
+  to {
+    background-position: 200% center;
+  }
+}
+
 .editPageImages{
     display: flex;
     flex-flow: row wrap;
@@ -10,14 +43,27 @@
         }}
 
     }
-
+    .contentChunkAbove{
+        vertical-align:left;
+    }
 .contact-page{ 
     display: flex;
     padding-top:0px;
     justify-content: center;
     align-items: center;
     z-index: 1;
+    position: relative;
+    text-shadow: 1px 1px 0px black;
+    h2{
+        font-size: 2rem !important;
+    }
 
+    &>ul{
+        display: flex;
+        flex-flow: column;
+        align-items: center;
+        justify-content: center;
+    }
 
 
 
@@ -41,6 +87,7 @@
         }
         
     }
+
 
     form{
     flex:2 0 60%;
@@ -69,7 +116,6 @@
         text-align: right;
         // background: linear-gradient(-270deg, rgba(255,255,255,0) 20%, rgba(0,0,0,1) 100%);
         color:$white;
-
         border-radius: 15px;
         font-weight: 600;
         }
@@ -102,6 +148,9 @@
         font-size:16px;
         color:$white;
         padding:10px;
+        text-shadow: 1px 1px 0px black;
+
+        // font-weight: 600;
     }
 
     input{
@@ -114,21 +163,21 @@
 
     }
 
-    input[type=submit]{
-        font-size:26px;
+    button[type=submit]{
+        // font-size:26px;
         // padding:50px;
         // padding-top:10px;
         // padding-bottom:10px;
         // text-transform: uppercase;
         // color:$white;
 
-        padding:10px;
-        font-weight: 600;
-        text-align: center;
-        background-color:$black;
-        border-radius: 15px;
-        color:$white;
-        box-shadow: $shadowThin;
+        // padding:10px;
+        // font-weight: 600;
+        // text-align: center;
+        // background-color:$black;
+        // border-radius: 15px;
+        // color:$white;
+        // box-shadow: $shadowThin;
         margin-top:20px;
         // background:$orangeGrad2;
         // background-color: $black;
@@ -136,17 +185,32 @@
         // box-shadow:$shadow3;
         // margin-top:20px;
 
-        width:100%;
         float:right;
-        transition: .2s ease;
     }
-    input[type=submit]:hover{
-        letter-spacing: 2px;
-        
+}
+
+.about-page{
+    display: flex;
+    flex-flow: row;
+    h2{
+        text-shadow: 1px 1px 0px black;
+        text-align: center !important;
     }
-    input[type=submit]:active{
-        transform:translateY(2px);
-        letter-spacing: 100px;
+    .left-col li h3{
+        align-items: right;
+        text-align: right !important;
+    }
+    ul{
+        // flex:1 0 30%;
+        // max-width: 30%;
+        text-align: left;
+    }
+    ul li p{
+        width:50vw;
+        font-size: 20px;
+        line-height: 30px;
+        padding-left:20px;
+        text-shadow: 1px 1px 0px black;
     }
 }
 
@@ -157,26 +221,51 @@
     // background-color: rgb(201, 201, 201);
     font-size: 16px;
     // text-shadow: $textshad1;
-
-
+    // position: fixed;
+    .blurb nav .menus{
+        width:auto;
+        // li{
+        //     margin-right:10px;
+        //     margin-left:10px;
+        // }
+    }
 
 
 }
 
-#bCard h2{
+#bCard{
+
+    .nameTag{
+        display: inline-block;
+        overflow: visible;
+        span{
+            display: inherit;
+            font-weight: 600;
+            font-size:clamp(1.5rem,2.5vw,2rem);
+        }
+    }
+
+h2{
     padding-bottom:10px;
-    font-weight: 300;
+    font-weight: 200;
     font-size: 36px;
     margin-bottom: 20px;
     text-transform: capitalize;
+    text-align: center;
+    overflow: hidden;
+    span{
+
+        font-weight: 600;
+    }
+}
 }
 
 #bCard h3{
     font-weight:400;
-    display: flex;
-    justify-content: space-between;
+
     margin-bottom: 20px;
     font-size: 16px;
+    text-align: center;
 }
 
 #bCard h3 a{
@@ -197,7 +286,6 @@
     border-radius: 15px;
     color:$white;
     box-shadow: $shadowThin;
-    margin-top:20px;
 }
 
 .gmap_canvas {
@@ -229,7 +317,27 @@
         }
 
 @media only screen and (max-width: 950px) {
+    .about-page{
+        flex-flow: column;
+        ul{
+            flex:1 0 100%;
+            max-width: 100%;;
+        }
+        ul li p{
+            width:80vw;
+            font-size: 16px;
+            line-height: 26px;
+            // border-left:1px solid white;
+            padding-left:16px;
+        }
+    }
 
+    #bCard{
+        .blurb li{
+            margin-left:10px;
+            margin-right:10px;
+        }
+    }
 
     .contact-page{
         flex-flow:column nowrap;
@@ -239,6 +347,7 @@
             margin-bottom: 0px;
             flex: 1 0 100%;
             max-width: 100%;
+
         }
     }
 

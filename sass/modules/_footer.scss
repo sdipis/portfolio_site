@@ -4,11 +4,22 @@
     padding-right:60px;
     padding-bottom:0px;
 
-    // background-color: $design;
+    background-color: $black;
     flex-flow:row nowrap;
-    height:30vh;
+    height:40vh;
 
     margin-bottom:0px;
+    z-index: 3;
+
+    .menus li{
+        a,svg{
+            cursor:pointer;
+        &:hover{
+            fill:$hover2;
+            color:$hover2;
+        }
+    }
+    }
 }
 
 .gridSocial{
@@ -28,11 +39,13 @@
 }
 
 .spaceBt{
-    justify-content: space-between;
+    justify-content: space-around;
     display: flex;
     flex-flow: row;
     li, a{
         padding:0px !important;
+        margin-left: 10px;
+        margin-right: 10px;
         svg{
             height:50px;
             fill:white;
@@ -42,9 +55,18 @@
 }
 
 .footerLinks{
+    margin-top:20px;
     padding:10px;
     flex:3;
     display: flex;
+    justify-content: space-between;
+    h2,h3{
+        color:$white;
+    }
+    li{
+        margin-left:10px;
+        margin-right:10px;
+    }
 }
 
 

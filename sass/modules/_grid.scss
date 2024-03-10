@@ -1,27 +1,46 @@
 .gridContainer {
   display: grid; 
-  grid-template-columns: 1fr 1fr 1fr; 
-  gap: 0px 0px; 
+  grid-template-columns: 1fr auto; 
   grid-template-areas: 
     "gridHead gridHead gridHead"
     "gridMain gridMain gridMain"
     "gridMain gridMain gridMain"
     "gridFooter gridFooter gridFooter"; 
     width:100vw;
+    background:none;
     
 }
+
+.grid_gap{
+  margin:40px; 
+  .p_avatar{
+    .bio_panel{
+      margin-bottom: 0px !important;
+    }
+  } 
+  #teamSection{
+    background:none;
+    box-shadow:none;
+  }
+
+}
+
 
 #wrapper{
   margin:auto;
 }
 
-.gridHead { grid-area: gridHead; }
+.gridHead { 
+  grid-area: gridHead;    
+  background: linear-gradient(-45deg, #ff931f, #8800FF, #2C99FF, #23d5ab );
+	background-size: 400% 400%;
+	animation: gradient 20s ease alternate infinite;   }
 .gridMain { grid-area: gridMain;}
 .gridFooter { grid-area: gridFooter;}
 .gridAside {grid-area: gridAside;}
 
 
-@media only screen and (max-width: 750px) {
+@media only screen and (max-width: 768px) {
   
   .gridContainer {
   grid-template-areas:
