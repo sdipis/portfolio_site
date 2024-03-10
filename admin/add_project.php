@@ -25,14 +25,20 @@ $stmt->bindParam(13, $_POST['extra_url'], PDO::PARAM_STR);
 
 $stmt->execute();
 $last_id = $connection->lastInsertId();
+$stmt = null;
 
-// Insert data into the media table
-$mediaQuery = "INSERT INTO media (image_filename, project_id) VALUES (?, ?)";
-$mediaStmt = $connection->prepare($mediaQuery);
-$mediaStmt->bindParam(1, $_POST['thumb'], PDO::PARAM_STR);
-$mediaStmt->bindParam(2, $last_id, PDO::PARAM_INT);
 
-$mediaStmt->execute();
+//broken
+// // Insert data into the media table
+// $mediaQuery = "INSERT INTO media (image_filename, project_id, content_type) VALUES (?, ?, ?)";
+// $mediaStmt = $connection->prepare($mediaQuery);
+// $mediaStmt->bindParam(1, $_POST['thumb'], PDO::PARAM_STR);
+// $mediaStmt->bindParam(2, $last_id, PDO::PARAM_INT);
+// $mediaStmt->bindParam(3, $last_id, PDO::PARAM_STR);
+
+
+// $mediaStmt->execute();
+// $mediaStmt = null;
 
 
 

@@ -2,16 +2,27 @@
 .hidden{
     display:none;
 }
+.adminLinksBot{
+    justify-content: space-around;
+    li{
+        padding:10px !important;
+        a{
+            svg{
+                fill:white;
+                &:hover{
+                    fill:black;
+                }
+            }
+        }
+    }
+}
 .rowInput{
     align-items: center;
     justify-content: center;
     display: flex;
     flex-flow: row nowrap;
     label{
-        flex:1 0 75%;
-    }
-    input{
-        text-align: center;
+        flex:1 0 60%;
     }
     // background-color: red;
 }
@@ -22,9 +33,6 @@
     flex-flow: row nowrap;
     label{
         flex:1 0 40%;
-    }
-    input{
-        text-align: center;
     }
     // background-color: red;
 }
@@ -182,17 +190,20 @@ $white: #ffffff; // Ensure $white is defined
 
 .projectListCont {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(1, 1fr);
     // gap: 20px;
     overflow-y: scroll !important;
     max-height: 100vh;
     background: $white;
-    flex: 0 0 60%;
-    max-width: 60%;
+    flex: 0 0 40%;
+    max-width: 40%;
     padding:20px;
     height:fit-content;
 }
-
+.mediaList{
+    flex:0 0 75% !important;
+    max-width: 75% !important;
+}
 .project-list {
     width: 100%;
     text-align: center;
@@ -200,6 +211,59 @@ $white: #ffffff; // Ensure $white is defined
     justify-content: center;
     display: flex;
 }
+
+.project-list-media{
+    width: 100%;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+
+    font-size: 16px;
+    font-family: montserrat;
+    position: relative;
+    display: flex;
+    max-height: fit-content;
+    .detailsImage{
+        flex:0 0 20%;
+        max-width: 20% !important;
+    }
+    .project-text{
+        width:100%;
+        display: flex;
+        flex-flow: column;
+        justify-content: space-between;
+        text-align: center;
+        margin-top:20px;
+        margin-bottom:20px;
+        flex:0 0 40%;
+
+                font-weight: 600;
+                padding-left:20px;
+                padding-right:20px;
+        ul{
+            text-align: right;
+            display: flex;
+            li{
+                margin-left:10px;
+            }
+        
+        }
+
+    }
+    // box-shadow: 5px 5px black;
+    p{
+        color:black !important;
+        font-size: 12px;
+    }
+    a{
+    font-size: 12px;
+    font-family: rockwell;
+    color:red;
+    }
+}
+
+
 
 .col-span-2 {
     grid-column: span 2;
@@ -252,32 +316,72 @@ $white: #ffffff; // Ensure $white is defined
 }
 
 #media_add_form{
-    background-color: $blue;
+    background-color: $hover3;
+}
+
+
+#profile_form{
+    background-color: $hover2;
 }
 
 #filter_form{
-    background-color: $orange;
+    position: fixed;
+    bottom:0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    left:0px;
+    z-index: 5;
+    width:40%;
+    background-color: $grey;
+    // background-color: $hover3;
 }
 
 #upload_form{
     background-color: $red;
 }
 
+#search{
+    text-align: center;
+    width:50%;
+}
+
+
 .listForms {
     overflow-y: scroll;
     flex: 0 0 20%;
     max-width: 20%;
     max-height: 100vh;
-    background-color: $orange;
     transition: right 0.2s ease; /* Apply transition to the right property */
+    display: flex;
+    flex-flow: column;
+    // justify-content: space-between;
+    background-color: $hover3;
+    border-right:5px solid black;
 
-    #search{
-        text-align: center;
-    }
 
     form{
         // background-color: red;
         padding:20px !important;
+        // border-radius: 15px 15px 0px 0px;
+        margin-bottom:-16px;
+        // box-shadow:0px 0px 10px rgba(0, 0, 0, 0.372);
+        input,textarea{
+            background-color: $white;
+            border-radius: 5px;
+            border:2px solid black;
+            padding-left:10px;
+            color:black;
+        }
+        input[type=file]{
+            background-color: transparent;
+        }
+        input[type=checkbox]{
+            width:20px;
+            height:20px;
+        }
+
     }
 
     ul{
@@ -292,14 +396,33 @@ $white: #ffffff; // Ensure $white is defined
     }
     h2{
         color:black;
-        font-weight: 600;
         text-align: center;
         text-decoration: underline;
+        width:100%;
+        
     }
     input[type='file'] {
         color: $red;
         border:none;
       }
+}
+
+
+
+.listForms:nth-child(3){
+    background-color: $blue !important;
+    border-left:5px solid black;
+
+}
+
+.listForms:nth-of-type(1){
+    background-color: $hover2 !important;
+    border-right:0px solid black !important;
+}
+
+.mediaForms{
+    flex:0 0 25% !important;
+    max-width: 25% !important;
 }
 .project-list{
     font-size: 16px;
