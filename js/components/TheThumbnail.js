@@ -3,13 +3,9 @@ export default {
   props: ["piece", "musicPlaying"],
   computed: {
     gridColumn() {
-      // Calculate the desired column position based on your logic
-      // Example: return a number based on piece properties
       return this.calculateColumn(this.piece);
     },
     gridRow() {
-      // Calculate the desired row position based on your logic
-      // Example: return a number based on piece properties
       return this.calculateRow(this.piece);
     },
   },
@@ -21,20 +17,18 @@ export default {
       :style="{ gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))' }"
     >
       <a :href='"project.php?id="+piece.id' target="_blank" :title='"Learn More About "+piece.title'>
-        <p class="tooltiptext">{{piece.title}}</p>
+        <p class="tooltiptext noMobile">{{piece.title}}</p>
       </a>
-      <img
-        @click="showmydata(); playSound('dist/audio/woosh.mp3')"
-        loading="lazy"
-        :src='"dist/" + piece.display'
-        :style="{ gridColumn: gridColumn, gridRow: gridRow }"
-      />
+
+
+      <video autoplay preload="meta" muted loop playsinline v-if="piece.content === 'video'"  :src='"dist/" + piece.display + "#t=0.1"'    @click="showmydata(); playSound('dist/audio/woosh.mp3')" ></video>
+      <img v-else  :src='"dist/" + piece.display'    @click="showmydata(); playSound('dist/audio/woosh.mp3')" />
+
     </div>
   `,
   methods: {
     showmydata() {
       this.$emit("showdata", this.piece);
-      // console.log("Data being shown!!");
       this.playSound;
     },
     playSound(soundFile) {
@@ -44,13 +38,6 @@ export default {
       }
     },
     calculateColumn(piece) {
-      // Implement your logic to calculate the column position
-      // Example: return a number based on piece properties
-      return 1;
-    },
-    calculateRow(piece) {
-      // Implement your logic to calculate the row position
-      // Example: return a number based on piece properties
       return 1;
     },
     calculateRow(piece) {
@@ -65,6 +52,11 @@ export default {
           return "span 2";
         default:
           return "span 1";
-      }},
+      }
+    },
+    getComponentType(type) {
+      // Return the component type based on piece.type
+      return type === "video" ? "video" : "img";
+    },
   },
 };

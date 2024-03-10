@@ -54,7 +54,16 @@
     z-index: 1;
     position: relative;
     text-shadow: 1px 1px 0px black;
+    h2{
+        font-size: 2rem !important;
+    }
 
+    &>ul{
+        display: flex;
+        flex-flow: column;
+        align-items: center;
+        justify-content: center;
+    }
 
 
 

@@ -8,28 +8,46 @@ import TheFormComponent from "./components/TheForm.js";
 import TheAboutComponent from "./components/TheAboutMe.js";
 import TheRandomTextComponent from "./components/TheRandomText.js";
 import TheFooterComponenet from "./components/TheFooter.js";
+import TheQuoteComponent from './components/TheQuotes.js';
 import { SendMail } from "./components/TheMailer.js";
-
 
 (() => {
   let scrollerID = null;
 
   const myVue = new Vue({
 
+    beforeMount(){
+
+      // Simulating a delay (replace this with your actual logic)
+      setTimeout(() => {
+        // Hide the loading spinner
+        let spinner = document.querySelector('.wheel-and-hamster');
+        let spinWrapper = document.querySelector('.spinWrapper');
+        spinner.style.display="none";
+        spinWrapper.style.display="none";
+        this.buttonClicked();
+
+    }, 2000); // Adjust the delay as needed
+    },
+
     destroyed() {
       window.removeEventListener('scroll', this.updateBlur);
+      
     },
     
     created() {
 
+      //mutes audio by default if user is on mobile
+      this.musicPlaying = window.innerWidth > 768;
 
+      //scroll animation
       window.addEventListener('scroll', this.updateBlur);
-
 
       //pull the fetch data from the dataMiner.js, which uses php to fetch from database and push to frontend as json data
       getData(null, (data) => (this.portfolioData = data));
       getSecondData(null, (data) => (this.profileData = data));
 
+      //contact form
       let mailSubmit = document.querySelector('button[type=submit]');
 
       if (mailSubmit) {
@@ -47,8 +65,11 @@ import { SendMail } from "./components/TheMailer.js";
       
         mailSubmit.addEventListener("click", processMail);
       }
-    },
+  
 
+
+    },
+    
     data() {
       return {
         portfolioData: [],
@@ -75,14 +96,13 @@ import { SendMail } from "./components/TheMailer.js";
         autoScrollEnabled: false, //used for scroll logic, dont touch
         scrollingPaused: false, //used for scroll logic, don't touch.
         scrollEnabled: false, //turn this to false so it doesnt auto scroll when user enters site
-
-        blurValue: 0, //declare blur value so we can use it dynamically
-        scaleValue: 1, // Add this line to declare scaleValue
+        //scroll animation stuff
+        blurValue: 0,
+        scaleValue: 1,
         opacityValue:1,
 
-
-
-
+        //page loader spinner
+        showSpinner: true,
       };
     },
     computed: {
@@ -99,26 +119,30 @@ import { SendMail } from "./components/TheMailer.js";
         const currentPercentage = this.initialBackgroundPercentage * this.scaleFactor;
         return `${currentPercentage}% ${5 * this.scaleFactor}%`;
       }
+      
     },
     methods: {
       updateBlur() {
         const scrollPosition = window.scrollY;
-      
-        this.scaleValue = Math.max(0.5, 1 - (scrollPosition) / 500); // Adjust the scaling factor as needed
+        //these are all the header animation logics
+        //thank you chatgpt
+        this.scaleValue = Math.max(0.5, 1 - (scrollPosition) / 500);
       
         if (scrollPosition > 250) {
-          this.blurValue = Math.min(0, scrollPosition / 0);
-          this.opacityValue = Math.max(0, 1 - (scrollPosition - 250) / 100); // Adjust the opacity factor as needed
+          this.blurValue = Math.min(5, scrollPosition / 5);
+          this.opacityValue = Math.max(0, 1 - (scrollPosition - 250) / 100);
         } else {
           this.blurValue = 0;
           this.opacityValue = 1;
         }
       },
-
+      //if window is smaller than 768px, audio will be muted by default
+      //if larger than 768px, audio will be turned on by default
+      handleResize() {
+        this.musicPlaying = window.innerWidth > 768;
+      },
       openAboutMe(){
-        //spawns in the contact form when user clicks menu link
-        //hides the contact info so it doesnt show behind the form
-
+      //toggle about page
         if(this.aboutShow===false){
           this.aboutShow = true;
           this.formShow = false;
@@ -136,9 +160,7 @@ import { SendMail } from "./components/TheMailer.js";
       },
 
       openVideoComponent() {
-
         //toggle video to show when you click on button
-        //if true, make false, if false, make true
         if(this.videoShow===false){
           this.aboutShow = false;
           this.formShow = false;
@@ -199,9 +221,7 @@ import { SendMail } from "./components/TheMailer.js";
         this.currentIndex = this.portfolioData.findIndex((obj) => obj.id === item.id);
         this.isVisible = true;
         this.pauseScroll();
-      },
-
-      
+      },      
       closeLightBox() {
         //closes the lightbox
         this.isVisible = false;
@@ -214,7 +234,6 @@ import { SendMail } from "./components/TheMailer.js";
       const audio = new Audio(soundFile);
       audio.play();}
       },
-
       buttonClicked(){
         if(this.crackSeal===false){
           this.conShow = false;
@@ -228,10 +247,7 @@ import { SendMail } from "./components/TheMailer.js";
             this.startScroll();
           }
       },
-  
-
       startScroll() {
-        // Check if the screen width is greater than 800 pixels
 
           this.autoScrollEnabled=true;
       
@@ -242,9 +258,9 @@ import { SendMail } from "./components/TheMailer.js";
               function scrollStep() {
 
                 //only scroll if screenwidth is above 768px (non mobile)
-                if (window.innerWidth > 768) {
+                // if (window.innerWidth > 768) {
                 window.scrollBy(0, 1);
-                }
+                // }
                 //stop scrolling when user gets to the bottom of page
                 if (window.innerHeight + window.scrollY >= document.body.offsetHeight - triggerDistance) {
                   myVue.stopScroll();
@@ -285,12 +301,12 @@ import { SendMail } from "./components/TheMailer.js";
         this.autoScrollEnabled = false;
         cancelAnimationFrame(scrollerID);
       },
-
       resumeScroll() {
         this.scrollingPaused = false;
         scrollerID = null;
         this.startScroll();
       },
+      // for lightbox navigation (<- and ->)
       updatePiece(newPiece) {
         this.currentData = newPiece;
       },
@@ -304,7 +320,8 @@ import { SendMail } from "./components/TheMailer.js";
       formy: TheFormComponent,
       abouty: TheAboutComponent,
       randomy: TheRandomTextComponent,
-      footery: TheFooterComponenet
+      footery: TheFooterComponenet,
+      loadery: TheQuoteComponent,
     }
 
   }).$mount("#app");

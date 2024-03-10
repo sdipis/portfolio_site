@@ -79,6 +79,54 @@ table {
   box-shadow: 0 1px 2px #fff, 0 -1px 1px #666, inset 0 -1px 1px rgba(0, 0, 0, 0.5), inset 0 1px 1px rgba(255, 255, 255, 0.8); /*top internal highlight*/
 }
 
+.hidden {
+  display: none;
+}
+
+.rowInput {
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex-flow: row nowrap;
+}
+.rowInput label {
+  flex: 1 0 75%;
+}
+.rowInput input {
+  text-align: center;
+}
+
+.rowInputShort {
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex-flow: row nowrap;
+}
+.rowInputShort label {
+  flex: 1 0 40%;
+}
+.rowInputShort input {
+  text-align: center;
+}
+
+.titleAndArrow {
+  display: flex;
+  flex-flow: row;
+}
+.titleAndArrow h1 {
+  margin-left: 40px;
+}
+
+.jots {
+  display: flex;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  justify-content: space-between;
+}
+.jots li {
+  width: fit-content;
+}
+
 .adminMenuOver {
   position: absolute;
   top: 0px;
@@ -96,10 +144,16 @@ table {
   display: flex;
   flex-flow: column;
 }
+.adminWrapper form input {
+  background-color: black;
+  color: white;
+}
 .adminWrapper form input[type=submit] {
   background-color: black;
   color: white;
   border-radius: 25px;
+  border: none;
+  text-transform: uppercase;
 }
 .adminWrapper form input[type=submit]:hover {
   background-color: white;
@@ -125,6 +179,15 @@ table {
   border-bottom: 1px solid #fff;
   outline: none;
   background: transparent;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.adminWrapper form select {
+  border-bottom: none;
+  text-align: center;
+}
+.adminWrapper form textarea {
+  resize: vertical;
 }
 
 .editWrapper {
@@ -143,30 +206,70 @@ table {
   justify-content: center;
   align-items: center;
   background-color: #ffffff;
+  width: 100%;
 }
 
 .editPage {
   display: flex;
+  flex-flow: column;
+  width: 100vw;
+}
+.editPage .listForms {
+  flex: 1 0 100%;
+  max-width: 100%;
+}
+.editPage .listForms form textarea {
+  height: 200px;
 }
 
 .scrollOver svg {
   transform: rotate(90deg);
 }
 
+body {
+  position: relative;
+}
+
+.adminMenu {
+  grid-column: span 4;
+  padding: 20px;
+}
+
 .projectListCont {
-  display: flex;
-  flex-flow: row wrap;
-  flex: 3 0 75%;
-  max-width: 75%;
-  justify-content: space-evenly;
-  overflow-y: scroll;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  overflow-y: scroll !important;
   max-height: 100vh;
   background: #ffffff;
-  align-items: center;
+  flex: 0 0 60%;
+  max-width: 60%;
+  padding: 20px;
+  height: fit-content;
 }
-.projectListCont img {
-  max-height: 200px;
-  margin-right: 20px;
+
+.project-list {
+  width: 100%;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+}
+
+.col-span-2 {
+  grid-column: span 2;
+}
+
+.col-span-3 {
+  grid-column: span 3;
+}
+
+.col-span-4 {
+  grid-column: span 4;
+}
+
+.detailsImage {
+  max-width: 100%;
+  height: auto;
   box-shadow: 5px 0px 10px rgba(0, 0, 0, 0.4);
 }
 
@@ -197,12 +300,31 @@ table {
   margin-bottom: 10px;
 }
 
-.listForms {
-  flex: 1 0 25%;
-  max-width: 25%;
-  padding-left: 20px;
-  padding-right: 20px;
+#media_add_form {
+  background-color: #446391;
+}
+
+#filter_form {
   background-color: #f29f17;
+}
+
+#upload_form {
+  background-color: #38ef7d;
+}
+
+.listForms {
+  overflow-y: scroll;
+  flex: 0 0 20%;
+  max-width: 20%;
+  max-height: 100vh;
+  background-color: #f29f17;
+  transition: right 0.2s ease; /* Apply transition to the right property */
+}
+.listForms #search {
+  text-align: center;
+}
+.listForms form {
+  padding: 20px !important;
 }
 .listForms ul {
   display: flex;
@@ -214,38 +336,58 @@ table {
   text-decoration: none;
 }
 .listForms h2 {
-  color: white;
+  color: black;
+  font-weight: 600;
+  text-align: center;
+  text-decoration: underline;
+}
+.listForms input[type=file] {
+  color: #38ef7d;
+  border: none;
 }
 
 .project-list {
-  font-size: 26px;
+  font-size: 16px;
   font-family: montserrat;
-  margin: 10px;
+  position: relative;
   display: flex;
-  flex-flow: row;
-  align-items: center;
-  flex: 1 0 30%;
-  padding: 10px;
+  flex-flow: column;
+  max-height: 100vh;
+}
+.project-list .project-text {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  font-weight: 600;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+.project-list .project-text ul {
+  text-align: right;
+  display: flex;
+}
+.project-list .project-text ul li {
+  margin-left: 10px;
 }
 .project-list p {
   color: black !important;
+  font-size: 12px;
 }
 .project-list a {
-  font-size: 10px;
+  font-size: 12px;
   font-family: rockwell;
   color: red;
-}
-.project-list img {
-  box-shadow: 20px 20px 60px #bebebe, -20px -20px 60px #ffffff;
 }
 
 .adminWrapper {
   display: flex;
   flex-flow: row;
-  min-height: 100vh;
-  background-color: lightblue;
   justify-content: center;
-  width: 100%;
+  flex: 1 0 75%;
+  background-color: white;
 }
 
 p2 {
@@ -386,28 +528,27 @@ p2 {
 }
 
 @media only screen and (max-width: 768px) {
+  .jots {
+    flex-flow: column;
+    justify-content: flex-end;
+    align-items: right;
+  }
+  .jots li:first-child {
+    margin-top: 0px;
+  }
+  .jots li {
+    width: 100%;
+    margin-top: 20px;
+    text-align: center !important;
+  }
   .adminWrapper {
     flex-flow: column;
-    max-height: none;
-    min-height: none;
   }
   .listForms {
     flex: 1 0 100%;
     max-width: 100%;
     padding-left: 20px;
-  }
-  .projectListCont {
-    display: flex;
-    flex-flow: row wrap;
-    flex: 1 0 100%;
-    max-width: none;
-    min-width: 100%;
-    max-height: none;
-    justify-content: space-evenly;
-  }
-  .projectListCont img {
-    max-height: 200px;
-    padding: 20px;
+    max-height: 100vh;
   }
   .projectText {
     padding: 40px;
@@ -434,16 +575,16 @@ p2 {
     width: 100vw;
     padding: 20px;
   }
-  .project-gallery img {
+  .project-gallery img, .project-gallery video, .project-gallery embed {
     padding: 20px;
     max-height: 100vw;
   }
-  .project-gallery img:first-child {
+  .project-gallery img:first-child, .project-gallery video:first-child, .project-gallery embed:first-child {
     padding-right: 20px;
     padding-left: 20px !important;
     padding-bottom: 10px;
   }
-  .project-gallery img:last-child {
+  .project-gallery img:last-child, .project-gallery video:last-child, .project-gallery embed:last-child {
     padding-left: 20px;
     padding-right: 20px !important;
     padding-bottom: 20px;
@@ -457,12 +598,6 @@ p2 {
   }
   .editListCont form {
     max-width: none;
-  }
-  .project-list {
-    flex: 1 0 80%;
-    flex-flow: column;
-    max-width: 80%;
-    overflow: hidden;
   }
   .editPage {
     max-height: none;
@@ -526,7 +661,7 @@ p2 {
   text-transform: uppercase;
   overflow: hidden;
   transition: 0.5s;
-  margin-top: 40px;
+  margin-top: 20px;
   letter-spacing: 4px;
 }
 
@@ -560,8 +695,8 @@ p2 {
 }
 
 .loginPage {
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  height: 100vh;
   --color: rgba(114, 114, 114, 0.3);
   background-color: #191a1a;
   background-image: linear-gradient(0deg, transparent 24%, var(--color) 25%, var(--color) 26%, transparent 27%, transparent 74%, var(--color) 75%, var(--color) 76%, transparent 77%, transparent), linear-gradient(90deg, transparent 24%, var(--color) 25%, var(--color) 26%, transparent 27%, transparent 74%, var(--color) 75%, var(--color) 76%, transparent 77%, transparent);
@@ -745,24 +880,6 @@ body {
 #teamSection .design-large {
   grid-column: span 4;
 }
-#teamSection .threedee {
-  grid-column: span 1;
-}
-#teamSection .threedee img {
-  border: 3px solid rgb(254, 2, 245);
-}
-#teamSection .threedee-large {
-  grid-column: span 2;
-}
-#teamSection .threedee-large img {
-  border: 3px solid rgb(254, 2, 245);
-}
-#teamSection .website {
-  grid-column: span 3;
-}
-#teamSection .website img {
-  border: 3px solid rgb(255, 234, 0);
-}
 
 .pageTitle {
   padding: 20px;
@@ -797,9 +914,13 @@ body {
   cursor: -webkit-zoom-in;
   cursor: zoom-in;
 }
-.bio-panel img {
+.bio-panel img, .bio-panel video {
   max-width: 100%;
   max-height: 100%;
+  object-fit: contain;
+}
+.bio-panel video {
+  width: 100vw;
   object-fit: contain;
 }
 .bio-panel h2, .bio-panel h3, .bio-panel p {
@@ -825,7 +946,7 @@ body {
     padding: 0px;
     flex: 1;
   }
-  .bio-panel img {
+  .bio-panel img, .bio-panel video {
     padding: 0;
     margin: 0;
     opacity: 1;
@@ -1183,6 +1304,22 @@ header .siteTitle {
 }
 /* Enter and leave animations can use different */
 /* durations and timing functions.              */
+.loader-hamster-enter-active {
+  transition: all 0.4s ease;
+}
+
+.loader-hamster-leave-active {
+  transition: all 0.4s ease;
+}
+
+.loader-hamster-enter, .loader-hamster-leave-to {
+  opacity: 0;
+  transform: scale(0);
+  transition: all 0.4s ease;
+}
+
+/* Enter and leave animations can use different */
+/* durations and timing functions.              */
 .slide-fade-enter-active {
   transition: all 0.4s ease;
 }
@@ -1193,7 +1330,7 @@ header .siteTitle {
 
 .slide-fade-enter, .slide-fade-leave-to {
   opacity: 0;
-  transform: scale(0) translateX(-100vw);
+  transform: scale(0);
   transition: all 0.4s ease;
 }
 
@@ -1207,7 +1344,7 @@ header .siteTitle {
 
 .slide-fade-two-enter, .slide-fade-two-leave-to {
   opacity: 0;
-  transform: scale(0) translateX(100vw);
+  transform: scale(0);
   transition: all 0.4s ease;
 }
 
@@ -1235,7 +1372,7 @@ header .siteTitle {
 
 .slide-fade-up-enter, .slide-fade-up-leave-to {
   opacity: 0;
-  transform: scale(0) translateY(100vh);
+  transform: scale(0);
   transition: all 0.4s ease;
 }
 
@@ -1249,7 +1386,7 @@ header .siteTitle {
 
 .image-trans-enter, .image-trans-leave-to {
   opacity: 0;
-  transform: scale(0) translateX(100vw);
+  transform: scale(0);
   transition: all 0.4s ease;
 }
 
@@ -1460,6 +1597,13 @@ header .siteTitle {
   cursor: -webkit-zoom-out;
   cursor: zoom-out;
 }
+.lightBox .lb-image video {
+  max-height: 40vw;
+  max-width: 80vw;
+  object-fit: contain;
+  object-position: center top;
+  cursor: pointer;
+}
 .lightBox .design img {
   border: 10px solid rgb(255, 255, 255);
 }
@@ -1589,7 +1733,7 @@ header .siteTitle {
     position: static;
     width: 100%;
   }
-  .lightBox .lb-image .in-image img {
+  .lightBox .lb-image .in-image img, .lightBox .lb-image .in-image video {
     overflow: hidden;
     object-fit: contain;
     height: 80vw !important;
@@ -1678,6 +1822,15 @@ header .siteTitle {
   z-index: 1;
   position: relative;
   text-shadow: 1px 1px 0px black;
+}
+.contact-page h2 {
+  font-size: 2rem !important;
+}
+.contact-page > ul {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: center;
 }
 .contact-page .contactInfo {
   flex: 1 0 30%;
@@ -2383,4 +2536,290 @@ button:hover span {
   display: inline-block;
   animation: wavyGlyph 1s infinite ease-in-out;
   animation-delay: calc(var(--index) * 0.5s);
+}
+
+.load-title {
+  width: 100vw;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  margin-bottom: auto;
+  margin-top: auto;
+  height: fit-content;
+  font-weight: 600;
+  font-size: 3rem;
+}
+
+.spinWrapper {
+  height: 100vh;
+  width: 100vw;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  z-index: 10;
+  width: 100%;
+  height: 100%;
+  background: rgb(255, 255, 255);
+  background: radial-gradient(circle, rgb(255, 255, 255) 18%, rgb(163, 163, 163) 100%);
+}
+
+.wheel-and-hamster {
+  --dur: 1s;
+  position: absolute;
+  width: 12em;
+  height: 12em;
+  font-size: 14px;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin-bottom: auto;
+  margin-top: auto;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.wheel,
+.hamster,
+.hamster div,
+.spoke {
+  position: absolute;
+}
+
+.wheel,
+.spoke {
+  border-radius: 50%;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.wheel {
+  background: radial-gradient(100% 100% at center, hsla(0, 0%, 60%, 0) 47.8%, hsl(0, 0%, 60%) 48%);
+  z-index: 2;
+}
+
+.hamster {
+  animation: hamster var(--dur) ease-in-out infinite;
+  top: 50%;
+  left: calc(50% - 3.5em);
+  width: 7em;
+  height: 3.75em;
+  transform: rotate(4deg) translate(-0.8em, 1.85em);
+  transform-origin: 50% 0;
+  z-index: 1;
+}
+
+.hamster__head {
+  animation: hamsterHead var(--dur) ease-in-out infinite;
+  background: hsl(30, 90%, 55%);
+  border-radius: 70% 30% 0 100%/40% 25% 25% 60%;
+  box-shadow: 0 -0.25em 0 hsl(30, 90%, 80%) inset, 0.75em -1.55em 0 hsl(30, 90%, 90%) inset;
+  top: 0;
+  left: -2em;
+  width: 2.75em;
+  height: 2.5em;
+  transform-origin: 100% 50%;
+}
+
+.hamster__ear {
+  animation: hamsterEar var(--dur) ease-in-out infinite;
+  background: hsl(0, 90%, 85%);
+  border-radius: 50%;
+  box-shadow: -0.25em 0 hsl(30, 90%, 55%) inset;
+  top: -0.25em;
+  right: -0.25em;
+  width: 0.75em;
+  height: 0.75em;
+  transform-origin: 50% 75%;
+}
+
+.hamster__eye {
+  animation: hamsterEye var(--dur) linear infinite;
+  background-color: hsl(0, 0%, 0%);
+  border-radius: 50%;
+  top: 0.375em;
+  left: 1.25em;
+  width: 0.5em;
+  height: 0.5em;
+}
+
+.hamster__nose {
+  background: hsl(0, 90%, 75%);
+  border-radius: 35% 65% 85% 15%/70% 50% 50% 30%;
+  top: 0.75em;
+  left: 0;
+  width: 0.2em;
+  height: 0.25em;
+}
+
+.hamster__body {
+  animation: hamsterBody var(--dur) ease-in-out infinite;
+  background: hsl(30, 90%, 90%);
+  border-radius: 50% 30% 50% 30%/15% 60% 40% 40%;
+  box-shadow: 0.1em 0.75em 0 hsl(30, 90%, 55%) inset, 0.15em -0.5em 0 hsl(30, 90%, 80%) inset;
+  top: 0.25em;
+  left: 2em;
+  width: 4.5em;
+  height: 3em;
+  transform-origin: 17% 50%;
+  transform-style: preserve-3d;
+}
+
+.hamster__limb--fr,
+.hamster__limb--fl {
+  clip-path: polygon(0 0, 100% 0, 70% 80%, 60% 100%, 0% 100%, 40% 80%);
+  top: 2em;
+  left: 0.5em;
+  width: 1em;
+  height: 1.5em;
+  transform-origin: 50% 0;
+}
+
+.hamster__limb--fr {
+  animation: hamsterFRLimb var(--dur) linear infinite;
+  background: linear-gradient(hsl(30, 90%, 80%) 80%, hsl(0, 90%, 75%) 80%);
+  transform: rotate(15deg) translateZ(-1px);
+}
+
+.hamster__limb--fl {
+  animation: hamsterFLLimb var(--dur) linear infinite;
+  background: linear-gradient(hsl(30, 90%, 90%) 80%, hsl(0, 90%, 85%) 80%);
+  transform: rotate(15deg);
+}
+
+.hamster__limb--br,
+.hamster__limb--bl {
+  border-radius: 0.75em 0.75em 0 0;
+  clip-path: polygon(0 0, 100% 0, 100% 30%, 70% 90%, 70% 100%, 30% 100%, 40% 90%, 0% 30%);
+  top: 1em;
+  left: 2.8em;
+  width: 1.5em;
+  height: 2.5em;
+  transform-origin: 50% 30%;
+}
+
+.hamster__limb--br {
+  animation: hamsterBRLimb var(--dur) linear infinite;
+  background: linear-gradient(hsl(30, 90%, 80%) 90%, hsl(0, 90%, 75%) 90%);
+  transform: rotate(-25deg) translateZ(-1px);
+}
+
+.hamster__limb--bl {
+  animation: hamsterBLLimb var(--dur) linear infinite;
+  background: linear-gradient(hsl(30, 90%, 90%) 90%, hsl(0, 90%, 85%) 90%);
+  transform: rotate(-25deg);
+}
+
+.hamster__tail {
+  animation: hamsterTail var(--dur) linear infinite;
+  background: hsl(0, 90%, 85%);
+  border-radius: 0.25em 50% 50% 0.25em;
+  box-shadow: 0 -0.2em 0 hsl(0, 90%, 75%) inset;
+  top: 1.5em;
+  right: -0.5em;
+  width: 1em;
+  height: 0.5em;
+  transform: rotate(30deg) translateZ(-1px);
+  transform-origin: 0.25em 0.25em;
+}
+
+.spoke {
+  animation: spoke var(--dur) linear infinite;
+  background: radial-gradient(100% 100% at center, hsl(0, 0%, 60%) 4.8%, hsla(0, 0%, 60%, 0) 5%), linear-gradient(hsla(0, 0%, 55%, 0) 46.9%, hsl(0, 0%, 65%) 47% 52.9%, hsla(0, 0%, 65%, 0) 53%) 50% 50%/99% 99% no-repeat;
+}
+
+/* Animations */
+@keyframes hamster {
+  from, to {
+    transform: rotate(4deg) translate(-0.8em, 1.85em);
+  }
+  50% {
+    transform: rotate(0) translate(-0.8em, 1.85em);
+  }
+}
+@keyframes hamsterHead {
+  from, 25%, 50%, 75%, to {
+    transform: rotate(0);
+  }
+  12.5%, 37.5%, 62.5%, 87.5% {
+    transform: rotate(8deg);
+  }
+}
+@keyframes hamsterEye {
+  from, 90%, to {
+    transform: scaleY(1);
+  }
+  95% {
+    transform: scaleY(0);
+  }
+}
+@keyframes hamsterEar {
+  from, 25%, 50%, 75%, to {
+    transform: rotate(0);
+  }
+  12.5%, 37.5%, 62.5%, 87.5% {
+    transform: rotate(12deg);
+  }
+}
+@keyframes hamsterBody {
+  from, 25%, 50%, 75%, to {
+    transform: rotate(0);
+  }
+  12.5%, 37.5%, 62.5%, 87.5% {
+    transform: rotate(-2deg);
+  }
+}
+@keyframes hamsterFRLimb {
+  from, 25%, 50%, 75%, to {
+    transform: rotate(50deg) translateZ(-1px);
+  }
+  12.5%, 37.5%, 62.5%, 87.5% {
+    transform: rotate(-30deg) translateZ(-1px);
+  }
+}
+@keyframes hamsterFLLimb {
+  from, 25%, 50%, 75%, to {
+    transform: rotate(-30deg);
+  }
+  12.5%, 37.5%, 62.5%, 87.5% {
+    transform: rotate(50deg);
+  }
+}
+@keyframes hamsterBRLimb {
+  from, 25%, 50%, 75%, to {
+    transform: rotate(-60deg) translateZ(-1px);
+  }
+  12.5%, 37.5%, 62.5%, 87.5% {
+    transform: rotate(20deg) translateZ(-1px);
+  }
+}
+@keyframes hamsterBLLimb {
+  from, 25%, 50%, 75%, to {
+    transform: rotate(20deg);
+  }
+  12.5%, 37.5%, 62.5%, 87.5% {
+    transform: rotate(-60deg);
+  }
+}
+@keyframes hamsterTail {
+  from, 25%, 50%, 75%, to {
+    transform: rotate(30deg) translateZ(-1px);
+  }
+  12.5%, 37.5%, 62.5%, 87.5% {
+    transform: rotate(10deg) translateZ(-1px);
+  }
+}
+@keyframes spoke {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(-1turn);
+  }
 }/*# sourceMappingURL=main.css.map */

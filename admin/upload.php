@@ -1,7 +1,9 @@
 <?php
 session_start();
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
 
-$target_file = '../dist/uploads/img' . time();
+$target_file = '../uploads/img' . time();
 $imageFileType = strtolower(pathinfo($_FILES['uploaded']['name'], PATHINFO_EXTENSION));
 $target_file .= '.' . $imageFileType;
 
@@ -11,4 +13,6 @@ if (move_uploaded_file($_FILES['uploaded']['tmp_name'], $target_file)) {
 } else {
     echo 'Sorry, there was an error uploading your file.';
 }
+
 ?>
+

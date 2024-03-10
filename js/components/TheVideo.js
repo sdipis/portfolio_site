@@ -32,7 +32,7 @@ export default {
   template: `
   <div id="bCard" class="videoChunk" @click="toggleVideo" style="position: relative;">
 
-  <video ref="videoRef" src="videos/intro_video.mp4" autoplay playsinline>
+  <video preload="metadata"   ref="videoRef" src="videos/intro_video.mp4#t=0.1" autoplay playsinline>
   
   </video>
   <h2 v-if="!isPlaying" class="pausedText disableSelect">PAUSED</h2>

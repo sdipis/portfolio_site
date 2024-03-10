@@ -2,7 +2,7 @@ export default {
     name: "TheRandomTextComponent",
     template:`
     <div>
-      <h2 class="noMobile">{{ randomText }}</h2>
+      <h2>{{ randomText }}</h2>
     </div>
   `,
   data() {

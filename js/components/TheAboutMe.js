@@ -12,7 +12,7 @@ export default {
       <div class="contact-page about-page">
 
       <ul>
-      <li><h2>About</h2></li>
+      <li class="noMobile"><h2>About</h2></li>
       <li><p>
       My name is Spencer Dipi! I am a dynamic individual with a passion for creativity and innovation. 
       <br><br>Bringing extensive expertise in graphic design and web development, I see myself not only as a professional but as a visionary in the realm of interactive, and digital media.

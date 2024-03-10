@@ -1,5 +1,51 @@
 
+.hidden{
+    display:none;
+}
+.rowInput{
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-flow: row nowrap;
+    label{
+        flex:1 0 75%;
+    }
+    input{
+        text-align: center;
+    }
+    // background-color: red;
+}
+.rowInputShort{
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-flow: row nowrap;
+    label{
+        flex:1 0 40%;
+    }
+    input{
+        text-align: center;
+    }
+    // background-color: red;
+}
 
+.titleAndArrow{
+    display: flex;
+    flex-flow: row;
+    h1{
+        margin-left:40px;
+    }
+}
+.jots{
+    display: flex;
+    padding-top:20px;
+    padding-bottom: 20px;
+    justify-content: space-between;
+
+    li{
+        width: fit-content;        
+    }
+}
 
 .adminMenuOver{
     position: absolute;
@@ -17,10 +63,17 @@
     display: flex;
     flex-flow: column;
 
+    input{
+        background-color: black;
+        color:white;
+    }
+
     input[type="submit"] {
         background-color: black;
         color:white;
         border-radius: 25px;
+        border:none;
+        text-transform: uppercase;
     }
 
     input[type="submit"]:hover {
@@ -50,6 +103,14 @@
         border-bottom: 1px solid #fff;
         outline: none;
         background: transparent;
+        margin-top:20px;
+        margin-bottom:20px;
+    }
+    select{
+        border-bottom:none;
+        text-align: center;
+    }
+    textarea{resize: vertical;
     }
 }
 
@@ -71,10 +132,21 @@
     justify-content: center;
     align-items: center;
     background-color: $white;
+    width:100%;
 }
 
 .editPage{
     display: flex;
+    flex-flow: column;
+    width:100vw;
+    .listForms{
+        flex:1 0 100%;
+        max-width: 100%;
+        form textarea{
+            height:200px;
+        }
+    }
+
 }
 
 .scrollOver svg{
@@ -82,24 +154,72 @@
 }
 
 
-.projectListCont{
-    display: flex;
-    flex-flow:row wrap;
-    flex:3 0 75%;
-    max-width: 75%;
-    justify-content: space-evenly;
-    overflow-y: scroll;
-    max-height:100vh;
-    background: $white;
+// .projectListCont{
+//     display: flex;
+//     flex-flow:row wrap;
+//     flex:1 0 100%;
+//     max-width: 100%;
+//     justify-content: space-evenly;
+//     overflow-y: scroll;
+//     background: $white;
 
-    align-items: center;
+//     align-items: center;
     
-    img{
-        max-height:200px;
-        margin-right:20px;
-        box-shadow:5px 0px 10px rgba(0, 0, 0, 0.4);
-    }
+//     img{
+//         max-height:200px;
+//         margin-right:20px;
+//         box-shadow:5px 0px 10px rgba(0, 0, 0, 0.4);
+//     }
+// }
+body{
+    position: relative;
 }
+.adminMenu{
+grid-column: span 4;
+    padding:20px;
+}
+$white: #ffffff; // Ensure $white is defined
+
+.projectListCont {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    // gap: 20px;
+    overflow-y: scroll !important;
+    max-height: 100vh;
+    background: $white;
+    flex: 0 0 60%;
+    max-width: 60%;
+    padding:20px;
+    height:fit-content;
+}
+
+.project-list {
+    width: 100%;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+
+.col-span-2 {
+    grid-column: span 2;
+}
+
+.col-span-3 {
+    grid-column: span 3;
+}
+
+.col-span-4 {
+    grid-column: span 4;
+}
+
+.detailsImage {
+    max-width: 100%;
+    height: auto;
+    box-shadow: 5px 0px 10px rgba(0, 0, 0, 0.4);
+}
+
+
 
 .editListCont{
     flex:1 0 100%;
@@ -131,12 +251,35 @@
     }
 }
 
-.listForms{
-    flex:1 0 25%;
-    max-width: 25%;
-    padding-left:20px;
-    padding-right:20px;
+#media_add_form{
+    background-color: $blue;
+}
+
+#filter_form{
     background-color: $orange;
+}
+
+#upload_form{
+    background-color: $red;
+}
+
+.listForms {
+    overflow-y: scroll;
+    flex: 0 0 20%;
+    max-width: 20%;
+    max-height: 100vh;
+    background-color: $orange;
+    transition: right 0.2s ease; /* Apply transition to the right property */
+
+    #search{
+        text-align: center;
+    }
+
+    form{
+        // background-color: red;
+        padding:20px !important;
+    }
+
     ul{
         display: flex;
         flex-flow: row nowrap;
@@ -145,44 +288,66 @@
         li a{
             text-decoration: none;
         }
+  
     }
     h2{
-        color:white;
+        color:black;
+        font-weight: 600;
+        text-align: center;
+        text-decoration: underline;
     }
-
+    input[type='file'] {
+        color: $red;
+        border:none;
+      }
 }
 .project-list{
-    font-size: 26px;
+    font-size: 16px;
     font-family: montserrat;
-    margin:10px;
+    position: relative;
     display: flex;
-    flex-flow: row;
-    align-items: center;
-    flex:1 0 30%;
-    padding:10px;
+    flex-flow: column;
+    max-height: 100vh;
+
+    .project-text{
+        width:100%;
+        display: flex;
+        justify-content: space-between;
+        text-align: center;
+        margin-top:20px;
+        margin-bottom:20px;
+
+                font-weight: 600;
+                padding-left:20px;
+                padding-right:20px;
+        ul{
+            text-align: right;
+            display: flex;
+            li{
+                margin-left:10px;
+            }
+        
+        }
+
+    }
     // box-shadow: 5px 5px black;
     p{
         color:black !important;
-
+        font-size: 12px;
     }
     a{
-    font-size: 10px;
+    font-size: 12px;
     font-family: rockwell;
     color:red;
     }
-    img{
-        box-shadow:  20px 20px 60px #bebebe,
-             -20px -20px 60px #ffffff;}
 }
 .adminWrapper{
     display: flex;
     flex-flow: row;
-    min-height: 100vh;
-    background-color: lightblue;
     justify-content: center;
-    width: 100%;
+    flex:1 0 75%;
     
-
+    background-color: white;
 }
 
 
@@ -349,33 +514,45 @@ cursor: pointer;
 
 @media only screen and (max-width: 768px) {
 
+    .jots{flex-flow: column;
+        li:first-child{
+        margin-top: 0px;
+        }
+        justify-content: flex-end;
+        align-items: right;
+    li{
+        width: 100%;
+        margin-top:20px;
+        text-align: center !important;
+    }}
+
     .adminWrapper{
         flex-flow: column;
-        max-height: none;
-        min-height: none;
     }
     .listForms{
         flex:1 0 100%;
         max-width: 100%;
         padding-left:20px;
-
+        max-height:100vh;
+        
 
     }
-    .projectListCont{
-        display: flex;
-        flex-flow: row wrap;
-        flex:1 0 100%;
-        max-width: none;
-        min-width: 100%;
-        max-height: none;
-        justify-content: space-evenly;
-        img{
-            max-height:200px;
-            padding:20px;
-        }
-    }
+    // .projectListCont{
+    //     flex-flow: row wrap;
+    //     flex:1 0 100%;
+    //     max-width: none;
+    //     min-width: 100%;
+    //     max-height: none !important;
+    //     height:auto;
+    //     padding:40px;
+    //     img{
+    //         // max-height:200px;
+    //         // padding:20px;
+    //     }
+    // }
     .projectText{
         padding:40px;
+        
         h1{
             margin-bottom: 30px;
             font-size: 26px;
@@ -391,6 +568,7 @@ cursor: pointer;
     }
 
     .project-gallery{
+
         flex-flow: column !important;
         justify-content: center;
         height:auto;
@@ -402,7 +580,7 @@ cursor: pointer;
             padding:20px;
 
         }
-        img{
+        img,video,embed{
             // padding:40px;
             padding:20px;
             max-height: 100vw;
@@ -432,12 +610,13 @@ cursor: pointer;
         }
     }
 
-    .project-list{
-        flex:1 0 80%;
-        flex-flow: column;
-        max-width: 80%;
-        overflow: hidden;
-    }
+    // .project-list{
+    //     flex:1 0 50%;
+    //     flex-flow: column;
+    //     max-width: 50%;
+    //     margin:0px;
+    //     overflow: hidden;
+    // }
 
     .editPage{
         max-height: none;
@@ -502,8 +681,8 @@ cursor: pointer;
     text-transform: uppercase;
     overflow: hidden;
     transition: .5s;
-    margin-top: 40px;
-    letter-spacing: 4px
+    margin-top: 20px;
+    letter-spacing: 4px;
   }
   
   .login-box input[type='submit']:hover {
@@ -541,8 +720,8 @@ cursor: pointer;
   }
 
   .loginPage{
-        width: 100%;
-        height: 100%;
+        width: 100vw;
+        height: 100vh;
         --color: rgba(114, 114, 114, 0.3);
         background-color: #191a1a;
         background-image: linear-gradient(0deg, transparent 24%, var(--color) 25%, var(--color) 26%, transparent 27%,transparent 74%, var(--color) 75%, var(--color) 76%, transparent 77%,transparent),

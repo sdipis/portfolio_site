@@ -1,8 +1,7 @@
 export default {
   name: "TheFormComponent",
   created() {
-    //log recieved data on component create event
-    // console.log('Form called');
+
 },
 data() {
   return {
@@ -17,7 +16,7 @@ data() {
   <div class="contact-page">
 
   <form method="post" id="mail-form" action="includes/contact.php">
-  <h2>Contact</h2>
+  <h2 class="noMobile">Contact</h2>
 
       <label for="firstName">Name</label>
       <input type="text" id="firstName" name="firstName" placeholder="Your name goes here..." required>

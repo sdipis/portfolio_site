@@ -1,5 +1,23 @@
 /* Enter and leave animations can use different */
 /* durations and timing functions.              */
+.loader-hamster-enter-active {
+  transition: all .4s ease;
+}
+.loader-hamster-leave-active {
+  transition: all .4s ease;
+}
+.loader-hamster-enter, .loader-hamster-leave-to
+/* .slide-fade-leave-active below version 2.1.8 */ {
+  // transform: translateY(-10vh); //scaley(.8) scalex(.2);
+  // filter: blur(50px);
+  opacity: 0;
+  transform:scale(0) ;
+  transition: all .4s ease;
+
+}
+
+/* Enter and leave animations can use different */
+/* durations and timing functions.              */
 .slide-fade-enter-active {
     transition: all .4s ease;
   }
@@ -11,7 +29,7 @@
     // transform: translateY(-10vh); //scaley(.8) scalex(.2);
     // filter: blur(50px);
     opacity: 0;
-    transform:scale(0) translateX(-100vw);
+    transform:scale(0) ;
     transition: all .4s ease;
 
   }
@@ -29,7 +47,7 @@
     // transform: translateY(-10vh); //scaley(.8) scalex(.2);
     // filter: blur(50px);
     opacity: 0;
-    transform:scale(0) translateX(100vw);
+    transform:scale(0) ;
     transition: all .4s ease;
 
   }
@@ -63,7 +81,7 @@
   // transform: translateY(-10vh); //scaley(.8) scalex(.2);
   // filter: blur(50px);
   opacity: 0;
-  transform:scale(0) translateY(100vh);
+  transform:scale(0);
   transition: all .4s ease;
 
 }
@@ -79,7 +97,7 @@
   /* .slide-fade-leave-active below version 2.1.8 */ {
     // transform: translateY(-10vh); //scaley(.8) scalex(.2);
     opacity: 0;
-    transform:scale(0) translateX(100vw);
+    transform:scale(0);
     transition: all .4s ease;        
   }
 
