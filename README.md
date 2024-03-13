@@ -117,6 +117,14 @@ If you set "Forward" to true, the media grid will change the "more information" 
 
 So you can have multiple tiles on the media grid that all go to the same main project.
 
+## Media List
+
+Find all of the media entries at https://dipidomain.com/admin/media_list.php
+
+- Filter entries by parent ID
+- Add entries
+- Edit entries
+
 ## Project.php
 
 This page is for single project view.

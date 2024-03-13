@@ -15,13 +15,13 @@ while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
     $output .= '<div id="' . $row['project_id'] . '" class="project-list">';
     
     if ($row['content'] === 'video') {
-        $output .= '<img class="detailsImage" src="../dist/video_default.jpg" alt="Project Image">';
+        $output .= '<video class="detailsImage" src="../dist/video_default.jpg" alt="Project Image">';
     } else {
         $output .= '<img class="detailsImage" src="../dist/' . $row['image_filename'] . '" alt="Project Image">';
     }
 
     $output .= '<p>' .
-        $row['title'] .
+        $row['id'] .'</p>'.
         '<br><a href="edit_project_form.php?id=' . $row['id'] . '">edit</a>' .
         '<br><a href="javascript:void(0);" onclick="confirmDelete(' . $row['id'] . ')">delete</a></p>' .
         '</div>';

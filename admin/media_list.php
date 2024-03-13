@@ -24,16 +24,6 @@ $stmt->execute();
 </head>
 <body>
   <div class="adminWrapper">
-<!-- FILTER PROJECTS -->
-
-
-<form action="" method="get" id="filter_form">
-    <div class="rowInput">
-<h2>Filter Projects   -></h2>
-
-<input type="text" id="search" name="search" placeholder="Project Title...">
-</div>
-</form>
 
 
   <div class="projectListCont mediaList">
@@ -136,6 +126,9 @@ $stmt = null;
 </select></div>
     
     <input name="submit" type="submit" value="Add Media">
+</form>
+<form action="" method="get">
+<input type="text" id="search" name="search" placeholder="Media Parent ID...">
 </form>
 </div>
 

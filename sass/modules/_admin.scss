@@ -203,6 +203,9 @@ $white: #ffffff; // Ensure $white is defined
 .mediaList{
     flex:0 0 75% !important;
     max-width: 75% !important;
+    img{
+        max-width: 250px;
+    }
 }
 .project-list {
     width: 100%;
@@ -338,13 +341,27 @@ $white: #ffffff; // Ensure $white is defined
     // background-color: $hover3;
 }
 
+#filter_form-media{
+    position: fixed;
+    bottom:0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    left:0px;
+    z-index: 5;
+    width:75%;
+    background-color: $grey;
+    // background-color: $hover3;
+}
+
 #upload_form{
     background-color: $red;
 }
 
 #search{
     text-align: center;
-    width:50%;
+    width:100%;
 }
 
 

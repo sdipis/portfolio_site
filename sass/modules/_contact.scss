@@ -2,6 +2,14 @@
     scroll-behavior: smooth;
 }
 
+.popPageTitle{
+    position:absolute;
+    left:40px;
+    top:20px;
+    width:fit-content;
+    max-width: fit-content;
+}
+
 .animate-character
 {
    text-transform: uppercase;
@@ -192,9 +200,14 @@
 .about-page{
     display: flex;
     flex-flow: row;
+    flex: 0 0 30%;
+    max-width: 30%;
     h2{
         text-shadow: 1px 1px 0px black;
         text-align: center !important;
+        position: absolute;
+        top:0px;
+        left:0px;
     }
     .left-col li h3{
         align-items: right;
@@ -204,9 +217,10 @@
         // flex:1 0 30%;
         // max-width: 30%;
         text-align: left;
+        position: relative;
     }
     ul li p{
-        width:50vw;
+        // width:50vw;
         font-size: 20px;
         line-height: 30px;
         padding-left:20px;
@@ -222,6 +236,9 @@
     font-size: 16px;
     // text-shadow: $textshad1;
     // position: fixed;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
     .blurb nav .menus{
         width:auto;
         // li{
@@ -246,13 +263,15 @@
     }
 
 h2{
-    padding-bottom:10px;
     font-weight: 200;
     font-size: 36px;
-    margin-bottom: 20px;
     text-transform: capitalize;
     text-align: center;
     overflow: hidden;
+    align-self: top;
+    flex:0 0 100%;
+    width: 100%;
+    // background-color: red;
     span{
 
         font-weight: 600;
@@ -319,6 +338,9 @@ h2{
 @media only screen and (max-width: 950px) {
     .about-page{
         flex-flow: column;
+        flex:0 0 100%;
+        max-width: 100%;
+
         ul{
             flex:1 0 100%;
             max-width: 100%;;

@@ -10,7 +10,7 @@ export default {
     <div class="in-image disableSelect">
     <video preload="meta" controls playsinline v-if="piece.content === 'video'"    @click="playSound('dist/audio/wosh.mp3');" :src='"dist/" + piece.display +"#t=0.1"'/>
 
-    <img v-else @click="playSound('dist/audio/wosh.mp3'); closeLightBox()" :src='"dist/" + piece.display'/>
+    <img v-else @click="playSound('dist/audio/wosh.mp3'); closeLightBox()" :src='"./"+piece.display'/>
 
     <ul class="disableSelect">
     <li>

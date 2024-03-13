@@ -16,19 +16,18 @@ import { SendMail } from "./components/TheMailer.js";
 
   const myVue = new Vue({
 
-    beforeMount(){
+    // beforeMount(){
+    //   // Simulating a delay (replace this with your actual logic)
+    //   setTimeout(() => {
+    //     // Hide the loading spinner
+    //     // let spinner = document.querySelector('.wheel-and-hamster');
+    //     let spinWrapper = document.querySelector('.spinWrapper');
+    //     spinner.style.display="none";
+    //     spinWrapper.style.display="none";
+    //     this.buttonClicked();
 
-      // Simulating a delay (replace this with your actual logic)
-      setTimeout(() => {
-        // Hide the loading spinner
-        let spinner = document.querySelector('.wheel-and-hamster');
-        let spinWrapper = document.querySelector('.spinWrapper');
-        spinner.style.display="none";
-        spinWrapper.style.display="none";
-        this.buttonClicked();
-
-    }, 2000); // Adjust the delay as needed
-    },
+    // }, 2000); // Adjust the delay as needed
+    // },
 
     destroyed() {
       window.removeEventListener('scroll', this.updateBlur);

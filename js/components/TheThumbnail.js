@@ -21,8 +21,8 @@ export default {
       </a>
 
 
-      <video autoplay preload="meta" muted loop playsinline v-if="piece.content === 'video'"  :src='"dist/" + piece.display + "#t=0.1"'    @click="showmydata(); playSound('dist/audio/woosh.mp3')" ></video>
-      <img v-else  :src='"dist/" + piece.display'    @click="showmydata(); playSound('dist/audio/woosh.mp3')" />
+      <video autoplay preload="meta" muted loop playsinline v-if="piece.content === 'video'"  :src=' piece.display'    @click="showmydata(); playSound('dist/audio/woosh.mp3')" ></video>
+      <img v-else  :src=' piece.display'    @click="showmydata(); playSound('dist/audio/woosh.mp3')" />
 
     </div>
   `,

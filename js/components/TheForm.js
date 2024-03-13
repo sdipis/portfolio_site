@@ -12,11 +12,11 @@ data() {
   template: `
   
   <div class="videoChunk disableSelect" id="bCard" >
+  <h2 class="popPageTitle">Contact</h2>
 
   <div class="contact-page">
 
   <form method="post" id="mail-form" action="includes/contact.php">
-  <h2 class="noMobile">Contact</h2>
 
       <label for="firstName">Name</label>
       <input type="text" id="firstName" name="firstName" placeholder="Your name goes here..." required>
