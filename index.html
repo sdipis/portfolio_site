@@ -30,42 +30,18 @@
             <!-- <h2 class="load-title">Getting Stuff Ready...</h2> -->
    
             <loadery></loadery>
-            <div aria-label="Orange and tan hamster running in a metal wheel" role="img" class="wheel-and-hamster">
-   
-               <div class="wheel"></div>
-               <div class="hamster">
-                  <!-- <transition name="loader-hamster"> -->
-   
-                  <div class="hamster__body">
-                     <div class="hamster__head">
-                        <div class="hamster__ear"></div>
-                        <div class="hamster__eye"></div>
-                        <div class="hamster__nose"></div>
-                     </div>
-                     <div class="hamster__limb hamster__limb--fr"></div>
-                     <div class="hamster__limb hamster__limb--fl"></div>
-                     <div class="hamster__limb hamster__limb--br"></div>
-                     <div class="hamster__limb hamster__limb--bl"></div>
-                     <div class="hamster__tail"></div>
-                  </div>
-               </transition>
-   
-   
-               </div>
-               <div class="spoke"></div>
-            </div>
    
     </div>
    
          <section class="gridHead" :style="{ 'background-size': dynamicBG }">
             <section v-if="!crackSeal" class="topBarTwo blanks">
 
-               <div class="blurb noMobile disableSelect">
+               <!-- <div class="blurb noMobile disableSelect">
                   <svg class="spinarrow" version="1.1" viewBox="0 0 32 32" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                      <path clip-rule="evenodd" d="M32,16.009c0-0.267-0.11-0.522-0.293-0.714 l-9.899-9.999c-0.391-0.395-1.024-0.394-1.414,0c-0.391,0.394-0.391,1.034,0,1.428l8.193,8.275H1c-0.552,0-1,0.452-1,1.01 s0.448,1.01,1,1.01h27.586l-8.192,8.275c-0.391,0.394-0.39,1.034,0,1.428c0.391,0.394,1.024,0.394,1.414,0l9.899-9.999 C31.894,16.534,31.997,16.274,32,16.009z" fill-rule="evenodd" id="Arrow_Forward"/>
                   </svg>
                   <h2 id="call" class="textFlash">Click the button.</h2>
-               </div>
+               </div> -->
 
             </section>
 
@@ -75,8 +51,8 @@
 
                <div class="dynamicWrapperNotFixed" :style="{ opacity: dynamicOpacity, filter: dynamicBlur  }">
                   <transition name="image-trans">
-                     <section v-if="crackSeal" id="menuTopBar" class="topBar">
-      
+                     <section v-if="crackSeal" class="topBar">
+
                         <div class="blurbTitle noMobile" id="dynamicTitle">
                            <h2>Welcome, kemosabe</h2>
                         </div>
@@ -205,6 +181,8 @@
                               </ul>
                            </nav>
                         </div>
+
+
                      </section>
                   </transition>
                </div>
@@ -295,8 +273,8 @@
 
         <footery :profile-data="profileData" v-if="crackSeal"></footery>
       </div>
-      <!-- <script src="https://cdn.jsdelivr.net/npm/vue@2"></script> -->
-      <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+      <!-- <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script> -->
       <script src="js/main.js" type="module" defer></script>
    </body>
 </html>

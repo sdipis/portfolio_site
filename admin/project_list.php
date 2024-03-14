@@ -132,7 +132,7 @@ $stmt = null;
 
                     <div class="rowInput">
                     <label for="for_id">Forward to Project: </label>
-                    #<input name="for_id" type="text" placeholder="ID">
+                    #<input name="for_id" type="text" placeholder="0">
 </div>
 
 <div class="user-box">
@@ -152,7 +152,7 @@ $stmt = null;
     <textarea name="moreinfo" placeholder="Here is some secondary information..."></textarea>
 
     <label for="display">Tile Image: </label>
-    <input name="display" type="text" value="<?php echo isset($_SESSION['thumb']) ? $_SESSION['thumb'] : ''; ?>" required>
+    <input placeholder="Upload media first..." name="display" type="text" value="<?php echo isset($_SESSION['thumb']) ? $_SESSION['thumb'] : ''; ?>" required>
 
 
 <div class="rowInput">
@@ -201,7 +201,7 @@ $stmt = null;
 </select></div>
 
         <label for="extra_url">Extra Content URL: </label>
-            <input name="extra_url" type="text"></input>
+            <input placeholder="Upload media first..." name="extra_url" type="text"></input>
         
             <input name="submit" type="submit" value="Add Project">
             </div>
@@ -251,10 +251,10 @@ $stmt = null;
 <div class="user-box">
     <div class="rowInput">
     <label for="project_id">Parent ID:</label>
-    #<input name="project_id" type="text" placeholder="ID"></div>
+    #<input name="project_id" type="text" placeholder="0"></div>
 
     <label for="image_filename">Media URL: </label>
-    <input name="image_filename" type="text" value="<?php echo isset($_SESSION['thumb']) ? $_SESSION['thumb'] : ''; ?>" required>
+    <input placeholder="Upload media first..." name="image_filename" type="text" value="<?php echo isset($_SESSION['thumb']) ? $_SESSION['thumb'] : ''; ?>" required>
 
 
 <div class="rowInput">

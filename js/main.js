@@ -125,10 +125,10 @@ import { SendMail } from "./components/TheMailer.js";
         const scrollPosition = window.scrollY;
         //these are all the header animation logics
         //thank you chatgpt
-        this.scaleValue = Math.max(0.5, 1 - (scrollPosition) / 500);
+        this.scaleValue = Math.max(0.5, 1 - (scrollPosition) / 1000);
       
         if (scrollPosition > 250) {
-          this.blurValue = Math.min(5, scrollPosition / 5);
+          this.blurValue = Math.min(2, scrollPosition / 5);
           this.opacityValue = Math.max(0, 1 - (scrollPosition - 250) / 100);
         } else {
           this.blurValue = 0;
@@ -332,8 +332,8 @@ import { SendMail } from "./components/TheMailer.js";
       abouty: TheAboutComponent,
       randomy: TheRandomTextComponent,
       footery: TheFooterComponenet,
-      loadery: TheQuoteComponent,
-    }
+      loadery: TheQuoteComponent
+        }
 
   }).$mount("#app");
 })();

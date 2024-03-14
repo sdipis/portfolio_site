@@ -8,6 +8,13 @@ The only seperate page used is the project.php page, for getting details about a
 
 Example: https://dipidomain.com/project.php?id=40 (KAVORKA)
 
+## Header
+The header is where the "pages" load. Focusing on user experience, there are some small details that make it work. 
+
+- Click on a link will automatically turn off auto scroll (if it's on) and set users window so it's on screen, and ready to view.
+- White text on top of an animated gradient background isn't exactly prime readability. When user opens the contact page, or the about me page, the background animation pauses. It resumes when user closes the page.
+- Page titles are ugly, so I put mine in the top left corner. It's dynamic, and there's always something there, to add a sense of consistency.
+
 ## Interactivity
 
 ### Auto-Scroll

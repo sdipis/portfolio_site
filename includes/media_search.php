@@ -4,9 +4,9 @@
 // Assuming you have a database connection established
 require_once('../includes/admin_connect.php');
 
-$searchTerm = isset($_GET['search']) ? '%' . $_GET['search'] . '%' : '%';
-$stmt = $connection->prepare('SELECT project_id, image_filename, content_type FROM media WHERE project_id LIKE :searchTerm ORDER BY project_id ASC');
-$stmt->bindParam(':searchTerm', $searchTerm, PDO::PARAM_STR);
+$searchTerm = isset($_GET['search']) ? $_GET['search'] : '';
+$stmt = $connection->prepare('SELECT project_id, image_filename, content_type FROM media WHERE project_id = :searchTerm ORDER BY project_id ASC');
+$stmt->bindParam(':searchTerm', $searchTerm, PDO::PARAM_INT); // Assuming project_id is an integer
 $stmt->execute();
 
 // Fetch the results and generate HTML output

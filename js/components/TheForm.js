@@ -36,7 +36,7 @@ destroyed(){
       <label for="message">Message</label>
       <textarea id="message" name="message" placeholder="Write your message here..." style="height:200px"></textarea>
   
-      <button class="btn-shine" type="submit" value="SEND">Send Message</button>
+      <button class="btn-shine" type="submit" value="SEND">Send Your Message</button>
     </form>
     <div id="dynamicTitle" class="dynamicTitleMobile">
     <h2></h2>

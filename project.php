@@ -31,8 +31,22 @@ $isVideo = ($rows[0]['extra'] && $rows[0]['extra_content'] === 'video');
 </head>
 
 <body>
+<div class="loaderWrapper">
+<div class="loader">
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="shadow"></div>
+    <div class="shadow"></div>
+    <div class="shadow"></div>
+</div>
+</div>
     <div class="gridContainer bevel" id="app">
-        
+
+
+
+    
+
     <section class="gridHead bevel">
             <section class="project-gallery">
  
@@ -145,6 +159,16 @@ $isVideo = ($rows[0]['extra'] && $rows[0]['extra_content'] === 'video');
     }
 
     makeCode();
+
+        // Show the loader when the page starts loading
+        document.addEventListener("DOMContentLoaded", function() {
+        document.querySelector('.loaderWrapper').style.display = 'flex';
+    });
+
+    // Hide the loader when the page is fully loaded
+    window.addEventListener("load", function() {
+        document.querySelector('.loaderWrapper').style.display = 'none';
+    });
 
 </script>
 
