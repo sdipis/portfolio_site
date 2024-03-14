@@ -10,7 +10,7 @@ export default {
       textOptions: [
         "> Click on an item to learn more...",
         "> Click on an item to zoom in...",
-        "> Now in Hypno-Vision..."
+        "> Enable auto-scroll in menu..."
         // Add more text options as needed
       ],
       randomText: "",

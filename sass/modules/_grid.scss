@@ -34,7 +34,9 @@
   grid-area: gridHead;    
   background: linear-gradient(-45deg, #ff931f, #8800FF, #2C99FF, #23d5ab );
 	background-size: 400% 400%;
-	animation: gradient 20s ease alternate infinite;   }
+	animation: gradient 20s ease alternate infinite;
+  position: relative;
+}
 .gridMain { grid-area: gridMain;}
 .gridFooter { grid-area: gridFooter;}
 .gridAside {grid-area: gridAside;}

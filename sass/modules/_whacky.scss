@@ -8,6 +8,13 @@
   z-index: -99;
 }
 
+.dynamicWrapperNotFixed{
+  position: absolute !important;
+  height:auto;
+  width:100%;
+  bottom:0px;
+}
+
 @keyframes bounceUpAndDown {
     0%, 100% {
       // transform: translateY(0);

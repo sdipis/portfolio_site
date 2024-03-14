@@ -1,6 +1,14 @@
 export default {
     name: "TheSocialLinksComponent",
     props: ['profileData'],
+    methods:{
+      playSound(soundFile) {
+          if (this.musicPlaying === true) {
+            const audio = new Audio(soundFile);
+            audio.play();
+          }
+        }
+  },
     template: `
     <ul class="menus socialMenu disableSelect">
 

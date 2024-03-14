@@ -2,7 +2,7 @@ import { getData, getSecondData } from "./components/TheDataMiner.js";
 import TheThumbnail from "./components/TheThumbnail.js";
 import TheContactForm from "./components/TheContact.js";
 import TheLightbox from "./components/TheLightbox.js";
-import TheHeader from "./components/TheTicker.js"; 
+// import TheHeader from "./components/TheTicker.js"; 
 import TheVideoComponent from "./components/TheVideo.js";
 import TheFormComponent from "./components/TheForm.js";
 import TheAboutComponent from "./components/TheAboutMe.js";
@@ -198,8 +198,20 @@ import { SendMail } from "./components/TheMailer.js";
 
       toggleMusic() {
         //toggles the music when user clicks on the speaker thing
-        this.musicPlaying = !this.musicPlaying;
+        // function notification(){
+        //   if(this.musicPlaying){
+        //   document.querySelector('#dynamicTitle h2').textContent = "Audio Muted";
+        //   }else{
+        //     document.querySelector('#dynamicTitle h2').textContent = "Welcome";
 
+        //   }
+        //   setTimeout(() => {
+        //     document.querySelector('#dynamicTitle h2').textContent = "Welcome";
+        //   }, 5000);
+        // }
+
+
+        this.musicPlaying = !this.musicPlaying;
         // if (this.musicPlaying) {
         //   this.audioElement = new Audio('./dist/audio/ambience_edit.wav');
 
@@ -314,7 +326,7 @@ import { SendMail } from "./components/TheMailer.js";
       thumb: TheThumbnail,
       contacty: TheContactForm,
       lightybox: TheLightbox,
-      toppy: TheHeader,
+      // toppy: TheHeader,
       videoy: TheVideoComponent,
       formy: TheFormComponent,
       abouty: TheAboutComponent,

@@ -92,12 +92,12 @@ if ($stmt->rowCount() > 0) {
           // echo '<img class="detailsImage" src="../dist/video_default.jpg" alt="Project Image">';
 
             echo '<video class="detailsImage" preload="meta" playsinline controls>';
-            echo '<source class="detailsImage"  src="../dist/'.$row['display'].'#t=0.1" type="video/mp4">';
+            echo '<source class="detailsImage"  src="../'.$row['display'].'#t=0.1" type="video/mp4">';
             echo 'Your browser does not support the video tag.';
             echo '</video>';
         } else {
             // Render as an image by default
-            echo '<img class="detailsImage" src="../dist/'.$row['display'].'" alt="Project Image">';
+            echo '<img class="detailsImage" src="../'.$row['display'].'" alt="Project Image">';
         }
 
         echo '<div class="project-text">'.'<p>'.

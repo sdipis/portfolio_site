@@ -1,3 +1,8 @@
+.paused{
+  animation-play-state: paused;
+
+}
+
 /* Enter and leave animations can use different */
 /* durations and timing functions.              */
 .loader-hamster-enter-active {

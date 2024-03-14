@@ -5,8 +5,12 @@ export default {
       isVideoReady: false,
     };
   },
+  beforeDestroy(){
+    document.querySelector('#dynamicTitle h2').textContent = "Welcome, kemosabe";
+  },
   mounted() {
     const video = this.$refs.videoRef;
+    document.querySelector('#dynamicTitle h2').textContent = "";
 
     // Listen for the 'canplaythrough' event to ensure the video is ready to play
     video.addEventListener('canplaythrough', () => {

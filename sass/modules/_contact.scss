@@ -1,13 +1,25 @@
 .smoothScroll{
     scroll-behavior: smooth;
 }
-
 .popPageTitle{
     position:absolute;
     left:40px;
     top:20px;
     width:fit-content;
     max-width: fit-content;
+}
+
+.titleArrow{
+    height:40px;
+    width:40px;
+    fill:$white;
+    margin-right:40px;
+    animation: arrowSpin 10s ease;
+    padding-left:10px;
+}
+
+.pageButton{
+    flex:0 0 100%;
 }
 
 .animate-character
@@ -57,7 +69,7 @@
 .contact-page{ 
     display: flex;
     padding-top:0px;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     z-index: 1;
     position: relative;
@@ -138,7 +150,7 @@
         margin-bottom: 10px; /* Bottom margin */
         resize: vertical; /* Allow the user to vertically resize the textarea (not horizontally) */
         font-size:16px;
-        color:$black;
+        color:$hover2 !important;
         border-radius: 10px;
         box-shadow:$shadow2;
     }
@@ -199,15 +211,33 @@
 
 .about-page{
     display: flex;
-    flex-flow: row;
-    flex: 0 0 30%;
-    max-width: 30%;
+    flex-flow: row wrap;
+
+    justify-content: center !important;
+    align-items: center;
+    flex-basis:100% !important;
+    min-height:100%;
+    // background-color: red;
+
+    .textBox{
+        flex: 0 0 60%;
+        max-width: 60%;
+        display: flex;
+        justify-content: flex-start !important;
+        height:100%;
+        flex-basis:100%;
+        // background-color: blue;
+        overflow-y:scroll;
+        position: relative;
+    }
+
     h2{
         text-shadow: 1px 1px 0px black;
         text-align: center !important;
         position: absolute;
         top:0px;
         left:0px;
+        font-size: 2rem !important;
     }
     .left-col li h3{
         align-items: right;
@@ -219,26 +249,36 @@
         text-align: left;
         position: relative;
     }
-    ul li p{
+    p{
         // width:50vw;
-        font-size: 20px;
+        font-size: clamp(16px, 2vw, 20px);
         line-height: 30px;
         padding-left:20px;
         text-shadow: 1px 1px 0px black;
+        flex-basis:100%;
+        // align-self: flex-start !important;
+        // background-color:green;
     }
 }
 
 #bCard{
     color:$white;
     font-family:$main-font;
-    border-radius: 15px 0px 0px 0px;
+    // border-radius: 15px 0px 0px 0px;
     // background-color: rgb(201, 201, 201);
     font-size: 16px;
     // text-shadow: $textshad1;
     // position: fixed;
     display: flex;
     flex-flow: row wrap;
-    justify-content: center;
+    align-items: center !important;
+    justify-content: center !important;
+
+    .textBlocks{
+        height:fit-content;
+        width:fit-content;
+    }
+
     .blurb nav .menus{
         width:auto;
         // li{
@@ -252,6 +292,7 @@
 
 #bCard{
 
+
     .nameTag{
         display: inline-block;
         overflow: visible;
@@ -264,7 +305,7 @@
 
 h2{
     font-weight: 200;
-    font-size: 36px;
+    font-size:  clamp(3rem, 2vw, 4rem);
     text-transform: capitalize;
     text-align: center;
     overflow: hidden;
@@ -335,11 +376,22 @@ h2{
             border-radius:  0px 0px 0px 15px;
         }
 
-@media only screen and (max-width: 950px) {
+@media only screen and (max-width: 768px) {
     .about-page{
-        flex-flow: column;
+        flex-flow: column nowrap;
         flex:0 0 100%;
         max-width: 100%;
+        height:fit-content !important;
+        max-height: none;
+        .textBox{
+            flex:0 0 100%;
+            max-width: 100%;
+            flex-flow:column;
+            padding:40px;
+            p{
+                padding-left:0px;
+            }
+        }
 
         ul{
             flex:1 0 100%;
@@ -355,6 +407,7 @@ h2{
     }
 
     #bCard{
+        overflow-y: scroll;
         .blurb li{
             margin-left:10px;
             margin-right:10px;

@@ -5,14 +5,6 @@ export default {
     components:{
      socialy: TheSocialLinksComponent
     },
-    methods:{
-        playSound(soundFile) {
-            if (this.musicPlaying === true) {
-              const audio = new Audio(soundFile);
-              audio.play();
-            }
-          }
-    },
   
     template: `
         <section class="gridFooter bevel diag">
