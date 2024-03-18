@@ -1,0 +1,137 @@
+.dynamicWrapper{
+  overflow: hidden;
+  position: fixed;
+  top:0;
+  left:0;
+  height:100%;
+  width:100%;
+  z-index: -99;
+}
+
+.dynamicWrapperNotFixed{
+  position: fixed !important;
+  height:fit-content;
+  width:100%;
+  top:0px;
+  display: flex;
+  flex-flow:row;
+  justify-content: space-between;
+}
+
+@keyframes bounceUpAndDown {
+    0%, 100% {
+      // transform: translateY(0);
+      transform:scale(1) skewX(0deg);
+
+    }
+
+    25%{
+      transform: scale(1.025) skewX(10deg);
+
+    }
+
+    50%{
+      transform: scale(1) skewX(-10);
+
+    }
+    75% {
+      // opacity: 0.85;
+      // transform: scale(1.0255);
+      // filter: blur(2px);
+      transform: scale(1.025) skewX(5deg);
+    }
+  }
+
+  .jumpText span {
+
+    --hover-color-1: #ff931f; /* Replace with your color values */
+    --hover-color-2: #8800FF;
+    --hover-color-3: #2C99FF;
+    --hover-color-4: #23d5ab;
+  
+    animation: jumpDown 30s infinite ease; /* 4 colors * 3s each */
+    animation-delay: calc(var(--index) * .15s); /* 4 colors * 3s each + 0.15s initial delay */
+  }
+  
+  @keyframes jumpDown {
+    0%, 2.75%, 100% {
+      transform: translateY(0);
+      // color: $white; /* Replace with your default color value */
+    }
+  
+    .25%, .5% {
+      transform: translateY(-10px);
+      // color: var(--hover-color-1);
+    }
+  
+    .5%, 1% {
+      transform: translateY(10px);
+      // color: var(--hover-color-2);
+    }
+  
+    1%, 1.5% {
+      transform: translateY(0);
+      // color: var(--hover-color-3);
+    }
+  
+    2%, 2.5% {
+      transform: translateY(-10px);
+      // color: var(--hover-color-4);
+    }
+  }
+  // .jumpText span {
+  //   animation: jumpDown 5s infinite ease; /* 1s for the animation + 2s for the pause */
+  //   animation-delay: calc(var(--index) * .1s); /* 1s for animation + 2s pause + 0.15s for initial delay */
+  // }
+
+  // .jumpText span:last-child {
+  //   animation: jumpDown 1s infinite ease, pause 3s linear; /* 1s for the animation + 2s for the pause */
+  //   animation-delay: calc(var(--index) * .15s), calc(var(--index)); /* 1s for animation + 2s pause + 0.15s for initial delay */
+  // }
+
+  @keyframes pause {
+    0%, 100% {
+      transform: translateY(0);
+    }
+  }
+
+  .whackyText span{
+    animation: bounceUpAndDown 5s infinite alternate ease;
+    animation-delay: calc(var(--index) * .5s);
+  }
+
+  @keyframes wavyGlyph {
+    0%, 100% {
+      clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    }
+    25% {
+      clip-path: polygon(0 100, 100% 0, 100% 100%, 80% 100%, 50% 50%, 20% 100%, 0 100%);
+    }
+    50% {
+      clip-path: polygon(0 0, 100% 0, 100% 100%, 60% 100%, 50% 50%, 40% 100%, 0 100%);
+    }
+    75% {
+      clip-path: polygon(0 0, 100% 0, 100% 100%, 40% 100%, 50% 50%, 60% 100%, 0 100%);
+    }
+  }
+  
+  .wavy-glyph {
+    span{
+    display: inline-block;
+    animation: wavyGlyph 1s infinite ease-in-out;
+    animation-delay: calc(var(--index) * .5s);
+
+    }
+  }
+
+  @media only screen and (max-width: 900px) {
+    .dynamicWrapper{
+      overflow: hidden;
+      position: fixed;
+      top:0;
+      left:0;
+      min-height:100%;
+      width:100%;
+      z-index: -99;
+    }
+  }

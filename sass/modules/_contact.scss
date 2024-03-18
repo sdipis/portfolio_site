@@ -1,3 +1,26 @@
+.smoothScroll{
+    scroll-behavior: smooth;
+}
+.popPageTitle{
+    position:absolute;
+    left:40px;
+    top:20px;
+    width:fit-content;
+    max-width: fit-content;
+}
+.titleArrow{
+    height:40px;
+    width:40px;
+    fill:$white;
+    animation: arrowSpin 10s ease;
+    margin:15px;
+    padding:10px;
+}
+
+.pageButton{
+    flex:0 0 100%;
+}
+
 .animate-character
 {
    text-transform: uppercase;
@@ -5,6 +28,7 @@
     -225deg,
     #2C99FF 0%,
     #8800FF 29%,
+    #00ff00 45%,
     #FF9B11 67%,
     #23d5ab 100%
   );
@@ -44,11 +68,21 @@
 .contact-page{ 
     display: flex;
     padding-top:0px;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     z-index: 1;
     position: relative;
+    text-shadow: 1px 1px 0px black;
+    h2{
+        font-size: 2rem !important;
+    }
 
+    &>ul{
+        display: flex;
+        flex-flow: column;
+        align-items: center;
+        justify-content: center;
+    }
 
 
 
@@ -79,8 +113,10 @@
     border-radius: 0px 0px 15px 0px;
     // background-color: blue;
     padding:40px;
+
     align-items: center;
     justify-content: center;
+    position: relative;
     select{
         width:80%;
         float: right;
@@ -101,7 +137,6 @@
         text-align: right;
         // background: linear-gradient(-270deg, rgba(255,255,255,0) 20%, rgba(0,0,0,1) 100%);
         color:$white;
-
         border-radius: 15px;
         font-weight: 600;
         }
@@ -114,19 +149,28 @@
         padding: 16px; /* Some padding */ 
         margin-top: 6px; /* Add a top margin */
         margin-bottom: 10px; /* Bottom margin */
-        resize: vertical; /* Allow the user to vertically resize the textarea (not horizontally) */
+        resize: none; /* Allow the user to vertically resize the textarea (not horizontally) */
         font-size:16px;
-        color:$black;
-        border-radius: 10px;
-        box-shadow:$shadow2;
+        color:$white !important;
+        border-radius: 0px;
+        // box-shadow:$shadow2;
+        border: none;
+        outline: none;
+        box-shadow: none;
+        // border:$thinBorder;
+        // border-radius: 15px;
+        border-bottom: 1px solid white;
+        background-color: transparent;
+        // border-bottom: 2px solid #e8e8e8;
+        // background: transparent;
+        &::placeholder{
+            color:$white;
+        }
     }
 
     textarea{
         max-height: 400px;
         min-height: 200px;
-        box-shadow: $shadow2;
-        border:$thinBorder;
-
     }
 
 
@@ -134,17 +178,20 @@
         font-size:16px;
         color:$white;
         padding:10px;
+        text-shadow: 1px 1px 0px black;
+        display: none;
+        // font-weight: 600;
     }
 
-    input{
-        border-radius: 10px;
-        padding:10px;
-        padding-left:20px;
-        font-size:12px;
-        border:$thinBorder;
-        box-shadow: $shadow2;
+    // input{
+    //     border-radius: 10px;
+    //     padding:10px;
+    //     padding-left:20px;
+    //     font-size:12px;
+    //     border:$thinBorder;
+    //     box-shadow: $shadow2;
 
-    }
+    // }
 
     button[type=submit]{
         // font-size:26px;
@@ -175,22 +222,60 @@
 #bCard{
     color:$white;
     font-family:$main-font;
-    border-radius: 15px 0px 0px 0px;
+    // border-radius: 15px 0px 0px 0px;
     // background-color: rgb(201, 201, 201);
     font-size: 16px;
     // text-shadow: $textshad1;
     // position: fixed;
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center !important;
+    justify-content: center !important;
+    overflow:hidden;
+    .textBlocks{
+        height:fit-content;
+        width:fit-content;
+    }
 
+    .blurb nav .menus{
+        width:auto;
+        // li{
+        //     margin-right:10px;
+        //     margin-left:10px;
+        // }
+    }
 
 
 }
 
-#bCard h2{
-    padding-bottom:10px;
-    font-weight: 600;
-    font-size: 36px;
-    margin-bottom: 20px;
+#bCard{
+
+
+    .nameTag{
+        display: inline-block;
+        overflow: visible;
+        
+        span{
+            display: inherit;
+            font-weight: 600;
+        }
+    }
+
+h2{
+    font-weight: 200;
+    font-size:clamp(2.25rem,2.5vw,3rem);
     text-transform: capitalize;
+    text-align: center;
+    overflow: hidden;
+    align-self: top;
+    flex:0 0 100%;
+    width: 100%;
+    // background-color: red;
+    span{
+
+        font-weight: 600;
+    }
+}
 }
 
 #bCard h3{
@@ -249,8 +334,18 @@
             border-radius:  0px 0px 0px 15px;
         }
 
-@media only screen and (max-width: 950px) {
+@media only screen and (max-width: 900px) {
 
+    #bCard{
+        // overflow-y: scroll;
+        h2{
+            margin-top:20px;
+        }
+        .blurb li{
+            margin-left:10px;
+            margin-right:10px;
+        }
+    }
 
     .contact-page{
         flex-flow:column nowrap;
@@ -260,6 +355,7 @@
             margin-bottom: 0px;
             flex: 1 0 100%;
             max-width: 100%;
+
         }
     }
 

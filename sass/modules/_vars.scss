@@ -3,8 +3,11 @@
 $white:#ffffff;
 $black: #161616;
 $blacker: #000;
-$hover: #ff9224;
+$hover: #ff9500;
 $h1Grad: linear-gradient(270deg, rgba(255, 255, 255, 0) -15%, rgb(36, 36, 36) 100%);
+$hover2:#1d89ff;
+$hover3:#cb0000;
+//ff46e9
 
 $whiteGrad: linear-gradient(270deg, rgba(255, 255, 255, 0) 5%, rgb(255, 255, 255) 100%);
 
@@ -69,7 +72,7 @@ $gradDark:linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(66,66,66,1) 100%);
 
 // borders
 
-$thinBorder: 1px solid $black;
+$thinBorder: 1px solid $hover2;
 $thinWhiteBorder: 1px solid $white;
 
 .bricksDes{
