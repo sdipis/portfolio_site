@@ -8,10 +8,6 @@
     width:fit-content;
     max-width: fit-content;
 }
-
-.topBar>h2{
-    margin:15px;
-}
 .titleArrow{
     height:40px;
     width:40px;
@@ -155,19 +151,20 @@
         margin-bottom: 10px; /* Bottom margin */
         resize: none; /* Allow the user to vertically resize the textarea (not horizontally) */
         font-size:16px;
-        color:$black !important;
-        // border-radius: 10px;
+        color:$white !important;
+        border-radius: 0px;
         // box-shadow:$shadow2;
         border: none;
         outline: none;
-        box-shadow: $shadow2;
+        box-shadow: none;
         // border:$thinBorder;
-        border-radius: 15px;
-        background-color: $white;
+        // border-radius: 15px;
+        border-bottom: 1px solid white;
+        background-color: transparent;
         // border-bottom: 2px solid #e8e8e8;
         // background: transparent;
         &::placeholder{
-            color:$black;
+            color:$white;
         }
     }
 
@@ -182,7 +179,7 @@
         color:$white;
         padding:10px;
         text-shadow: 1px 1px 0px black;
-
+        display: none;
         // font-weight: 600;
     }
 
@@ -222,63 +219,6 @@
     }
 }
 
-.about-page{
-    display: flex;
-    flex-flow: row wrap;
-
-    justify-content: center !important;
-    align-items: center;
-    flex-basis:100% !important;
-    min-height:100%;
-    padding-top:40px;
-    // background-color: red;
-
-    .textBox{
-        flex: 0 0 50%;
-        max-width: 50%;
-        display: flex;
-        justify-content: flex-start !important;
-        height:100%;
-        flex-basis:100%;
-        // background-color: blue;
-        overflow-y:scroll;
-        // border-left:2px solid rgba(255, 255, 255, 0.501) !important;
-        position: relative;
-    }
-
-    h2{
-        text-shadow: 1px 1px 0px black;
-        text-align: center !important;
-        position: absolute;
-        top:0px;
-        left:0px;
-        font-size: 2rem !important;
-    }
-    .left-col li h3{
-        align-items: right;
-        text-align: right !important;
-    }
-    ul{
-        // flex:1 0 30%;
-        // max-width: 30%;
-        text-align: left;
-        position: relative;
-    }
-    p{
-        // width:50vw;
-        font-size: clamp(16px, 2vw, 20px);
-        line-height: 30px;
-        // padding-left:20px;
-        text-shadow: 1px 1px 0px black;
-        flex-basis:100%;
-        // align-self: flex-start !important;
-        // background-color:green;
-        span{
-            font-weight: bold;
-        }
-    }
-}
-
 #bCard{
     color:$white;
     font-family:$main-font;
@@ -291,7 +231,7 @@
     flex-flow: row wrap;
     align-items: center !important;
     justify-content: center !important;
-
+    overflow:hidden;
     .textBlocks{
         height:fit-content;
         width:fit-content;
@@ -314,16 +254,16 @@
     .nameTag{
         display: inline-block;
         overflow: visible;
+        
         span{
             display: inherit;
             font-weight: 600;
-            font-size:clamp(1.25rem,2.5vw,2rem);
         }
     }
 
 h2{
     font-weight: 200;
-    font-size:  clamp(3rem, 2vw, 4rem);
+    font-size:clamp(2.25rem,2.5vw,3rem);
     text-transform: capitalize;
     text-align: center;
     overflow: hidden;
@@ -395,38 +335,12 @@ h2{
         }
 
 @media only screen and (max-width: 900px) {
-    .about-page{
-        flex-flow: column nowrap;
-        flex:0 0 100%;
-        max-width: 100%;
-        height:fit-content !important;
-        max-height: none;
-        .textBox{
-            flex:0 0 100%;
-            max-width: 100%;
-            flex-flow:column;
-            padding:40px;
-            border:0px !important;
-            p{
-                padding-left:0px;
-            }
-        }
-
-        ul{
-            flex:1 0 100%;
-            max-width: 100%;;
-        }
-        ul li p{
-            width:80vw;
-            font-size: 16px;
-            line-height: 26px;
-            // border-left:1px solid white;
-            padding-left:16px;
-        }
-    }
 
     #bCard{
-        overflow-y: scroll;
+        // overflow-y: scroll;
+        h2{
+            margin-top:20px;
+        }
         .blurb li{
             margin-left:10px;
             margin-right:10px;

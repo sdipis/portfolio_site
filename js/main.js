@@ -37,7 +37,9 @@ import { SendMail } from "./components/TheMailer.js";
     created() {
 
       //mutes audio by default if user is on mobile
-      this.musicPlaying = window.innerWidth > 768;
+      // this.musicPlaying = window.innerWidth > 768;
+
+      this.crackSeal=true;
 
       //scroll animation
       window.addEventListener('scroll', this.updateBlur);
@@ -76,8 +78,8 @@ import { SendMail } from "./components/TheMailer.js";
         currentData: {},
         //set conShow to false if you want contact info to show up on page load
         //set conShow to true if you want "click me button" to show up on page load
-        conShow: true,
-        porHid: true,
+        conShow: false,
+        porHid: false,
         aboutShow: false,
         videoShow: false,
         formShow: false,
@@ -86,14 +88,14 @@ import { SendMail } from "./components/TheMailer.js";
         counter: 0,
         textShow: false,
         audioElement: null,
-        musicPlaying: true,
-        //crackSeal is triggered to true when user clicks the button, this cannot be set to false again without reloading the page
+        musicPlaying: false,
+        // crackSeal is triggered to true when user clicks the button, this cannot be set to false again without reloading the page
         crackSeal: false,
 
         //this is activated by toggling scrolling with a menu link
         //if I dont toggle this, the website will start auto scrolling everytime a user closes the lightbox, even if they werent auto scrolling when they opened it
         autoScrollEnabled: false, //used for scroll logic, dont touch
-        scrollingPaused: false, //used for scroll logic, don't touch.
+        scrollingPaused: true, //used for scroll logic, don't touch.
         scrollEnabled: false, //turn this to false so it doesnt auto scroll when user enters site
         //scroll animation stuff
         blurValue: 0,
@@ -245,19 +247,19 @@ import { SendMail } from "./components/TheMailer.js";
       const audio = new Audio(soundFile);
       audio.play();}
       },
-      buttonClicked(){
-        if(this.crackSeal===false){
-          this.conShow = false;
-        }
-          this.crackSeal = true;
-          this.porHid = false;
-          this.autoScrollEnabled = false;
-          this.scrollingPaused=true;
+      // buttonClicked(){
+      //   if(this.crackSeal===false){
+      //     this.conShow = false;
+      //   }
+      //     this.crackSeal = true;
+      //     this.porHid = false;
+      //     this.autoScrollEnabled = false;
+      //     this.scrollingPaused=true;
 
-          if(this.scrollEnabled===true){
-            this.startScroll();
-          }
-      },
+      //     if(this.scrollEnabled===true){
+      //       this.startScroll();
+      //     }
+      // },
       startScroll() {
 
           this.autoScrollEnabled=true;

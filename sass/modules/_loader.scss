@@ -11,6 +11,24 @@
   z-index: 5;
 }
 
+.loaderWrapperThumb{
+  position: relative;
+  top:0;
+  bottom:0;
+  left:0;
+  right:0;
+  margin-top:auto;
+  margin-bottom: auto;
+  margin-left: auto;
+  margin-right: auto;
+  height:100%;
+  width:100%;
+  background-color: black;
+  display: flex;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
 .loader {
   width: 200px;
   height: 60px;

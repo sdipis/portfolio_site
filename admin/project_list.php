@@ -215,8 +215,57 @@ $stmt = null;
 
 <!-- RIGHT SIDE LIST -->
 
+<div class="listForms">
+    <!-- user form -->
 
-<div class=listForms>
+<form action="edit_profile.php" method="post" id="profile_form">
+<h2>User Profile</h2><br>
+
+            <label for="firstname">First Name:</label>
+            <input type="text" name="firstname" value="<?php echo $firstname; ?>">
+           
+                    
+            <label for="lastname">Last Name:</label>
+            <input type="text" name="lastname" value="<?php echo $lastname; ?>">
+
+            <label for="bio">Bio:</label>
+            <textarea name="bio" id="bio" rows="4" cols="50"><?php echo $bio; ?></textarea>
+
+            <label for="profile_picture">Profile Picture:</label>
+            <input type="text" name="profile_picture" id="profile_picture" value="<?php echo $profilePicture; ?>">
+
+            <label for="cell">Phone:</label>
+            <input type="text" name="cell" value="<?php echo $cell; ?>">
+
+            <label for="email">Email:</label>
+            <input type="email" name="email" value="<?php echo $email; ?>">
+
+            <label for="linkedin">LinkedIn:</label>
+            <input type="text" name="linkedin" value="<?php echo $linkedin; ?>">
+
+            <label for="instagram">Instagram:</label>
+            <input type="text" name="instagram" value="<?php echo $instagram; ?>">
+
+            <label for="github">Github:</label>
+            <input type="text" name="github" value="<?php echo $github; ?>">
+
+            <label for="artstation">ArtStation:</label>
+            <input type="text" name="artstation" value="<?php echo $artstation; ?>">
+
+            <label for="codepen">CodePen:</label>
+            <input type="text" name="codepen" value="<?php echo $codepen; ?>">
+
+            <!-- Additional fields for updating username and password -->
+            <label for="new_username">Username:</label>
+            <input type="text" name="new_username" value="<?php echo $username; ?>">
+
+            <label for="new_password">Password:</label>
+            <input type="password" name="new_password" value="">
+
+            <input type="submit" value="Save Profile Info">
+        </form></div>
+
+        <div class=listForms>
 
 <ul class="adminLinksBot">
 <li><a href="./">
@@ -273,56 +322,6 @@ $stmt = null;
 
 
 </div>
-
-<div class="listForms">
-    <!-- user form -->
-
-<form action="edit_profile.php" method="post" id="profile_form">
-<h2>User Profile</h2><br>
-
-            <label for="firstname">First Name:</label>
-            <input type="text" name="firstname" value="<?php echo $firstname; ?>">
-           
-                    
-            <label for="lastname">Last Name:</label>
-            <input type="text" name="lastname" value="<?php echo $lastname; ?>">
-
-            <label for="bio">Bio:</label>
-            <textarea name="bio" id="bio" rows="4" cols="50"><?php echo $bio; ?></textarea>
-
-            <label for="profile_picture">Profile Picture:</label>
-            <input type="text" name="profile_picture" id="profile_picture" value="<?php echo $profilePicture; ?>">
-
-            <label for="cell">Phone:</label>
-            <input type="text" name="cell" value="<?php echo $cell; ?>">
-
-            <label for="email">Email:</label>
-            <input type="email" name="email" value="<?php echo $email; ?>">
-
-            <label for="linkedin">LinkedIn:</label>
-            <input type="text" name="linkedin" value="<?php echo $linkedin; ?>">
-
-            <label for="instagram">Instagram:</label>
-            <input type="text" name="instagram" value="<?php echo $instagram; ?>">
-
-            <label for="github">Github:</label>
-            <input type="text" name="github" value="<?php echo $github; ?>">
-
-            <label for="artstation">ArtStation:</label>
-            <input type="text" name="artstation" value="<?php echo $artstation; ?>">
-
-            <label for="codepen">CodePen:</label>
-            <input type="text" name="codepen" value="<?php echo $codepen; ?>">
-
-            <!-- Additional fields for updating username and password -->
-            <label for="new_username">Username:</label>
-            <input type="text" name="new_username" value="<?php echo $username; ?>">
-
-            <label for="new_password">Password:</label>
-            <input type="password" name="new_password" value="">
-
-            <input type="submit" value="Save Profile Info">
-        </form></div>
 
         
 

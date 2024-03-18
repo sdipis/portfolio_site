@@ -15,8 +15,8 @@
         a,svg{
             cursor:pointer;
         &:hover{
-            fill:$hover2;
-            color:$hover2;
+            fill:$hover;
+            color:$hover;
         }
     }
     }
@@ -67,6 +67,10 @@
         margin-left:10px;
         margin-right:10px;
     }
+}
+
+.adminMenuFooter{
+    opacity: 0;
 }
 
 

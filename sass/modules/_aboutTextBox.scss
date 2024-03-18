@@ -1,0 +1,148 @@
+.about-page{
+    display: flex;
+    flex-flow: column wrap;
+
+    justify-content: center !important;
+    align-items: center;
+    flex-basis:100% !important;
+    min-height:100%;
+    padding-top:20px;
+    // background-color: red;
+
+    .textBox{
+        flex: 0 0 45%;
+        max-width: 45%;
+        display: flex;
+        justify-content: flex-start !important;
+        height:100%;
+        flex-basis:100%;
+        // background-color: blue;
+        // overflow-y:scroll;
+        position: relative;
+        text-align: justify;
+        border:none !important;
+    //     p:nth-of-type(1){
+    //     padding-right:20px;
+    //     }
+    //     p:nth-of-type(2){
+    //     padding-left:20px;
+    // }
+    }
+
+    h2{
+        text-shadow: 1px 1px 0px black;
+        text-align: center !important;
+        position: absolute;
+        top:0px;
+        left:0px;
+        font-size: 2rem !important;
+    }
+    .left-col li h3{
+        align-items: right;
+        text-align: right !important;
+    }
+    ul{
+        // flex:1 0 30%;
+        // max-width: 30%;
+        text-align: left;
+        position: relative;
+    }
+    p{
+        // width:50vw;
+        font-size: clamp(16px, 2vw, 20px);
+        line-height:clamp(24px,2vw,36px);
+        // padding-left:20px;
+        text-shadow: 1px 1px 0px black;
+        flex-basis:100%;
+        height:100%;
+        // align-self: flex-start !important;
+        // background-color:green;
+        span{
+            font-weight: bold;
+        }
+    }
+}
+
+.aboutDots {
+    text-align: center;
+    margin-bottom: 20px;
+    margin-top:40px;
+  }
+  
+  .dot {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    margin: 0 5px;
+    border-radius: 50%;
+    background-color: $white;
+    cursor: pointer;
+  }
+  
+  .dot.active {
+    background-color: $hover;
+  }
+  
+  .textBox-container {
+    display: flex;
+    justify-content: center;
+  }
+  
+//   .textBox {
+//     display: none;
+//     max-width: 800px;
+//     padding: 20px;
+//     border: 1px solid #ccc;
+//   }
+  
+  .textBox.show {
+    display: flex;
+  }
+
+  @media only screen and (max-width: 900px) {
+
+.aboutDots {
+    text-align: center;
+    margin-bottom: 0px;
+    margin-top:0px;
+    .dot{
+        height:10px;
+        width:10px;
+    }
+  }
+    .about-page{
+        flex-flow: column nowrap;
+        flex:0 0 100%;
+        max-width: 100%;
+        height:fit-content !important;
+        max-height: none;
+        overflow-y: scroll !important;
+        &::-webkit-scrollbar {
+            display: none;
+          }
+          
+        .textBox{
+            flex:0 0 100%;
+            max-width: 100%;
+            flex-flow:column;
+            padding:20px;
+            // padding-top:70px;
+            border:0px !important;
+            height:fit-content;
+            p{
+                padding-left:0px;
+            }
+            p:nth-of-type(1){
+                padding-right:0px;
+                }
+                p:nth-of-type(2){
+                // border-left:2px solid rgba(255, 255, 255, 0.501) !important;
+                padding-left:0px;}
+        }
+
+        ul{
+            flex:1 0 100%;
+            max-width: 100%;;
+        }
+    }
+}

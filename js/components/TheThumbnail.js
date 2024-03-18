@@ -1,6 +1,11 @@
 export default {
   name: "TheThumbnailComponent",
   props: ["piece", "musicPlaying"],
+  data() {
+    return {
+      loading: true // Initialize loading state
+    };
+  },
   computed: {
     gridColumn() {
       return this.calculateColumn(this.piece);
@@ -16,14 +21,25 @@ export default {
       :class="[piece.type]"
       :style="{ gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))' }"
     >
+      <!-- Loader -->
+      <div v-if="loading" class="loaderWrapperThumb">
+      <div class="loader">
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="shadow"></div>
+    <div class="shadow"></div>
+    <div class="shadow"></div>
+</div>
+      
+      </div>
+
       <a :href='"project.php?id="+piece.id' target="_blank" :title='"Learn More About "+piece.title'>
         <p class="tooltiptext noMobile">{{piece.title}}</p>
       </a>
 
-
-      <video autoplay preload="meta" muted loop playsinline v-if="piece.content === 'video'"  :src=' piece.display'    @click="showmydata(); playSound('dist/audio/woosh.mp3')" ></video>
-      <img v-else  :src=' piece.display'    @click="showmydata(); playSound('dist/audio/woosh.mp3')" />
-
+      <video autoplay preload="meta" muted loop playsinline v-if="piece.content === 'video'"  :src=' piece.display' @click="showmydata(); playSound('dist/audio/woosh.mp3')" ></video>
+      <img v-else  :src=' piece.display' @click="showmydata(); playSound('dist/audio/woosh.mp3')" />
     </div>
   `,
   methods: {
@@ -59,4 +75,10 @@ export default {
       return type === "video" ? "video" : "img";
     },
   },
+  mounted() {
+    // Simulate loading delay (remove this in production)
+    // setTimeout(() => {
+      this.loading = false; // Set loading to false after the component is mounted
+    // }, 50000); // Adjust the delay as needed
+  }
 };

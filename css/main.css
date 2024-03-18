@@ -253,8 +253,8 @@ body {
   overflow-y: scroll !important;
   max-height: 100vh;
   background: #ffffff;
-  flex: 0 0 40%;
-  max-width: 40%;
+  flex: 0 0 25%;
+  max-width: 25%;
   padding: 20px;
   height: fit-content;
 }
@@ -327,7 +327,7 @@ body {
 .project-list-media a {
   font-size: 12px;
   font-family: rockwell;
-  color: #ff46e9;
+  color: #cb0000;
 }
 
 .col-span-2 {
@@ -376,7 +376,7 @@ body {
 }
 
 #media_add_form {
-  background-color: #ff46e9;
+  background-color: #cb0000;
 }
 
 #profile_form {
@@ -391,7 +391,7 @@ body {
   align-items: center;
   left: 0px;
   z-index: 5;
-  width: 40%;
+  width: 25%;
   background-color: #cecece;
 }
 
@@ -417,15 +417,14 @@ body {
 }
 
 .listForms {
-  overflow-y: scroll;
-  flex: 0 0 20%;
-  max-width: 20%;
+  overflow: auto;
+  flex: 0 0 25%;
+  max-width: 25%;
   max-height: 100vh;
   transition: right 0.2s ease; /* Apply transition to the right property */
   display: flex;
   flex-flow: column;
-  background-color: #ff46e9;
-  border-right: 5px solid black;
+  background-color: #cb0000;
 }
 .listForms form {
   padding: 20px !important;
@@ -434,7 +433,7 @@ body {
 .listForms form input, .listForms form textarea {
   background-color: #ffffff;
   border-radius: 5px;
-  border: 2px solid black;
+  border: 1px solid black;
   padding-left: 10px;
   color: black;
 }
@@ -455,11 +454,14 @@ body {
   text-decoration: none;
 }
 .listForms h2 {
-  color: black;
+  color: white;
   text-align: center;
   text-decoration: underline;
   width: 100%;
   font-weight: 700;
+  background-color: black;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 .listForms input[type=file] {
   color: #38ef7d;
@@ -468,12 +470,10 @@ body {
 
 .listForms:nth-child(3) {
   background-color: #446391 !important;
-  border-left: 5px solid black;
 }
 
 .listForms:nth-of-type(1) {
   background-color: #1d89ff !important;
-  border-right: 0px solid black !important;
 }
 
 .mediaForms {
@@ -514,7 +514,7 @@ body {
 .project-list a {
   font-size: 12px;
   font-family: rockwell;
-  color: #ff46e9;
+  color: #cb0000;
 }
 
 .adminWrapper {
@@ -528,7 +528,7 @@ body {
 p2 {
   font-size: 16px !important;
   color: #494949;
-  line-height: 20px;
+  line-height: 24px;
 }
 
 .project-gallery {
@@ -547,6 +547,11 @@ p2 {
   padding-left: 20px;
   max-width: 100vw;
   margin: 0 auto;
+}
+.project-gallery img:-webkit-scrollbar, .project-gallery video:-webkit-scrollbar, .project-gallery embed:-webkit-scrollbar {
+  background-color: transparent; /* Change to your desired background color */
+  box-shadow: none;
+  border: none;
 }
 .project-gallery img:first-child, .project-gallery video:first-child, .project-gallery embed:first-child {
   padding-left: 40px !important;
@@ -568,7 +573,7 @@ p2 {
   font-size: 36px;
 }
 .projectText p {
-  line-height: 30px;
+  line-height: 40px !important;
   color: #000;
   text-align: justify;
   font-size: 26px !important;
@@ -949,6 +954,7 @@ p2 {
 
 html, body {
   width: auto !important;
+  overflow-x: hidden !important;
 }
 
 .noanim {
@@ -971,6 +977,7 @@ body {
 .tooltip {
   position: relative;
   display: inline-block;
+  transition: 0.2s ease;
 }
 
 .tooltip .tooltiptext {
@@ -1103,10 +1110,8 @@ body {
   opacity: 0;
 }
 
-#menuTopBar {
-  position: sticky !important;
-  z-index: 3;
-  top: 0px;
+#mainTopBar {
+  margin-top: 30px;
 }
 
 .menuWrapper {
@@ -1155,7 +1160,7 @@ body {
 }
 
 .socialMenu li a svg:hover {
-  fill: #161616;
+  fill: #ff9500;
 }
 
 header {
@@ -1233,8 +1238,8 @@ header .siteTitle {
   z-index: 1;
   padding-left: 60px;
   padding-right: 60px;
-  padding-top: 10px;
-  padding-bottom: 10px;
+  padding-top: 0px;
+  padding-bottom: 0px;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -1251,6 +1256,8 @@ header .siteTitle {
   justify-content: space-between;
   background-color: #161616;
   z-index: 3;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 .tbtwo .blurb .menus li a svg:hover {
   fill: #1d89ff;
@@ -1298,6 +1305,9 @@ header .siteTitle {
 .menus li a:hover {
   color: #38ef7d !important;
 }
+.menus svg {
+  transition: 0.2s ease;
+}
 
 .textFlash {
   animation: textFlash 10s 2s ease;
@@ -1319,7 +1329,6 @@ header .siteTitle {
   height: 40px;
   width: 40px;
   margin: 15px;
-  transition: 0.2s ease;
   fill: #ffffff;
 }
 .blurb svg:hover {
@@ -1329,7 +1338,10 @@ header .siteTitle {
   transform: scale(1.5);
 }
 .blurb .closeSVG {
-  stroke: #ff46e9;
+  stroke: #cb0000;
+}
+.blurb .closeSVG:hover {
+  stroke: #ff9500;
 }
 .blurb .spinarrow {
   height: 40px;
@@ -1371,6 +1383,9 @@ header .siteTitle {
 }
 
 @media only screen and (max-width: 900px) {
+  #mainTopBar {
+    margin-top: 10px;
+  }
   #dynamicTitle {
     display: none !important;
   }
@@ -1421,8 +1436,8 @@ header .siteTitle {
   cursor: pointer;
 }
 .gridFooter .menus li a:hover, .gridFooter .menus li svg:hover {
-  fill: #1d89ff;
-  color: #1d89ff;
+  fill: #ff9500;
+  color: #ff9500;
 }
 
 .gridSocial {
@@ -1466,6 +1481,10 @@ header .siteTitle {
 .footerLinks li {
   margin-left: 10px;
   margin-right: 10px;
+}
+
+.adminMenuFooter {
+  opacity: 0;
 }
 
 @media only screen and (max-width: 750px) {
@@ -1793,6 +1812,10 @@ header .siteTitle {
   border: 10px solid rgb(255, 255, 255);
 }
 
+.lightBoxMenu {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
 .link {
   z-index: 3;
   display: flex;
@@ -1970,10 +1993,6 @@ header .siteTitle {
   max-width: fit-content;
 }
 
-.topBar > h2 {
-  margin: 15px;
-}
-
 .titleArrow {
   height: 40px;
   width: 40px;
@@ -2093,15 +2112,16 @@ header .siteTitle {
   margin-bottom: 10px; /* Bottom margin */
   resize: none; /* Allow the user to vertically resize the textarea (not horizontally) */
   font-size: 16px;
-  color: #161616 !important;
+  color: #ffffff !important;
+  border-radius: 0px;
   border: none;
   outline: none;
-  box-shadow: 0px 0px 6px inset rgba(0, 0, 0, 0.65);
-  border-radius: 15px;
-  background-color: #ffffff;
+  box-shadow: none;
+  border-bottom: 1px solid white;
+  background-color: transparent;
 }
 .contact-page input[type=text]::placeholder, .contact-page select::placeholder, .contact-page textarea::placeholder {
-  color: #161616;
+  color: #ffffff;
 }
 .contact-page textarea {
   max-height: 400px;
@@ -2112,55 +2132,11 @@ header .siteTitle {
   color: #ffffff;
   padding: 10px;
   text-shadow: 1px 1px 0px black;
+  display: none;
 }
 .contact-page button[type=submit] {
   margin-top: 20px;
   float: right;
-}
-
-.about-page {
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: center !important;
-  align-items: center;
-  flex-basis: 100% !important;
-  min-height: 100%;
-  padding-top: 40px;
-}
-.about-page .textBox {
-  flex: 0 0 50%;
-  max-width: 50%;
-  display: flex;
-  justify-content: flex-start !important;
-  height: 100%;
-  flex-basis: 100%;
-  overflow-y: scroll;
-  position: relative;
-}
-.about-page h2 {
-  text-shadow: 1px 1px 0px black;
-  text-align: center !important;
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  font-size: 2rem !important;
-}
-.about-page .left-col li h3 {
-  align-items: right;
-  text-align: right !important;
-}
-.about-page ul {
-  text-align: left;
-  position: relative;
-}
-.about-page p {
-  font-size: clamp(16px, 2vw, 20px);
-  line-height: 30px;
-  text-shadow: 1px 1px 0px black;
-  flex-basis: 100%;
-}
-.about-page p span {
-  font-weight: bold;
 }
 
 #bCard {
@@ -2171,6 +2147,7 @@ header .siteTitle {
   flex-flow: row wrap;
   align-items: center !important;
   justify-content: center !important;
+  overflow: hidden;
 }
 #bCard .textBlocks {
   height: fit-content;
@@ -2187,11 +2164,10 @@ header .siteTitle {
 #bCard .nameTag span {
   display: inherit;
   font-weight: 600;
-  font-size: clamp(1.25rem, 2.5vw, 2rem);
 }
 #bCard h2 {
   font-weight: 200;
-  font-size: clamp(3rem, 2vw, 4rem);
+  font-size: clamp(2.25rem, 2.5vw, 3rem);
   text-transform: capitalize;
   text-align: center;
   overflow: hidden;
@@ -2254,35 +2230,8 @@ header .siteTitle {
 }
 
 @media only screen and (max-width: 900px) {
-  .about-page {
-    flex-flow: column nowrap;
-    flex: 0 0 100%;
-    max-width: 100%;
-    height: fit-content !important;
-    max-height: none;
-  }
-  .about-page .textBox {
-    flex: 0 0 100%;
-    max-width: 100%;
-    flex-flow: column;
-    padding: 40px;
-    border: 0px !important;
-  }
-  .about-page .textBox p {
-    padding-left: 0px;
-  }
-  .about-page ul {
-    flex: 1 0 100%;
-    max-width: 100%;
-  }
-  .about-page ul li p {
-    width: 80vw;
-    font-size: 16px;
-    line-height: 26px;
-    padding-left: 16px;
-  }
-  #bCard {
-    overflow-y: scroll;
+  #bCard h2 {
+    margin-top: 20px;
   }
   #bCard .blurb li {
     margin-left: 10px;
@@ -2357,6 +2306,21 @@ input {
   cursor: pointer;
 }
 
+.dots-container {
+  background-color: red !important;
+  height: 40px;
+  width: 200px !important;
+  flex: 0 0 100% !important;
+}
+
+.dot {
+  height: 5px;
+  width: 5px;
+  border-radius: 50%;
+  display: inline-block;
+  margin: 0 5px;
+  cursor: pointer;
+}
 .pausedText {
   position: absolute;
   top: 50%;
@@ -2480,17 +2444,6 @@ button {
   transition: all 0.3s cubic-bezier(0.02, 0.01, 0.47, 1);
 }
 
-button span {
-  color: #164ca7;
-  font-size: 14px;
-  font-weight: 500;
-  letter-spacing: 0.7px;
-}
-
-button:hover {
-  animation: rotate624 0.7s ease-in-out both;
-}
-
 button:hover span {
   animation: storm1261 0.7s ease-in-out both;
   animation-delay: 0.06s;
@@ -2531,9 +2484,17 @@ button:hover span {
   }
 }
 .btn-shine {
-  border: 1px solid;
+  border: 1px solid white;
   overflow: hidden;
   position: relative;
+  background-color: transparent;
+  color: White !important;
+}
+.btn-shine span {
+  color: white;
+}
+.btn-shine:hover {
+  border: 1px solid rgba(255, 255, 255, 0);
 }
 
 .btn-shine2 {
@@ -2545,7 +2506,7 @@ button:hover span {
 }
 
 .btn-shine:after {
-  background: #38ef7d;
+  background: #ffffff;
   content: "";
   height: 155px;
   left: -75px;
@@ -2802,6 +2763,17 @@ button:hover span {
   animation-delay: calc(var(--index) * 0.5s);
 }
 
+@media only screen and (max-width: 900px) {
+  .dynamicWrapper {
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    left: 0;
+    min-height: 100%;
+    width: 100%;
+    z-index: -99;
+  }
+}
 .loaderWrapper {
   height: 100vh;
   width: 100vw;
@@ -2813,6 +2785,24 @@ button:hover span {
   justify-content: center;
   align-items: center;
   z-index: 5;
+}
+
+.loaderWrapperThumb {
+  position: relative;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin-top: auto;
+  margin-bottom: auto;
+  margin-left: auto;
+  margin-right: auto;
+  height: 100%;
+  width: 100%;
+  background-color: black;
+  display: flex;
+  align-items: center !important;
+  justify-content: center !important;
 }
 
 .loader {
@@ -2896,4 +2886,135 @@ button:hover span {
   left: auto;
   right: 15%;
   animation-delay: 0.3s;
+}
+
+.about-page {
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center !important;
+  align-items: center;
+  flex-basis: 100% !important;
+  min-height: 100%;
+  padding-top: 20px;
+}
+.about-page .textBox {
+  flex: 0 0 45%;
+  max-width: 45%;
+  display: flex;
+  justify-content: flex-start !important;
+  height: 100%;
+  flex-basis: 100%;
+  position: relative;
+  text-align: justify;
+  border: none !important;
+}
+.about-page h2 {
+  text-shadow: 1px 1px 0px black;
+  text-align: center !important;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  font-size: 2rem !important;
+}
+.about-page .left-col li h3 {
+  align-items: right;
+  text-align: right !important;
+}
+.about-page ul {
+  text-align: left;
+  position: relative;
+}
+.about-page p {
+  font-size: clamp(16px, 2vw, 20px);
+  line-height: clamp(24px, 2vw, 36px);
+  text-shadow: 1px 1px 0px black;
+  flex-basis: 100%;
+  height: 100%;
+}
+.about-page p span {
+  font-weight: bold;
+}
+
+.aboutDots {
+  text-align: center;
+  margin-bottom: 20px;
+  margin-top: 40px;
+}
+
+.dot {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  margin: 0 5px;
+  border-radius: 50%;
+  background-color: #ffffff;
+  cursor: pointer;
+}
+
+.dot.active {
+  background-color: #ff9500;
+}
+
+.textBox-container {
+  display: flex;
+  justify-content: center;
+}
+
+.textBox.show {
+  display: flex;
+}
+
+@media only screen and (max-width: 900px) {
+  .aboutDots {
+    text-align: center;
+    margin-bottom: 0px;
+    margin-top: 0px;
+  }
+  .aboutDots .dot {
+    height: 10px;
+    width: 10px;
+  }
+  .about-page {
+    flex-flow: column nowrap;
+    flex: 0 0 100%;
+    max-width: 100%;
+    height: fit-content !important;
+    max-height: none;
+    overflow-y: scroll !important;
+  }
+  .about-page::-webkit-scrollbar {
+    display: none;
+  }
+  .about-page .textBox {
+    flex: 0 0 100%;
+    max-width: 100%;
+    flex-flow: column;
+    padding: 20px;
+    border: 0px !important;
+    height: fit-content;
+  }
+  .about-page .textBox p {
+    padding-left: 0px;
+  }
+  .about-page .textBox p:nth-of-type(1) {
+    padding-right: 0px;
+  }
+  .about-page .textBox p:nth-of-type(2) {
+    padding-left: 0px;
+  }
+  .about-page ul {
+    flex: 1 0 100%;
+    max-width: 100%;
+  }
+}
+*::-webkit-scrollbar {
+  width: 0px; /* width of the entire scrollbar */
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent; /* color of the tracking area */
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: transparent; /* color of the scroll thumb */
 }/*# sourceMappingURL=main.css.map */

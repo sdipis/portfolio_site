@@ -1,6 +1,19 @@
 export default {
   name: "TheAboutComponent",
   props: ['profileData'],
+  template: `
+  <div id="bCard" class="videoChunk">
+  <div class="about-page">
+      <div class="textBox disableSelect" v-for="(box, index) in textBoxes" :key="index" v-show="selectedIndex === index">
+        <p v-html="box.content"></p>
+      </div>
+      <div class="aboutDots">
+      <span class="dot" v-for="(box, index) in textBoxes" :key="index" @click="selectTextBox(index)" :class="{ active: selectedIndex === index }"></span>
+    </div>
+      </div>
+      
+  </div>
+  `,
   mounted() {
     //when page opens, update the topbar to show the page title
     document.querySelector('.gridHead').classList.add('paused');
@@ -11,47 +24,45 @@ export default {
     </svg>
     <h2 class="noMobile">About Me</h2>
     `;
+    //add swiping functionality for touch screen users
+    const aboutDots = document.querySelector('.about-page');
+    aboutDots.addEventListener('touchstart', this.handleTouchStart);
+    aboutDots.addEventListener('touchmove', this.handleTouchMove);
   },
   destroyed(){
     document.querySelector('.gridHead').classList.remove('paused');
+    //add swiping functionality for touch screen users
+    const aboutDots = document.querySelector('.about-page');
+    aboutDots.removeEventListener('touchstart', this.handleTouchStart);
+    aboutDots.removeEventListener('touchmove', this.handleTouchMove);
   },
-  template: `
+  methods:{
+    handleTouchStart(event) {
+      console.log('swipe detected');
+      this.touchStartX = event.touches[0].clientX;
+    },
+    handleTouchMove(event) {
+      if (!this.touchStartX) return;
 
-      <div id="bCard" class="videoChunk">
+      const touchEndX = event.touches[0].clientX;
+      const deltaX = touchEndX - this.touchStartX;
+      const sensitivity = 500; // Adjust this value as needed
 
-      <div class="about-page">
-
-
-      <h2 class="onlyMobile popBoxTitle">About Me</h2>
-
-      <div class="textBox">
-      <p>
-      With a focus on frameworks like <span>Vue</span> and <span>React</span>, I posess a versatile skill set.
-      Including, but not limited to, <span>graphic design</span>, <span>3D design</span>, <span>motion design</span>, <span>marketing</span>, and <span>web development</span>. 
-      <br><br>Rather than labeling myself as a specialist, I prefer to stay versatile, 
-      allowing me to create <span>engaging digital experiences</span> that connect with a diverse audience. 
-
-      <br><br><span>As an interactive media developer, I thrive at the intersection of technology and design.</span>
-
-
-      <br><br>Driven by a passion for innovation and guided by creativity, I approach each project with a commitment to pushing boundaries and delivering quality work. 
-      <br><br>I continuously seek to expand my expertise, ensuring that I stay adaptable and effective in the ever-changing digital landscape.
-      <br><br>- S. Dipi
-      </p>
-
-      <div id="dynamicTitle" class="dynamicTitleMobile">
-      <h2></h2>
-      </div>
-
-      </div>
-
-      </div>
-
-      </div>
-
-
-  `,
-
+      if (Math.abs(deltaX) > sensitivity) {
+        if (deltaX > 0) {
+          // Swipe right
+          this.selectTextBox(Math.max(0, this.selectedIndex - 1));
+        } else {
+          // Swipe left
+          this.selectTextBox(Math.min(this.textBoxes.length - 1, this.selectedIndex + 1));
+        }
+        this.touchStartX = null;
+      }
+    },
+    selectTextBox(index) {
+      this.selectedIndex = index;
+    }
+  },
   watch: {
     profileData(newData) {
       this.profileData.nickname = newData.nickname;
@@ -60,6 +71,22 @@ export default {
 
   data() {
     return {
-    aboutShow: false
+    aboutShow: false,
+    textBoxes: [
+      { content: `
+          As a versatile interactive media developer, I thrive on the dynamic interplay between technology and design. Leveraging frameworks like <span>React</span>, <span>Vue</span>, and <span>Lumen</span> allows me to craft engaging digital experiences that connect with diverse audiences.
+          <br><br>My skill set spans a broad spectrum, encompassing <span>graphic design</span>, <span>3D design</span>, <span>motion design</span>, <span>marketing</span>, and <span>web development</span>.
+          <br><br>Driven by a passion for innovation and guided by creativity, I approach each project with a commitment to pushing boundaries and delivering <span>quality work</span>. I continuously seek to expand my expertise, ensuring adaptability and effectiveness in the ever-changing digital landscape.
+      ` },
+      { content: `
+          With <span>years of experience</span> in both web development and graphic design, I bring a dynamic, quick-learning, and hardworking approach to every project. 
+          <br><br>Renowned for <span>efficiency</span> and <span>reliability</span>, I thrive in fast-paced environments where I leverage my diverse skill set to deliver exceptional results. 
+          My dedication to staying ahead of industry trends ensures continuous enhancement of my abilities, providing clients with innovative solutions that exceed expectations. 
+          <br><br>Whether crafting compelling websites or creating captivating visuals, I am <span>committed to excellence</span> in every aspect of my work.
+      ` },
+      // Add more text boxes as needed
+    ],
+    touchStartX: null,
+    selectedIndex: 0
   }}
 }

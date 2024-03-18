@@ -1,19 +1,21 @@
 export default {
     name: "TheRandomTextComponent",
     template:`
-    <div>
-      <h2>{{ randomText }}</h2>
-    </div>
+    <h2>
+   {{ randomText }}
+    </h2>
   `,
   data() {
     return {
       textOptions: [
-        "> Click on an item to learn more...",
-        "> Click on an item to zoom in...",
-        "> Enable auto-scroll in menu..."
-        // Add more text options as needed
+        'Click on an item to learn more...',
+        'Enable auto-scroll in the menu...',
+        'Click on an item to zoom in...',
+        'Enable SFX in the menu...',
+        'Made by Spencer Dipi...',
+        'Now in Hypno-Vision...'
       ],
-      randomText: "",
+      randomText: ``,
     };
   },
   mounted() {

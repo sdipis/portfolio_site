@@ -33,12 +33,7 @@ $isVideo = ($rows[0]['extra'] && $rows[0]['extra_content'] === 'video');
 <body>
 <div class="loaderWrapper">
 <div class="loader">
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="shadow"></div>
-    <div class="shadow"></div>
-    <div class="shadow"></div>
+    <h2 class="page-title">Loading...</h2>
 </div>
 </div>
     <div class="gridContainer bevel" id="app">

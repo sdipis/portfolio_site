@@ -15,12 +15,13 @@ export default {
         </div>
         
 
-        <div class="blurb admin">
+        <div class="blurb">
            <nav>
            <ul class="menus footerLinks">
-              <li><a href="admin/login_form.php" target="_blank">Login</a></li>
-              <li><a href="admin/profile.php" target="_blank">Profile</a></li>
-              <li><a href="admin/project_list.php" target="_blank">Projects</a></li>
+              <li><a href="./premix" target="_blank">Pre-Mix Calculator</a></li>
+              <li><a href="./GTA" target="_blank">GPT</a></li>
+              <li><a href="#" target="_blank">Merch</a></li>
+
            </ul>
            </nav>
         </div>
