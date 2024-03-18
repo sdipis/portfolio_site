@@ -204,4 +204,3 @@ I added a second flag called autoScrollEnabled. This was toggled by a button in 
 Auto scrolling is glitchy on mobile. I didn't like it.
 
 #### Fix
-Added a screen width check on created() so when a user loads in, if their screen is 768px or less, the auto scrolling functionality is set to off, and the toggle switch is hidden.
