@@ -1,3 +1,8 @@
+.cls-orange{fill:#ff931f;}
+.cls-purple{fill:#8800FF;}
+.cls-blue{fill:#2C99FF;}
+.cls-green{fill:#23d5ab;}
+
 .loaderWrapper{
   height:100vh;
   width:100vw;
@@ -9,6 +14,8 @@
   justify-content: center;
   align-items: center;
   z-index: 5;
+  background: rgb(255,255,255);
+background: radial-gradient(circle, rgba(255,255,255,1) 20%, rgba(208,208,208,1) 100%);
 }
 
 .loaderWrapperThumb{
@@ -30,12 +37,24 @@
 }
 
 .loader {
-  width: 200px;
-  height: 60px;
+  width: 100vw;
+  height: 100vh;
   position: relative;
   z-index: 1;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: center;
 }
-
+.loaderLogo{
+  stroke:black;
+  height:auto;
+  width:300px;
+  opacity: 1;
+  overflow: visible;
+  fill:white;
+  stroke-width: 2px;
+}
 .circle {
   width: 20px;
   height: 20px;

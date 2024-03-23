@@ -2,7 +2,54 @@
 .hidden{
     display:none;
 }
+
+.mediaRow{
+    flex-flow: column !important;
+}
+
+input[type=file] {
+    display: block;
+    color:transparent !important;
+    font-style: oblique;
+    border:none !important;
+    border-radius: inherit !important;
+    padding:20px !important;
+  }
+  input[type=file]::file-selector-button {
+    display: none;
+  }
+#uploaded{
+    background-color: $hover;
+    height:100%;
+    position: absolute;
+    top:0px;
+    left:0px;
+    margin-top:0px;
+    box-shadow: 0px 0px 10px inset black;
+
+    background-image: url('../dist/svg/media.svg');
+    background-repeat: repeat;
+    background-size: 40px;
+    background-position: center center;
+    object-fit: contain;
+}
+  .fileInput{
+    width:100%;
+    max-width: 100%;
+    align-items: center;
+    text-align: center;
+    border:1px solid black;
+    box-shadow:0px 0px 10px black inset;
+    padding:0px;
+    margin:0px;
+    height:150px;
+    position: relative;
+
+    border-radius: 25px;
+  }
+
 .adminLinksBot{
+    background-color: $admin3;
     justify-content: space-around;
     li{
         padding:10px !important;
@@ -72,7 +119,7 @@
     }
 }
 .adminWrapper form{
-    display: flex;
+    // display: flex;
     flex-flow: column;
 
     input{
@@ -81,19 +128,25 @@
     }
 
     input[type="submit"] {
-        background-color: black;
-        color:white;
-        border-radius: 25px;
+        background-color: $hover2;
+        color:$white;
+        border-radius: 50px;
         border:none;
+        padding:10px 5px;
+        font-family: montserrat;
         padding-left:0px;
         text-transform: uppercase;
+        font-weight: 600;
+        box-shadow:0px 0px 5px black inset;
+        border:1px solid black;
     }
 
     input[type="submit"]:hover {
-        background-color: white;
-        color:black;
-        border-radius: 25px;
+        background-color: $hover;
+        color:$white;
         cursor: pointer;
+        box-shadow:0px 0px 5px black;
+
     }
 
     label{
@@ -166,24 +219,6 @@
     transform:rotate(90deg);
 }
 
-
-// .projectListCont{
-//     display: flex;
-//     flex-flow:row wrap;
-//     flex:1 0 100%;
-//     max-width: 100%;
-//     justify-content: space-evenly;
-//     overflow-y: scroll;
-//     background: $white;
-
-//     align-items: center;
-    
-//     img{
-//         max-height:200px;
-//         margin-right:20px;
-//         box-shadow:5px 0px 10px rgba(0, 0, 0, 0.4);
-//     }
-// }
 body{
     position: relative;
 }
@@ -200,10 +235,11 @@ $white: #ffffff; // Ensure $white is defined
     overflow-y: scroll !important;
     max-height: 100vh;
     background: $white;
-    flex: 0 0 25%;
+    flex: 1;
     max-width: 25%;
     padding:20px;
     height:fit-content;
+    padding-bottom:40px;
 }
 .mediaList{
     flex:0 0 70% !important;
@@ -232,11 +268,13 @@ $white: #ffffff; // Ensure $white is defined
     position: relative;
     display: flex;
     max-height: fit-content;
-    border-radius: 15px;
     padding:10px;
-    justify-content: flex-end;
+    justify-content: space-between;
     &:nth-child(odd){
         background-color: rgb(210, 210, 210);
+    }
+    &:nth-child(even){
+        background-color: rgb(255, 255, 255);
     }
     .detailsImage{
         flex:0 0 10%;
@@ -274,8 +312,11 @@ $white: #ffffff; // Ensure $white is defined
     }
     a{
     font-size: 12px;
-    font-family: rockwell;
+    font-family: monospace;
+    text-decoration: none;
     color:$hover3;
+    cursor: pointer;
+
 
     }
 }
@@ -297,7 +338,7 @@ $white: #ffffff; // Ensure $white is defined
 .detailsImage {
     max-width: 100%;
     height: auto;
-    box-shadow: 5px 0px 10px rgba(0, 0, 0, 0.4);
+    // box-shadow: 5px 0px 10px rgba(0, 0, 0, 0.4);
 }
 
 
@@ -333,25 +374,25 @@ $white: #ffffff; // Ensure $white is defined
 }
 
 #media_add_form{
-    background-color: $hover3;
+    background-color: $hover;
 }
 
 
 #profile_form{
-    background-color: $hover2;
+    background-color: $blue;
 }
 
 #filter_form{
     position: fixed;
+    width: 25%;
     bottom:0px;
     display: flex;
     justify-content: center;
     align-items: center;
-    
+    height:40px;
     left:0px;
     z-index: 5;
-    width:25%;
-    background-color: $grey;
+    background-color: $hover2;
     // background-color: $hover3;
 }
 
@@ -364,30 +405,35 @@ $white: #ffffff; // Ensure $white is defined
     
     left:0px;
     z-index: 5;
-    width:75%;
     background-color: $grey;
     // background-color: $hover3;
 }
 
 #upload_form{
-    background-color: $red;
+    background-color: $admin1;
 }
 
 #search{
     text-align: center;
-    width:100%;
+    height:30px;
+    width:80%;
+    font-family: montserrat;
+
+    &::placeholder{
+        color:$black;
+        
+    }
 }
 
 .listForms {
     overflow: auto;
-    flex: 0 0 25%;
-    max-width: 25%;
+    flex: 1;
+    // max-width: 25%;
     max-height: 100vh;
     transition: right 0.2s ease; /* Apply transition to the right property */
-    display: flex;
+    // display: flex;
     flex-flow: column;
     // justify-content: space-between;
-    background-color: $hover3;
     // border-right:5px solid black;
 
 
@@ -425,32 +471,33 @@ $white: #ffffff; // Ensure $white is defined
   
     }
     h2{
-        color:white;
+        color:$white;
         text-align: center;
-        text-decoration: underline;
+        // text-decoration: underline;
         width:100%;
         font-weight: 700;
-        background-color: black;
-        padding-top:10px;
-        padding-bottom:10px;
+        // padding-top:10px;
+        // padding-bottom:10px;
+        background-color: $black;
+        padding:20px;
         
     }
-    input[type='file'] {
-        color: $red;
-        border:none;
-      }
+    // input[type='file'] {
+    //     color: $red;
+    //     border:none;
+    //   }
 }
 
 
 
 .listForms:nth-child(3){
-    background-color: $blue !important;
+    background-color: $admin3 !important;
     // border-left:5px solid black;
 
 }
 
-.listForms:nth-of-type(1){
-    background-color: $hover2 !important;
+.listForms:nth-child(2){
+    background-color: $admin2 !important;
     // border-right:0px solid black !important;
 }
 
@@ -459,7 +506,7 @@ $white: #ffffff; // Ensure $white is defined
     max-width: 30% !important;
 }
 .project-list{
-    font-size: 16px;
+    // font-size: 16px;
     font-family: montserrat;
     position: relative;
     display: flex;
@@ -471,8 +518,8 @@ $white: #ffffff; // Ensure $white is defined
         display: flex;
         justify-content: space-between;
         text-align: center;
-        margin-top:20px;
-        margin-bottom:20px;
+        margin-top:10px;
+        margin-bottom:10px;
 
                 font-weight: 600;
                 padding-left:20px;
@@ -494,8 +541,10 @@ $white: #ffffff; // Ensure $white is defined
     }
     a{
     font-size: 12px;
-    font-family: rockwell;
+    font-family: monospace;
+    text-decoration: none;
     color:$hover3;
+    cursor: pointer;
     }
 }
 .adminWrapper{
@@ -679,6 +728,10 @@ cursor: pointer;
 
 @media only screen and (max-width: 768px) {
 
+    .projectListCont{
+        max-width: none;
+    }
+
     .jots{flex-flow: column;
         li:first-child{
         margin-top: 0px;
@@ -697,24 +750,11 @@ cursor: pointer;
     .listForms{
         flex:1 0 100%;
         max-width: 100%;
-        padding-left:20px;
+        // padding-left:20px;
         max-height:100vh;
         
 
     }
-    // .projectListCont{
-    //     flex-flow: row wrap;
-    //     flex:1 0 100%;
-    //     max-width: none;
-    //     min-width: 100%;
-    //     max-height: none !important;
-    //     height:auto;
-    //     padding:40px;
-    //     img{
-    //         // max-height:200px;
-    //         // padding:20px;
-    //     }
-    // }
     .projectText{
         padding:40px;
         

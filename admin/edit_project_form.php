@@ -30,12 +30,12 @@ $images = explode(",", $row['images']);
     <div class="editWrapper adminWrapper">
         <div class="editPage">
                 <div class="editPageImages">
-                    <?php echo '<div><img class="editPageImg" src="../dist/'.$row['display'].'" alt="Project Image"></div>'; ?>
+                    <?php echo '<div><img class="editPageImg" src="../'.$row['display'].'" alt="Project Image"></div>'; ?>
                     <?php 
                     if (!empty($images) && $images[0] !== '') {
                         for ($i = 0; $i < count($images); $i++) {
                             if ($images[$i] !== '') {
-                                echo '<div><img class="portfolio-" src="../dist/'.$images[$i].'" alt="Project Image"></div>';
+                                echo '<div><img class="portfolio-" src="../'.$images[$i].'" alt="Project Image"></div>';
                             }
                         }
                     }
@@ -50,10 +50,9 @@ $images = explode(",", $row['images']);
                 <div class="listForms">
                 <form action="edit_project.php" method="POST">
                     <input name="pk" type="hidden" value="<?php echo $row['id']; ?>">
-                   
-                    <label for="forward">Forward?:</label>
+
+                    <label for="forward">forward</label>
                     <input name="forward" type="checkbox" <?php echo $row['forward'] ? 'checked' : ''; ?>>
-                    </input><br><br>
 
                     <label for="for_id">Forward ID: </label>
                     <input name="for_id" type="text" value="<?php echo $row['for_id']; ?>"><br><br>
@@ -83,10 +82,10 @@ $images = explode(",", $row['images']);
                     <input name="created_on" type="text" value="<?php echo $row['created_on']; ?>"></input><br><br>
                     
                     <label for="extra">Extra</label>
-<input name="extra" type="checkbox" <?php echo $row['extra'] ? 'checked' : ''; ?>>
-</input><br><br>
+                    <input name="extra" type="checkbox" <?php echo $row['extra'] ? 'checked' : ''; ?>>
+                    </input><br><br>
 
-<label for="extra_content">Extra Content Type (img, video, pdf): </label>
+                    <label for="extra_content">Extra Content Type (img, video, pdf): </label>
                     <input name="extra_content" type="text" value="<?php echo $row['extra_content']; ?>"></input><br><br>
 
 
@@ -95,7 +94,7 @@ $images = explode(",", $row['images']);
 
 
                     <input name="submit" type="submit" value="Edit">
-                </br></br>
+                    </br></br>
                 </form>
                 </div>
         </div>

@@ -15,9 +15,9 @@ while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
     $output .= '<div id="' . $row['title'] . '" class="project-list">';
     
     if ($row['content'] === 'video') {
-        $output .= '<img class="detailsImage" src="../dist/video_default.jpg" alt="Project Image">';
+        $output .= '<video class="detailsImage" src="../' . $row['display'] . '" alt="Project Image" autoplay muted playsinline></video>';
     } else {
-        $output .= '<img class="detailsImage" src="../dist/' . $row['display'] . '" alt="Project Image">';
+        $output .= '<img class="detailsImage" src="../' . $row['display'] . '" alt="Project Image" />';
     }
 
     $output .= '<p>' .

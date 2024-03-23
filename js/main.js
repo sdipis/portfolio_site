@@ -31,9 +31,15 @@ import { SendMail } from "./components/TheMailer.js";
 
     destroyed() {
       window.removeEventListener('scroll', this.updateBlur);
-      
+      window.removeEventListener('scroll', this.updateLogo);
     },
-    
+    mounted(){
+      setTimeout(() => {
+        // After 4 seconds, set myProp to false
+        this.conShow=false;
+        this.crackSeal=true;
+      }, 4000);
+    },
     created() {
 
       //mutes audio by default if user is on mobile
@@ -43,6 +49,7 @@ import { SendMail } from "./components/TheMailer.js";
 
       //scroll animation
       window.addEventListener('scroll', this.updateBlur);
+      window.addEventListener('scroll', this.updateLogo);
 
       //pull the fetch data from the dataMiner.js, which uses php to fetch from database and push to frontend as json data
       getData(null, (data) => (this.portfolioData = data));
@@ -78,7 +85,7 @@ import { SendMail } from "./components/TheMailer.js";
         currentData: {},
         //set conShow to false if you want contact info to show up on page load
         //set conShow to true if you want "click me button" to show up on page load
-        conShow: false,
+        conShow: true,
         porHid: false,
         aboutShow: false,
         videoShow: false,
@@ -101,20 +108,28 @@ import { SendMail } from "./components/TheMailer.js";
         blurValue: 0,
         scaleValue: 1,
         opacityValue:1,
+        logoOpacity:0,
+        logoScaleValue:1,
 
         //page loader spinner
         showSpinner: true,
       };
     },
     computed: {
-      dynamicBlur() {
+      dynamicBlur(){
         return `blur(${this.blurValue}px)`;
       },
       dynamicScale() {
         return `scale(${this.scaleValue})`;
       },
+      dynamicLogoScale(){
+        return `scale(${this.logoScaleValue})`;
+      },
       dynamicOpacity(){
         return this.opacityValue
+      },
+      dynamicLogo(){
+        return this.logoOpacity
       },
       dynamicBG() {
         const currentPercentage = this.initialBackgroundPercentage * this.scaleFactor;
@@ -128,20 +143,26 @@ import { SendMail } from "./components/TheMailer.js";
         //these are all the header animation logics
         //thank you chatgpt
         this.scaleValue = Math.max(0.5, 1 - (scrollPosition) / 1000);
-      
+        this.logoScaleValue = Math.min(2, 1 + (scrollPosition) / 1000);
+
         if (scrollPosition > 250) {
+          const alpha = Math.min(1, (scrollPosition-250) / 1500); // Calculate alpha value based on scroll position
+          this.logoOpacity = `rgba(255, 255, 255, ${alpha})`; // Set the new fill color with the calculated alpha
+    
           this.blurValue = Math.min(2, scrollPosition / 5);
           this.opacityValue = Math.max(0, 1 - (scrollPosition - 250) / 100);
         } else {
           this.blurValue = 0;
           this.opacityValue = 1;
+          this.logoOpacity = 'rgba(255, 255, 255, 0)'; // Set the original fill color with alpha 0 when scrolling up
+
         }
       },
-      //if window is smaller than 768px, audio will be muted by default
-      //if larger than 768px, audio will be turned on by default
-      handleResize() {
-        this.musicPlaying = window.innerWidth > 768;
-      },
+      // //if window is smaller than 768px, audio will be muted by default
+      // //if larger than 768px, audio will be turned on by default
+      // handleResize() {
+      //   this.musicPlaying = window.innerWidth > 768;
+      // },
       openAboutMe(){
       //toggle about page
         if(this.aboutShow===false){

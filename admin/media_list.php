@@ -9,10 +9,10 @@ if(!$_SESSION['username']) {
   }
 
 require_once('../includes/admin_connect.php');
-$searchTerm = isset($_GET['search']) ? '%' . $_GET['search'] . '%' : '%';
-$stmt = $connection->prepare('SELECT id, project_id, image_filename, content_type FROM media WHERE id LIKE :searchTerm ORDER BY project_id ASC');
-$stmt->bindParam(':searchTerm', $searchTerm, PDO::PARAM_STR);
-$stmt->execute();
+$mediaSearch = isset($_GET['search']) ? '%' . $_GET['search'] . '%' : '%';
+$mediaStmt = $connection->prepare('SELECT id, project_id, image_filename, content_type FROM media WHERE id LIKE :mediaSearch ORDER BY project_id ASC');
+$mediaStmt->bindParam(':mediaSearch', $mediaSearch, PDO::PARAM_STR);
+$mediaStmt->execute();
 ?>
 
 <head>
@@ -37,9 +37,9 @@ $stmt->execute();
 
 <?php
 
-if ($stmt->rowCount() > 0) {
+if ($mediaStmt->rowCount() > 0) {
     // Move the while loop here
-    while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+    while ($row = $mediaStmt->fetch(PDO::FETCH_ASSOC)) {
         echo '<div class="project-list-media '.$row['type'].'">';
 
         echo '<div class="project-text">'.
@@ -69,7 +69,7 @@ if ($stmt->rowCount() > 0) {
     echo '<p>No projects found.</p>';
 }
 
-$stmt = null;
+$mediaStmt = null;
 
 ?></div>
 
@@ -161,11 +161,11 @@ $stmt = null;
 }
         // Function to perform the search
         function performSearch() {
-            var searchTerm = document.getElementById('search').value;
+            var mediaSearch = document.getElementById('search').value;
 
             // Make an AJAX request to your server (replace with actual URL)
             var xhr = new XMLHttpRequest();
-            xhr.open('GET', '../includes/media_search.php?search=' + encodeURIComponent(searchTerm), true);
+            xhr.open('GET', '../includes/media_search.php?search=' + encodeURIComponent(mediaSearch), true);
 
             xhr.onreadystatechange = function () {
                 if (xhr.readyState === 4 && xhr.status === 200) {

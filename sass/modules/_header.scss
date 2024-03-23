@@ -277,9 +277,9 @@ header{
     }
 
     .closeSVG{
-        stroke:$hover3;
+        stroke:$white;
         &:hover{
-            stroke:$hover;
+            stroke:$hover3;
         }
     }
 

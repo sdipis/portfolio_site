@@ -1,6 +1,93 @@
 .smoothScroll{
     scroll-behavior: smooth;
 }
+
+.logoBox{
+    display: flex;
+    height:fit-content;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    width:100vw;
+    height:100vh;
+    top:0;
+    left:0;
+    svg{
+    width:90vw;
+    max-height:80vh;
+
+    // animation: spinLogo 5s ease infinite;
+    }
+}
+
+
+
+// @keyframes logoFade{
+//     to{
+//         fill:rgba(255, 255, 255, 0.05);
+//         // transform: scale(1);
+//     }
+// }
+
+.titleLogo{
+    padding:0px;
+    overflow: visible;
+    fill:rgba(255,255,255,0);
+    // filter:blur(10px);
+}
+
+
+.cls-1 {
+    fill: none;
+    stroke-width: 1px;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-dasharray: 1000;
+    stroke-dashoffset: 1000;
+    animation: draw 3.5s linear forwards;
+    overflow: visible;
+  }
+//   @keyframes draw {
+//     to {
+//       stroke-dashoffset: 0;
+//       stroke:transparent;
+//     }
+//   }
+
+  @keyframes draw {
+    0% {
+      stroke-dashoffset: 1000;
+      stroke-width: 1px;
+      stroke: #ffffff00;
+
+
+    }
+    5%{
+        // stroke: #ffffff3b;
+        stroke:$white;
+    }
+    30%{
+        stroke-width: 1.69px;
+        // stroke: #ffffff78;
+        stroke:$white;
+
+
+    }
+
+    50%{
+        stroke-dashoffset: 0;
+        // stroke: #ffffff3b;
+        stroke:$white;
+
+
+    }
+    100%{
+        stroke-dashoffset: 1000;
+        stroke: #ffffff00;
+        stroke-width: 0px;
+    }
+  }
+  
 .popPageTitle{
     position:absolute;
     left:40px;
@@ -91,7 +178,7 @@
         display: flex;
         flex-flow: column nowrap;
         justify-content: center;
-        // background-color: red;
+        // background-color: hover2;
         padding:40px;
         align-items: center;
         justify-content: center;
@@ -263,7 +350,7 @@
 
 h2{
     font-weight: 200;
-    font-size:clamp(2.25rem,2.5vw,3rem);
+    font-size:clamp(2.4rem,2.5vw,3rem);
     text-transform: capitalize;
     text-align: center;
     overflow: hidden;

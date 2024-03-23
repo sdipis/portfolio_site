@@ -83,7 +83,54 @@ table {
   display: none;
 }
 
+.mediaRow {
+  flex-flow: column !important;
+}
+
+input[type=file] {
+  display: block;
+  color: transparent !important;
+  font-style: oblique;
+  border: none !important;
+  border-radius: inherit !important;
+  padding: 20px !important;
+}
+
+input[type=file]::file-selector-button {
+  display: none;
+}
+
+#uploaded {
+  background-color: #ff9500;
+  height: 100%;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  margin-top: 0px;
+  box-shadow: 0px 0px 10px inset black;
+  background-image: url("../dist/svg/media.svg");
+  background-repeat: repeat;
+  background-size: 40px;
+  background-position: center center;
+  object-fit: contain;
+}
+
+.fileInput {
+  width: 100%;
+  max-width: 100%;
+  align-items: center;
+  text-align: center;
+  border: 1px solid black;
+  box-shadow: 0px 0px 10px black inset;
+  padding: 0px;
+  margin: 0px;
+  height: 150px;
+  position: relative;
+  border-radius: 25px;
+}
+
 .adminLinksBot {
+  background-color: #5d5d5d;
   justify-content: space-around;
 }
 .adminLinksBot li {
@@ -152,7 +199,6 @@ table {
 }
 
 .adminWrapper form {
-  display: flex;
   flex-flow: column;
 }
 .adminWrapper form input {
@@ -160,18 +206,23 @@ table {
   color: white;
 }
 .adminWrapper form input[type=submit] {
-  background-color: black;
-  color: white;
-  border-radius: 25px;
+  background-color: #1d89ff;
+  color: #ffffff;
+  border-radius: 50px;
   border: none;
+  padding: 10px 5px;
+  font-family: montserrat;
   padding-left: 0px;
   text-transform: uppercase;
+  font-weight: 600;
+  box-shadow: 0px 0px 5px black inset;
+  border: 1px solid black;
 }
 .adminWrapper form input[type=submit]:hover {
-  background-color: white;
-  color: black;
-  border-radius: 25px;
+  background-color: #ff9500;
+  color: #ffffff;
   cursor: pointer;
+  box-shadow: 0px 0px 5px black;
 }
 .adminWrapper form label {
   top: 0;
@@ -253,10 +304,11 @@ body {
   overflow-y: scroll !important;
   max-height: 100vh;
   background: #ffffff;
-  flex: 0 0 25%;
+  flex: 1;
   max-width: 25%;
   padding: 20px;
   height: fit-content;
+  padding-bottom: 40px;
 }
 
 .mediaList {
@@ -287,12 +339,14 @@ body {
   position: relative;
   display: flex;
   max-height: fit-content;
-  border-radius: 15px;
   padding: 10px;
-  justify-content: flex-end;
+  justify-content: space-between;
 }
 .project-list-media:nth-child(odd) {
   background-color: rgb(210, 210, 210);
+}
+.project-list-media:nth-child(even) {
+  background-color: rgb(255, 255, 255);
 }
 .project-list-media .detailsImage {
   flex: 0 0 10%;
@@ -326,8 +380,10 @@ body {
 }
 .project-list-media a {
   font-size: 12px;
-  font-family: rockwell;
+  font-family: monospace;
+  text-decoration: none;
   color: #cb0000;
+  cursor: pointer;
 }
 
 .col-span-2 {
@@ -345,7 +401,6 @@ body {
 .detailsImage {
   max-width: 100%;
   height: auto;
-  box-shadow: 5px 0px 10px rgba(0, 0, 0, 0.4);
 }
 
 .editListCont {
@@ -376,23 +431,24 @@ body {
 }
 
 #media_add_form {
-  background-color: #cb0000;
+  background-color: #ff9500;
 }
 
 #profile_form {
-  background-color: #1d89ff;
+  background-color: #446391;
 }
 
 #filter_form {
   position: fixed;
+  width: 25%;
   bottom: 0px;
   display: flex;
   justify-content: center;
   align-items: center;
+  height: 40px;
   left: 0px;
   z-index: 5;
-  width: 25%;
-  background-color: #cecece;
+  background-color: #1d89ff;
 }
 
 #filter_form-media {
@@ -403,28 +459,29 @@ body {
   align-items: center;
   left: 0px;
   z-index: 5;
-  width: 75%;
   background-color: #cecece;
 }
 
 #upload_form {
-  background-color: #38ef7d;
+  background-color: #d3d3d3;
 }
 
 #search {
   text-align: center;
-  width: 100%;
+  height: 30px;
+  width: 80%;
+  font-family: montserrat;
+}
+#search::placeholder {
+  color: #161616;
 }
 
 .listForms {
   overflow: auto;
-  flex: 0 0 25%;
-  max-width: 25%;
+  flex: 1;
   max-height: 100vh;
   transition: right 0.2s ease; /* Apply transition to the right property */
-  display: flex;
   flex-flow: column;
-  background-color: #cb0000;
 }
 .listForms form {
   padding: 20px !important;
@@ -454,26 +511,20 @@ body {
   text-decoration: none;
 }
 .listForms h2 {
-  color: white;
+  color: #ffffff;
   text-align: center;
-  text-decoration: underline;
   width: 100%;
   font-weight: 700;
-  background-color: black;
-  padding-top: 10px;
-  padding-bottom: 10px;
-}
-.listForms input[type=file] {
-  color: #38ef7d;
-  border: none;
+  background-color: #161616;
+  padding: 20px;
 }
 
 .listForms:nth-child(3) {
-  background-color: #446391 !important;
+  background-color: #5d5d5d !important;
 }
 
-.listForms:nth-of-type(1) {
-  background-color: #1d89ff !important;
+.listForms:nth-child(2) {
+  background-color: #a5a5a5 !important;
 }
 
 .mediaForms {
@@ -482,7 +533,6 @@ body {
 }
 
 .project-list {
-  font-size: 16px;
   font-family: montserrat;
   position: relative;
   display: flex;
@@ -494,8 +544,8 @@ body {
   display: flex;
   justify-content: space-between;
   text-align: center;
-  margin-top: 20px;
-  margin-bottom: 20px;
+  margin-top: 10px;
+  margin-bottom: 10px;
   font-weight: 600;
   padding-left: 20px;
   padding-right: 20px;
@@ -513,8 +563,10 @@ body {
 }
 .project-list a {
   font-size: 12px;
-  font-family: rockwell;
+  font-family: monospace;
+  text-decoration: none;
   color: #cb0000;
+  cursor: pointer;
 }
 
 .adminWrapper {
@@ -670,6 +722,9 @@ p2 {
 }
 
 @media only screen and (max-width: 768px) {
+  .projectListCont {
+    max-width: none;
+  }
   .jots {
     flex-flow: column;
     justify-content: flex-end;
@@ -689,7 +744,6 @@ p2 {
   .listForms {
     flex: 1 0 100%;
     max-width: 100%;
-    padding-left: 20px;
     max-height: 100vh;
   }
   .projectText {
@@ -955,6 +1009,8 @@ p2 {
 html, body {
   width: auto !important;
   overflow-x: hidden !important;
+  background-color: #2C99FF;
+  background-image: linear-gradient(-45deg, #FF9B11, #8800FF, #2C99FF, #23d5ab);
 }
 
 .noanim {
@@ -962,9 +1018,6 @@ html, body {
 }
 
 body {
-  background: linear-gradient(-45deg, #FF9B11, #8800FF, #2C99FF, #23d5ab);
-  background-size: 200% 200%;
-  animation: gradient 15s ease infinite;
   width: 100%;
   display: flex;
   font-size: 20px;
@@ -1338,10 +1391,10 @@ header .siteTitle {
   transform: scale(1.5);
 }
 .blurb .closeSVG {
-  stroke: #cb0000;
+  stroke: #ffffff;
 }
 .blurb .closeSVG:hover {
-  stroke: #ff9500;
+  stroke: #cb0000;
 }
 .blurb .spinarrow {
   height: 40px;
@@ -1985,6 +2038,62 @@ header .siteTitle {
   scroll-behavior: smooth;
 }
 
+.logoBox {
+  display: flex;
+  height: fit-content;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+}
+.logoBox svg {
+  width: 90vw;
+  max-height: 80vh;
+}
+
+.titleLogo {
+  padding: 0px;
+  overflow: visible;
+  fill: rgba(255, 255, 255, 0);
+}
+
+.cls-1 {
+  fill: none;
+  stroke-width: 1px;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  animation: draw 3.5s linear forwards;
+  overflow: visible;
+}
+
+@keyframes draw {
+  0% {
+    stroke-dashoffset: 1000;
+    stroke-width: 1px;
+    stroke: rgba(255, 255, 255, 0);
+  }
+  5% {
+    stroke: #ffffff;
+  }
+  30% {
+    stroke-width: 1.69px;
+    stroke: #ffffff;
+  }
+  50% {
+    stroke-dashoffset: 0;
+    stroke: #ffffff;
+  }
+  100% {
+    stroke-dashoffset: 1000;
+    stroke: rgba(255, 255, 255, 0);
+    stroke-width: 0px;
+  }
+}
 .popPageTitle {
   position: absolute;
   left: 40px;
@@ -2167,7 +2276,7 @@ header .siteTitle {
 }
 #bCard h2 {
   font-weight: 200;
-  font-size: clamp(2.25rem, 2.5vw, 3rem);
+  font-size: clamp(2.4rem, 2.5vw, 3rem);
   text-transform: capitalize;
   text-align: center;
   overflow: hidden;
@@ -2397,6 +2506,7 @@ input {
   cursor: pointer;
 }
 #playMusicButton a svg:hover {
+  fill: #ff9500;
   transition: 0.2s ease-in;
   opacity: 1;
 }
@@ -2712,8 +2822,8 @@ button:hover span {
   --hover-color-2: #8800FF;
   --hover-color-3: #2C99FF;
   --hover-color-4: #23d5ab;
-  animation: jumpDown 30s infinite ease; /* 4 colors * 3s each */
-  animation-delay: calc(var(--index) * 0.15s); /* 4 colors * 3s each + 0.15s initial delay */
+  animation: jumpDown 40s infinite ease; /* 4 colors * 3s each */
+  animation-delay: calc(var(--index) * 0.25s); /* 4 colors * 3s each + 0.15s initial delay */
 }
 
 @keyframes jumpDown {
@@ -2774,6 +2884,22 @@ button:hover span {
     z-index: -99;
   }
 }
+.cls-orange {
+  fill: #ff931f;
+}
+
+.cls-purple {
+  fill: #8800FF;
+}
+
+.cls-blue {
+  fill: #2C99FF;
+}
+
+.cls-green {
+  fill: #23d5ab;
+}
+
 .loaderWrapper {
   height: 100vh;
   width: 100vw;
@@ -2785,6 +2911,8 @@ button:hover span {
   justify-content: center;
   align-items: center;
   z-index: 5;
+  background: rgb(255, 255, 255);
+  background: radial-gradient(circle, rgb(255, 255, 255) 20%, rgb(208, 208, 208) 100%);
 }
 
 .loaderWrapperThumb {
@@ -2806,10 +2934,24 @@ button:hover span {
 }
 
 .loader {
-  width: 200px;
-  height: 60px;
+  width: 100vw;
+  height: 100vh;
   position: relative;
   z-index: 1;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.loaderLogo {
+  stroke: black;
+  height: auto;
+  width: 300px;
+  opacity: 1;
+  overflow: visible;
+  fill: white;
+  stroke-width: 2px;
 }
 
 .circle {
@@ -2902,7 +3044,7 @@ button:hover span {
   max-width: 45%;
   display: flex;
   justify-content: flex-start !important;
-  height: 100%;
+  max-height: none;
   flex-basis: 100%;
   position: relative;
   text-align: justify;

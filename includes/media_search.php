@@ -4,10 +4,10 @@
 // Assuming you have a database connection established
 require_once('../includes/admin_connect.php');
 
-$searchTerm = isset($_GET['search']) ? $_GET['search'] : '';
-$stmt = $connection->prepare('SELECT project_id, image_filename, content_type FROM media WHERE project_id = :searchTerm ORDER BY project_id ASC');
-$stmt->bindParam(':searchTerm', $searchTerm, PDO::PARAM_INT); // Assuming project_id is an integer
-$stmt->execute();
+$mediaSearch = isset($_GET['mediaSearch']) ? '%' . $_GET['mediaSearch'] . '%' : '%';
+$mediaStmt = $connection->prepare('SELECT id, project_id, image_filename, content_type FROM media WHERE project_id LIKE :mediaSearch ORDER BY id ASC');
+$mediaStmt->bindParam(':mediaSearch', $mediaSearch, PDO::PARAM_STR);
+$mediaStmt->execute();
 
 // Fetch the results and generate HTML output
 $output = '';
@@ -15,9 +15,9 @@ while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
     $output .= '<div id="' . $row['project_id'] . '" class="project-list">';
     
     if ($row['content'] === 'video') {
-        $output .= '<video class="detailsImage" src="../dist/video_default.jpg" alt="Project Image">';
+        $output .= '<video class="detailsImage" src="../video_default.jpg" alt="Project Image">';
     } else {
-        $output .= '<img class="detailsImage" src="../dist/' . $row['image_filename'] . '" alt="Project Image">';
+        $output .= '<img class="detailsImage" src="../' . $row['image_filename'] . '" alt="Project Image">';
     }
 
     $output .= '<p>' .
@@ -30,6 +30,6 @@ while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
 echo $output;
 
 // Close the database connection
-$stmt = null;
+$mediaStmt = null;
 $connection = null;
 ?>

@@ -12,5 +12,5 @@ $mediaStmt->execute();
 $mediaStmt = null;
 
 // Redirect to the project list page
-header('Location: media_list.php');
+header('Location: project_list.php');
 ?>

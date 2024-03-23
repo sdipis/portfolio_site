@@ -10,6 +10,7 @@ export default {
         }
   },
     template: `
+    <nav>
     <ul class="menus socialMenu disableSelect">
 
              <li @click="playSound('dist/audio/bop.mp3')">
@@ -60,5 +61,6 @@ export default {
 
 
              </ul>
+             </nav>
              `
 }

@@ -49,8 +49,8 @@
     --hover-color-3: #2C99FF;
     --hover-color-4: #23d5ab;
   
-    animation: jumpDown 30s infinite ease; /* 4 colors * 3s each */
-    animation-delay: calc(var(--index) * .15s); /* 4 colors * 3s each + 0.15s initial delay */
+    animation: jumpDown 40s infinite ease; /* 4 colors * 3s each */
+    animation-delay: calc(var(--index) * .25s); /* 4 colors * 3s each + 0.15s initial delay */
   }
   
   @keyframes jumpDown {

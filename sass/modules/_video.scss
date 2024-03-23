@@ -107,6 +107,7 @@
   a svg{
     cursor: pointer;
     &:hover{
+      fill:$hover;
       transition: .2s ease-in;
       opacity:1;
     }

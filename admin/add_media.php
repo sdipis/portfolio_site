@@ -15,5 +15,5 @@ $stmt->execute();
 $last_id = $connection->lastInsertId();
 $stmt = null;
 
-header('Location: media_list.php');
+header('Location: project_list.php');
 ?>
