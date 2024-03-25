@@ -83,6 +83,55 @@ table {
   display: none;
 }
 
+.mediaPanelBox {
+  overflow: hidden;
+}
+
+.formControls {
+  display: flex;
+  justify-content: flex-start !important;
+  height: 40px;
+}
+.formControls li {
+  margin-left: 5px;
+  margin-right: 5px;
+  height: fit-content;
+}
+.formControls li svg {
+  fill: white !important;
+  stroke: white !important;
+  height: 20px;
+  width: 20px;
+}
+
+.listForms.clicked {
+  flex: 2 !important;
+}
+
+.listForms.clickedSmall {
+  display: none;
+}
+
+.projectListCont {
+  flex: 1;
+  order: 1;
+}
+
+.projectListForm {
+  background-color: #5d5d5d;
+  order: 2;
+}
+
+.profileListForm {
+  order: 3;
+  background-color: #446391;
+}
+
+.mediaListForm {
+  order: 4;
+  background-color: #ff9500;
+}
+
 .mediaRow {
   flex-flow: column !important;
 }
@@ -110,7 +159,7 @@ input[type=file]::file-selector-button {
   box-shadow: 0px 0px 10px inset black;
   background-image: url("../dist/svg/media.svg");
   background-repeat: repeat;
-  background-size: 40px;
+  background-size: 30px;
   background-position: center center;
   object-fit: contain;
 }
@@ -206,8 +255,8 @@ input[type=file]::file-selector-button {
   color: white;
 }
 .adminWrapper form input[type=submit] {
-  background-color: #1d89ff;
-  color: #ffffff;
+  background-color: #cb0000;
+  color: #161616;
   border-radius: 50px;
   border: none;
   padding: 10px 5px;
@@ -215,11 +264,10 @@ input[type=file]::file-selector-button {
   padding-left: 0px;
   text-transform: uppercase;
   font-weight: 600;
-  box-shadow: 0px 0px 5px black inset;
   border: 1px solid black;
 }
 .adminWrapper form input[type=submit]:hover {
-  background-color: #ff9500;
+  background-color: #cb0000;
   color: #ffffff;
   cursor: pointer;
   box-shadow: 0px 0px 5px black;
@@ -242,8 +290,8 @@ input[type=file]::file-selector-button {
   border-bottom: 1px solid #fff;
   outline: none;
   background: transparent;
-  margin-top: 20px;
-  margin-bottom: 20px;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 .adminWrapper form select {
   border-bottom: none;
@@ -303,12 +351,15 @@ body {
   grid-template-columns: repeat(1, 1fr);
   overflow-y: scroll !important;
   max-height: 100vh;
-  background: #ffffff;
   flex: 1;
   max-width: 25%;
   padding: 20px;
   height: fit-content;
   padding-bottom: 40px;
+  --color: rgba(114, 114, 114, 0.3);
+  background-color: #191a1a;
+  background-image: linear-gradient(0deg, transparent 24%, var(--color) 25%, var(--color) 26%, transparent 27%, transparent 74%, var(--color) 75%, var(--color) 76%, transparent 77%, transparent), linear-gradient(90deg, transparent 24%, var(--color) 25%, var(--color) 26%, transparent 27%, transparent 74%, var(--color) 75%, var(--color) 76%, transparent 77%, transparent);
+  background-size: 55px 55px;
 }
 
 .mediaList {
@@ -359,6 +410,7 @@ body {
   justify-content: space-around;
   text-align: center;
   margin-top: 10px;
+  align-items: center;
   margin-bottom: 10px;
   font-weight: 600;
 }
@@ -439,16 +491,13 @@ body {
 }
 
 #filter_form {
-  position: fixed;
-  width: 25%;
-  bottom: 0px;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 40px;
-  left: 0px;
   z-index: 5;
-  background-color: #1d89ff;
+  margin-bottom: 10px;
+  color: black !important;
 }
 
 #filter_form-media {
@@ -469,15 +518,16 @@ body {
 #search {
   text-align: center;
   height: 30px;
-  width: 80%;
+  width: 100%;
   font-family: montserrat;
+  color: #161616;
 }
 #search::placeholder {
   color: #161616;
 }
 
 .listForms {
-  overflow: auto;
+  overflow-y: scroll;
   flex: 1;
   max-height: 100vh;
   transition: right 0.2s ease; /* Apply transition to the right property */
@@ -512,19 +562,11 @@ body {
 }
 .listForms h2 {
   color: #ffffff;
-  text-align: center;
+  text-align: left;
   width: 100%;
-  font-weight: 700;
-  background-color: #161616;
-  padding: 20px;
-}
-
-.listForms:nth-child(3) {
-  background-color: #5d5d5d !important;
-}
-
-.listForms:nth-child(2) {
-  background-color: #a5a5a5 !important;
+  padding: 10px;
+  border-left: 1px solid white;
+  margin-bottom: 10px;
 }
 
 .mediaForms {
@@ -537,35 +579,45 @@ body {
   position: relative;
   display: flex;
   flex-flow: column;
-  max-height: 100vh;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border-radius: 15px;
+  height: auto;
+}
+.project-list img, .project-list video {
+  border: 2px solid #38ef7d;
 }
 .project-list .project-text {
   width: 100%;
   display: flex;
   justify-content: space-between;
   text-align: center;
-  margin-top: 10px;
-  margin-bottom: 10px;
+  align-items: center;
   font-weight: 600;
   padding-left: 20px;
   padding-right: 20px;
 }
 .project-list .project-text ul {
-  text-align: right;
+  text-align: left;
   display: flex;
+  align-items: center;
+  font-family: montserrat;
+  font-size: 0.8rem;
 }
-.project-list .project-text ul li {
-  margin-left: 10px;
+.project-list .project-text ul:first-child {
+  flex: 1 0 60%;
+  background-color: #38ef7d;
+  border-radius: 0px 0px 10px 10px;
+}
+.project-list .project-text ul:last-child {
+  flex: 1 0 30%;
 }
 .project-list p {
   color: black !important;
-  font-size: 12px;
 }
 .project-list a {
-  font-size: 12px;
-  font-family: monospace;
   text-decoration: none;
-  color: #cb0000;
+  color: #38ef7d;
   cursor: pointer;
 }
 
@@ -1038,16 +1090,23 @@ body {
   background-color: black;
   color: #fff;
   text-align: center;
-  border-radius: 6px;
+  border-radius: 0px;
   padding: 10px 20px;
   /* Position the tooltip */
   position: absolute;
-  top: 20px;
-  left: 20px;
+  top: 0px;
+  left: 0px;
+  text-align: right;
   z-index: 1;
   transition: 0.2s ease;
   opacity: 0;
   font-size: 1rem;
+  width: 100% !important;
+}
+.tooltip .tooltiptext span {
+  font-weight: 700;
+  margin-right: 20px;
+  float: left;
 }
 
 .tooltip:hover .tooltiptext {
@@ -2051,13 +2110,20 @@ header .siteTitle {
 }
 .logoBox svg {
   width: 90vw;
-  max-height: 80vh;
+  max-height: 60vh;
+}
+
+.blurbMenu {
+  display: flex;
+  flex-flow: column !important;
+  font-weight: 700 !important;
 }
 
 .titleLogo {
   padding: 0px;
   overflow: visible;
   fill: rgba(255, 255, 255, 0);
+  animation: logoFade 3s linear forwards;
 }
 
 .cls-1 {
@@ -2067,31 +2133,57 @@ header .siteTitle {
   stroke-linejoin: round;
   stroke-dasharray: 1000;
   stroke-dashoffset: 1000;
-  animation: draw 3.5s linear forwards;
+  animation: draw 3s linear forwards;
   overflow: visible;
+  transform-origin: center center !important;
 }
 
 @keyframes draw {
   0% {
     stroke-dashoffset: 1000;
-    stroke-width: 1px;
+    stroke-width: 0.5px;
     stroke: rgba(255, 255, 255, 0);
   }
-  5% {
-    stroke: #ffffff;
-  }
-  30% {
-    stroke-width: 1.69px;
+  25% {
     stroke: #ffffff;
   }
   50% {
+    stroke-width: 1px;
+    stroke: #ffffff;
+  }
+  75% {
     stroke-dashoffset: 0;
     stroke: #ffffff;
+    transform: scale(1);
+  }
+  99% {
+    transform: scale(0.25);
   }
   100% {
     stroke-dashoffset: 1000;
     stroke: rgba(255, 255, 255, 0);
     stroke-width: 0px;
+    transform: scale(0.75);
+  }
+}
+@keyframes logoFade {
+  0% {
+    fill: transparent;
+  }
+  50% {
+    fill: transparent;
+  }
+  75% {
+    transform: scale(1);
+    fill: rgba(255, 255, 255, 0.5294117647);
+  }
+  99% {
+    transform: scale(0.1);
+    fill: transparent;
+  }
+  100% {
+    fill: transparent;
+    transform: scale(0.75);
   }
 }
 .popPageTitle {

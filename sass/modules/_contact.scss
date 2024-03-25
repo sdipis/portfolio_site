@@ -14,28 +14,26 @@
     left:0;
     svg{
     width:90vw;
-    max-height:80vh;
+    max-height:60vh;
+    
 
     // animation: spinLogo 5s ease infinite;
     }
 }
 
-
-
-// @keyframes logoFade{
-//     to{
-//         fill:rgba(255, 255, 255, 0.05);
-//         // transform: scale(1);
-//     }
-// }
-
+.blurbMenu{
+    display: flex;
+    flex-flow: column !important;
+    font-weight: 700 !important;
+}
 .titleLogo{
     padding:0px;
     overflow: visible;
     fill:rgba(255,255,255,0);
     // filter:blur(10px);
+    animation:logoFade 3s linear forwards;
+    
 }
-
 
 .cls-1 {
     fill: none;
@@ -44,8 +42,10 @@
     stroke-linejoin: round;
     stroke-dasharray: 1000;
     stroke-dashoffset: 1000;
-    animation: draw 3.5s linear forwards;
+    animation: draw 3s linear forwards;
     overflow: visible;
+    transform-origin: center center !important;
+
   }
 //   @keyframes draw {
 //     to {
@@ -57,37 +57,60 @@
   @keyframes draw {
     0% {
       stroke-dashoffset: 1000;
-      stroke-width: 1px;
+      stroke-width: .5px;
       stroke: #ffffff00;
 
 
     }
-    5%{
+    25%{
         // stroke: #ffffff3b;
         stroke:$white;
     }
-    30%{
-        stroke-width: 1.69px;
+    50%{
+        stroke-width: 1px;
         // stroke: #ffffff78;
         stroke:$white;
-
-
     }
 
-    50%{
+    75%{
         stroke-dashoffset: 0;
         // stroke: #ffffff3b;
         stroke:$white;
-
-
+        transform: scale(1);
+    }
+    99%{
+        transform:scale(.25);
     }
     100%{
         stroke-dashoffset: 1000;
         stroke: #ffffff00;
         stroke-width: 0px;
+        transform:scale(.75);
     }
   }
-  
+  @keyframes logoFade{
+    0% {
+        fill:transparent;  
+      }
+      50%{
+        fill:transparent;  
+
+      }
+      75%{
+          transform: scale(1);
+          fill:#ffffff87;
+
+      }
+      99%{
+        transform:scale(.1);
+        fill:transparent;
+      }
+      100%{
+        fill:transparent;
+        //   transform:scale(.25);
+        transform:scale(.75);
+      }
+  }
 .popPageTitle{
     position:absolute;
     left:40px;

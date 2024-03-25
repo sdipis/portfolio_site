@@ -20,11 +20,16 @@ while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
         $output .= '<img class="detailsImage" src="../' . $row['display'] . '" alt="Project Image" />';
     }
 
-    $output .= '<p>' .
-        $row['title'] .
-        '<br><a href="edit_project_form.php?id=' . $row['id'] . '">edit</a>' .
-        '<br><a href="javascript:void(0);" onclick="confirmDelete(' . $row['id'] . ')">delete</a></p>' .
-        '</div>';
+    $output .= 
+    '<div class="project-text">'.
+    '<ul><li><p>'.
+    $row['title'].'</p></li><li><p>'.$row['id'].'</p></li>'.
+    '</ul>'.
+    '<ul><li><a href="edit_project_form.php?id='.$row['id'].'">edit</a></li>'.
+    '<li><a href="javascript:void(0);" onclick="confirmDelete('.$row['id'].')">delete</a></li></ul></div>'.
+    '</div>';
+
+
 }
 
 echo $output;

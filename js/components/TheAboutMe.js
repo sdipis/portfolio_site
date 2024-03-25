@@ -3,6 +3,7 @@ export default {
   props: ['profileData'],
   template: `
   <div id="bCard" class="videoChunk">
+  
   <div class="about-page">
       <div class="textBox disableSelect" v-for="(box, index) in textBoxes" :key="index" v-show="selectedIndex === index">
         <p v-html="box.content"></p>

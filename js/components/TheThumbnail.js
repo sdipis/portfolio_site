@@ -24,18 +24,21 @@ export default {
       <!-- Loader -->
       <div v-if="loading" class="loaderWrapperThumb">
       <div class="loader">
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="shadow"></div>
-    <div class="shadow"></div>
-    <div class="shadow"></div>
-</div>
-      
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="shadow"></div>
+        <div class="shadow"></div>
+        <div class="shadow"></div>
+      </div>
+
       </div>
 
       <a :href='"project.php?id="+piece.id' target="_blank" :title='"Learn More About "+piece.title'>
-        <p class="tooltiptext noMobile">{{piece.title}}</p>
+        <p class="tooltiptext noMobile">
+        <span>{{piece.title}}</span>
+        {{piece.created_on}}
+        </p>
       </a>
 
       <video autoplay preload="meta" muted loop playsinline v-if="piece.content === 'video'"  :src=' piece.display' @click="showmydata(); playSound('dist/audio/woosh.mp3')" ></video>

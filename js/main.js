@@ -38,14 +38,14 @@ import { SendMail } from "./components/TheMailer.js";
         // After 4 seconds, set myProp to false
         this.conShow=false;
         this.crackSeal=true;
-      }, 4000);
+      }, 2500);
     },
     created() {
 
       //mutes audio by default if user is on mobile
       // this.musicPlaying = window.innerWidth > 768;
 
-      this.crackSeal=true;
+      // this.crackSeal=true;
 
       //scroll animation
       window.addEventListener('scroll', this.updateBlur);
